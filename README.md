@@ -28,10 +28,10 @@ NBE5-6-1-Team06
 
 <tr>
       <td align="center"><a href="https://github.com/doyun-a"><sub><b>@doyun-a</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/doyun-a"><sub><b>@ash-be</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/doyun-a"><sub><b>@Leeka</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/doyun-a"><sub><b>@0802222</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/doyun-a"><sub><b>@yongjun222</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/ash-be"><sub><b>@ash-be</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Leeka99"><sub><b>@Leeka</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/0802222"><sub><b>@0802222</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/youngjun222"><sub><b>@yongjun222</b></sub></a><br /></td>
      <tr/>
 
   </tbody>
