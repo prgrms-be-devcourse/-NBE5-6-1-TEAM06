@@ -10,70 +10,17 @@
           rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
           crossorigin="anonymous">
-    <style>
-      body {
-        background: #ddd;
-      }
 
-      .card {
-        margin: auto;
-        max-width: 950px;
-        width: 90%;
-        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        border-radius: 1rem;
-        border: transparent
-      }
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+          rel="stylesheet">
 
-      .summary {
-        background-color: #ddd;
-        border-top-right-radius: 1rem;
-        border-bottom-right-radius: 1rem;
-        padding: 4vh;
-        color: rgb(65, 65, 65)
-      }
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      @media (max-width: 767px) {
-        .summary {
-          border-top-right-radius: unset;
-          border-bottom-left-radius: 1rem
-        }
-      }
 
-      .row {
-        margin: 0
-      }
-
-      .title b {
-        font-size: 1.5rem
-      }
-
-      .col-2,
-      .col {
-        padding: 0 1vh
-      }
-
-      img {
-        width: 3.5rem
-      }
-
-      hr {
-        margin-top: 1.25rem
-      }
-
-      .products {
-        width: 100%;
-      }
-
-      .products .price, .products .action {
-        line-height: 38px;
-      }
-
-      .products .action {
-        line-height: 38px;
-      }
-
-    </style>
-    <title>Hello, world!</title>
+    <link href="../../../assets/css/order.css" rel="stylesheet">
+    <title>Order</title>
 </head>
 <body class="container-fluid">
 <div class="row justify-content-center m-4">
@@ -82,7 +29,7 @@
 <div class="card">
     <div class="row">
         <div class="col-md-8 mt-4 d-flex flex-column align-items-start p-3 pt-0">
-            <h5 class="flex-grow-0"><b>상품 목록</b></h5>
+            <h5 class="flex-grow-0"><b>Product List</b></h5>
             <ul class="list-group products">
                 <li class="list-group-item d-flex mt-3">
                     <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
@@ -92,30 +39,89 @@
                         <div class="row">Columbia Nariñó</div>
                     </div>
                     <div class="col text-center price">5000원</div>
-                    <div class="col text-end action"><a class="btn btn-small btn-outline-dark"
-                                                        href="">추가</a></div>
+                    <div class="quantity-control d-flex align-items-center gap-1">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                            <i class="material-icons">remove</i>
+                        </button>
+                        <input type="number"
+                               class="form-control quantity-input"
+                               value="1" min="0"
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </div>
                 </li>
                 <li class="list-group-item d-flex mt-2">
                     <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
                                             alt=""></div>
                     <div class="col">
                         <div class="row text-muted">커피콩</div>
-                        <div class="row">Columbia Nariñó</div>
+                        <div class="row">Brazil Serra Do Caparaó</div>
                     </div>
                     <div class="col text-center price">5000원</div>
-                    <div class="col text-end action"><a class="btn btn-small btn-outline-dark"
-                                                        href="">추가</a></div>
+                    <div class="quantity-control d-flex align-items-center gap-1">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                            <i class="material-icons">remove</i>
+                        </button>
+                        <input type="number"
+                               class="form-control quantity-input"
+                               value="1" min="0"
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </div>
                 </li>
                 <li class="list-group-item d-flex mt-2">
                     <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
                                             alt=""></div>
                     <div class="col">
                         <div class="row text-muted">커피콩</div>
-                        <div class="row">Columbia Nariñó</div>
+                        <div class="row">Columbia Quindío</div>
                     </div>
                     <div class="col text-center price">5000원</div>
-                    <div class="col text-end action"><a class="btn btn-small btn-outline-dark"
-                                                        href="">추가</a></div>
+                    <div class="quantity-control d-flex align-items-center gap-1">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                            <i class="material-icons">remove</i>
+                        </button>
+                        <input type="number"
+                               class="form-control quantity-input"
+                               value="1" min="0"
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex mt-2">
+                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
+                                            alt=""></div>
+                    <div class="col">
+                        <div class="row text-muted">커피콩</div>
+                        <div class="row">Ethiopia Sidamo</div>
+                    </div>
+                    <div class="col text-center price">5000원</div>
+                    <div class="quantity-control d-flex align-items-center gap-1">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                            <i class="material-icons">remove</i>
+                        </button>
+                        <input type="number"
+                               class="form-control quantity-input"
+                               value="1" min="0"
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -131,8 +137,12 @@
                 <h6 class="p-0">Brazil Serra Do Caparaó <span class="badge bg-dark">2개</span></h6>
             </div>
             <div class="row">
-                <h6 class="p-0">Columbia Nariñó <span class="badge bg-dark">2개</span></h6>
+                <h6 class="p-0">Columbia Quindío <span class="badge bg-dark">2개</span></h6>
             </div>
+            <div class="row">
+                <h6 class="p-0">Ethiopia Sidamo <span class="badge bg-dark">2개</span></h6>
+            </div>
+
 
             <form action="/order" method="post">
                 <div class="mb-3">
@@ -153,12 +163,42 @@
                     <h5 class="col">총금액</h5>
                     <h5 class="col text-end">15000원</h5>
                 </div>
-                    <button type="submit" name="action" value="cart">장바구니 담기</button>
-                    <button type="submit" name="action" value="order">결제하기</button>
+                <button type="submit" name="action" value="cart"
+                        class="waves-effect waves-light btn-l hover">
+                    <i class="material-icons left">shopping_cart</i>
+                    장바구니
+                </button>
+                <button type="submit" name="action" value="order"
+                        class="waves-effect waves-light btn-l hover">
+                    <i class="material-icons left">payment</i>
+                    결제하기
+                </button>
             </form>
         </div>
     </div>
 </div>
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const qtyControls = document.querySelectorAll(".quantity-control");
+
+    qtyControls.forEach(control => {
+      const minusBtn = control.querySelector(".quantity-decrease");
+      const plusBtn = control.querySelector(".quantity-increase");
+      const input = control.querySelector(".quantity-input");
+
+      minusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        if (val > 0) input.value = val - 1;
+      });
+
+      plusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        input.value = val + 1;
+      });
+    });
+  });
+
+</script>
 </body>
 </html>

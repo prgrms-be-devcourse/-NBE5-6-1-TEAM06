@@ -13,7 +13,7 @@ import lombok.ToString;
 public class OrderItemDto {
     private String orderId;
     private long oderDetailsId;
-    private Integer productPrices; //orderDto totalPrice 와 뭐가다른거지?
+    private Integer orderPrices;
     private List<Long> productIds;
-    private Map<Long, Integer> productIdToQuantity;
+    private Map<Long, Integer> orderQuantities;
 }
