@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  (async () => {
+    const response = await fetch('http://localhost:8080/member/info',{
+      method:"GET",
+      credentials:"include"
+    });
+
+    const info = await response.text();
+    document.querySelector('body').outerHTML = info;
+  })();
+</script>
+
+</body>
+</html>
+    
+    
+    
