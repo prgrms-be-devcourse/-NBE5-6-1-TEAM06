@@ -4,36 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="32f752eb-18ae-47fe-866e-5569ce8bf01c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/button.css" afterDir="false" />
-=======
-<<<<<<< HEAD
-    <list default="true" id="03099b9d-162c-4909-8dd3-21560c2db43a" name="Changes" comment="" />
-=======
-    <list default="true" id="210a16f0-a193-4a9a-bd43-7627c64e6305" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
->>>>>>> origin/merge
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
->>>>>>> origin/merge
+    <list default="true" id="d80b75e6-6730-4b89-98f4-98e471d389a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/admin/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
->>>>>>> origin/ash
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +18,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
     "state": "OPEN",
@@ -55,71 +30,9 @@
     "accountId": "b607fd37-9eb0-4fd6-9400-0b6ef9f25949"
   }
 }]]></component>
-=======
-<<<<<<< HEAD
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Leeka99&quot;
-  }
-}</component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="merge" />
-                    <option name="lastUsedInstant" value="1745511935" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1745511934" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git&quot;,
-    &quot;accountId&quot;: &quot;b607fd37-9eb0-4fd6-9400-0b6ef9f25949&quot;
-  }
-}</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
   "isMigrated": true
 }]]></component>
-  <component name="LogFilters">
-    <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
-  </component>
-=======
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ash-be"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git",
-    "accountId": "3a77fdf8-3b40-466b-8904-eacfa550ef09"
-  }
-}]]></component>
->>>>>>> origin/ash
->>>>>>> origin/merge
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -127,83 +40,43 @@
       </MavenGeneralSettings>
     </option>
   </component>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2wBL54iWltwf0Sln9LZlrroRUcb" />
-=======
->>>>>>> origin/merge
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
+  "associatedIndex": 7
 }]]></component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="2wBOToc9c0KrVrNPgKXwT9rmXy7" />
-=======
-  <component name="ProjectId" id="2wBKtLDctbDlMGU3eHpmaS2fRhK" />
->>>>>>> origin/ash
->>>>>>> origin/merge
+  <component name="ProjectId" id="2wBQmbrNE4bdOqzcbwQHhQZU59A" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Maven.mvc [clean].executor": "Run",
-    "Maven.mvc [validate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "Merging main",
-=======
-<<<<<<< HEAD
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "merge",
-=======
-    "git-widget-placeholder": "ash",
->>>>>>> origin/ash
->>>>>>> origin/merge
+    "Tomcat Server.Tomcat 10.1.39.executor": "Run",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-=======
->>>>>>> origin/ash
->>>>>>> origin/merge
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
-<<<<<<< HEAD
-=======
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="gcmanager" />
+      <module name="girdsCircles" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="gcmanager" />
+      <module name="girdsCircles" />
       <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
->>>>>>> origin/merge
     <configuration name="Tomcat 10.1.39" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.39" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-<<<<<<< HEAD
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
-=======
       <option name="UPDATING_POLICY" value="restart-server" />
->>>>>>> origin/ash
       <deployment>
         <artifact name="mvc:war exploded">
           <settings>
@@ -212,15 +85,7 @@
         </artifact>
       </deployment>
       <server-settings>
-<<<<<<< HEAD
-        <option name="BASE_DIRECTORY_NAME" value="f0539efa-da83-4d46-a8d2-ffe437834070" />
-=======
-<<<<<<< HEAD
-        <option name="BASE_DIRECTORY_NAME" value="8f6174ac-f0cb-450c-a49d-c772432b0863" />
-=======
-        <option name="BASE_DIRECTORY_NAME" value="48c50b51-ef2d-4a54-858f-2c2e49c1fcca" />
->>>>>>> origin/ash
->>>>>>> origin/merge
+        <option name="BASE_DIRECTORY_NAME" value="eb303a2c-3767-4f86-b4b4-40a93d6d59ee" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -228,15 +93,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-<<<<<<< HEAD
-        <option name="DEBUG_PORT" value="59649" />
-=======
-<<<<<<< HEAD
-        <option name="DEBUG_PORT" value="58808" />
-=======
-        <option name="DEBUG_PORT" value="61423" />
->>>>>>> origin/ash
->>>>>>> origin/merge
+        <option name="DEBUG_PORT" value="60215" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -309,38 +166,20 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="32f752eb-18ae-47fe-866e-5569ce8bf01c" name="Changes" comment="" />
-      <created>1745511513842</created>
+      <changelist id="d80b75e6-6730-4b89-98f4-98e471d389a1" name="Changes" comment="" />
+      <created>1745512649245</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745511513842</updated>
-      <workItem from="1745511516290" duration="38000" />
-=======
-<<<<<<< HEAD
-      <changelist id="03099b9d-162c-4909-8dd3-21560c2db43a" name="Changes" comment="" />
-      <created>1745509834878</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1745509834878</updated>
-      <workItem from="1745509837521" duration="1109000" />
-=======
-      <changelist id="210a16f0-a193-4a9a-bd43-7627c64e6305" name="Changes" comment="" />
-      <created>1745509741835</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1745509741835</updated>
-      <workItem from="1745509744760" duration="437000" />
->>>>>>> origin/ash
->>>>>>> origin/merge
+      <updated>1745512649245</updated>
+      <workItem from="1745512651397" duration="352000" />
     </task>
     <servers />
   </component>

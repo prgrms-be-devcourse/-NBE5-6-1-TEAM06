@@ -72,7 +72,7 @@ public class MemberController {
         // authentication.getName();
 
         Member member = memberService.findById(userId);
-        model.addAttribute("memberDto", member);
+        model.addAttribute("member", member);
 
         return "member/mypage";
     }
