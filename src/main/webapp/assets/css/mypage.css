@@ -1,0 +1,67 @@
+.container {
+  padding: 20px;
+}
+
+.menu-name {
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.order-box {
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.order-table th,
+.order-table td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #ddd; /* 세로줄 추가 */
+}
+
+.order-table th:last-child,
+.order-table td:last-child {
+  border-right: none; /* 마지막 열에는 세로줄 안 보이게 */
+}
+
+
+.total-row {
+  background-color: #fafafa;
+  font-weight: bold;
+}
+
+.total-label {
+  text-align: right;
+  padding-right: 12px;
+}
+
+.total-amount {
+  color: #d32f2f;
+}
+
+.cancel-btn {
+  margin-top: 12px;
+  padding: 6px 12px;
+  font-size: 13px;
+  background-color: #edeaea;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #959292;
+}

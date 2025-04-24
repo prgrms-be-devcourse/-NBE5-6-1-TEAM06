@@ -18,4 +18,5 @@ public class OrderDto {
     private LocalDateTime expectDeliveryAt;
     private List<OrderItemDto> orderItems;
     private Boolean activated;
+
 }

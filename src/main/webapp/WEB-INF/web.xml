@@ -21,6 +21,11 @@
     <param-value>/WEB-INF/spring/*-context.xml</param-value>
   </context-param>
 
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/assets/*</url-pattern>
+  </servlet-mapping>
+
   <error-page>
     <error-code>500</error-code>
     <location>/WEB-INF/view/error/500.jsp</location>
@@ -78,11 +83,4 @@
     <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>/assets/*</url-pattern>
-  </servlet-mapping>
-
-
 </web-app>

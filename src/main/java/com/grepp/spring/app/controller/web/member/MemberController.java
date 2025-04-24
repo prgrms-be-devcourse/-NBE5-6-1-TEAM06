@@ -4,17 +4,17 @@ import com.grepp.spring.app.controller.web.member.form.CartRequest;
 import com.grepp.spring.app.model.cart.CartService;
 import com.grepp.spring.app.model.cart.dto.CartProduct;
 import com.grepp.spring.app.model.member.MemberService;
+import com.grepp.spring.app.model.member.dto.Member;
+import com.grepp.spring.app.model.order.OrderService;
 import jakarta.servlet.http.HttpSession;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,6 +26,8 @@ public class MemberController {
 
     private final MemberService memberService;
     private final CartService cartService;
+    private final OrderService orderService;
+
 
     // 도윤님 로그인 기능 구현 시  @AuthenticationPrincipal 통해서 사용자 정보 불러도록
 //    @GetMapping("cartList")
@@ -62,4 +64,16 @@ public class MemberController {
         return "redirect:/member/cartList";
     }
 
+    @GetMapping("mypage")
+    public String mypage(Authentication authentication, Model model){
+        log.info("authentication : {}", authentication);
+        // note ash 화면 테스트용 하드코딩된 userId
+        String userId = "testUser";
+        // authentication.getName();
+
+        Member member = memberService.findById(userId);
+        model.addAttribute("memberDto", member);
+
+        return "member/mypage";
+    }
 }
