@@ -17,4 +17,13 @@ public class OrderService {
         return orderRepository.selectAll();
     }
 
+    public List<OrderDto> getAllOrders() {
+        return orderRepository.findAllOrders();
+    }
+
+    public void deleteOrder(Long orderId) {
+        orderRepository.deleteOrderDetails(orderId);
+        orderRepository.deleteOrder(orderId);
+    }
+
 }
