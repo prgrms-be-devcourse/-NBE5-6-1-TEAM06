@@ -1,0 +1,175 @@
+body {
+  background: #ddd;
+  margin: 0;
+}
+
+.card {
+  margin: auto;
+  max-width: 950px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent
+}
+
+.summary {
+  background-color: #ddd;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65)
+}
+
+@media (max-width: 767px) {
+  .summary {
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem
+  }
+}
+
+.row {
+  margin: 0
+}
+
+.title b {
+  font-size: 1.5rem
+}
+
+.col-2,
+.col {
+  padding: 0 1vh
+
+
+}
+
+img {
+  width: 3.5rem
+}
+
+hr {
+  margin-top: 1.25rem
+}
+
+.products {
+  width: 100%;
+}
+
+.products .price, .products .action {
+  line-height: 38px;
+}
+
+.products .action {
+  line-height: 38px;
+}
+
+
+.page-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.body.container-fluid {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.quantity-input {
+  font-size: 1rem;
+  padding: 0;
+}
+
+
+/* button 관련 css */
+.btn {
+  border-style: outset;
+  border-radius: 20px;
+  border-width: 0.2rem;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.btn-l {
+  background-color: #3c1b03;
+  color: white;
+  width: 8rem;
+  height: 3rem;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+
+.btn-m {
+  width: 6rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+.btn-s {
+  width: 4rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+.btn-red {
+  background-color: lightcoral;
+}
+
+.btn-blue {
+  background-color: lightblue;
+}
+
+.btn-green {
+  background-color: lightgreen;
+}
+
+.btn:hover {
+  border-style: inset;
+  background-color: white;
+  color: black;
+}
+
+/* -, + button custom*/
+.button button.btn-small.btn-brown.btn-xs,
+.quantity-control button.btn-small.btn-brown.btn-xs,
+.button button.btn-small.btn-brown.btn-xs.quantity-decrease,
+.button button.btn-small.btn-brown.btn-xs.quantity-increase{
+  background-color: #3c1b03 !important;
+  color: white !important;
+  width: 2rem !important;
+  height: 1.5rem !important;
+  font-size: 0.8rem !important;
+  line-height: 1.5rem !important;
+  padding: 0 !important;
+}
+
+
+.quantity-input {
+  width: 2rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
+  padding: 0;
+  text-align: center;
+  justify-self: center;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+

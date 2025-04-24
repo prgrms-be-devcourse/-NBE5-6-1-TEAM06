@@ -7,8 +7,8 @@
             <a href="/" class="brand-logo grey-text">Grids & Circles Coffee</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down grey-text">
                                 <sec:authorize access="isAnonymous()">
-                                    <li><a href="/memberDto/signin" class="grey-text">sign in</a></li>
-                                    <li><a href="/memberDto/signup" class="grey-text">sign up</a></li>
+                                    <li><a href="/member/signin" class="grey-text">sign in</a></li>
+                                    <li><a href="/member/signup" class="grey-text">sign up</a></li>
                                     <li>
                                         <a href="mobile.html">
                                             <i class="material-icons grey-text sidenav-trigger"
@@ -34,6 +34,7 @@
                 </li>
                                 </sec:authorize>
 
+
             </ul>
         </div>
     </nav>
@@ -42,15 +43,16 @@
 </form:form>
 <script>
 
-    (() => {
 
-        const logout = document.querySelector('#logout');
-        if(!logout) return;
+  (() => {
 
-        logout.addEventListener('click', ev => {
-            ev.preventDefault();
-            logoutForm.submit();
-        });
+    const logout = document.querySelector('#logout');
+    if(!logout) return;
 
-    })();
+    logout.addEventListener('click', ev => {
+      ev.preventDefault();
+      logoutForm.submit();
+    });
+
+  })();
 </script>

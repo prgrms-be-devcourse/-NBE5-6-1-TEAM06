@@ -72,6 +72,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(
                 (requests) -> requests
+//                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
                                   .requestMatchers(GET, "/member/signup").permitAll()
                                   .requestMatchers(GET, "/member/signin").permitAll()
                                   .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()

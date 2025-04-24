@@ -10,9 +10,10 @@
 <body>
 <%@include file="/WEB-INF/view/include/header.jsp" %>
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
+
 <main class="container">
     <div class="menu-name">
-        <strong>${memberDto.userId}<strong> 님의 주문 목록입니다
+        <strong>${member.userId}</strong> 님의 주문 목록입니다
     </div>
 
     <c:forEach var="order" items="${orderList}">
@@ -60,7 +61,6 @@
         </div>
     </c:forEach>
 </main>
-
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
 </body>

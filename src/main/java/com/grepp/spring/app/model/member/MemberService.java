@@ -1,8 +1,6 @@
 package com.grepp.spring.app.model.member;
 
-import com.grepp.spring.app.model.member.dto.MemberDto;
-import com.grepp.spring.infra.error.exceptions.CommonException;
-import com.grepp.spring.infra.response.ResponseCode;
+import com.grepp.spring.app.model.member.dto.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,8 +10,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MemberService{
 
-    public MemberDto findById(String userId) {
-        MemberDto mock = new MemberDto();
+    public Member findById(String userId) {
+        Member mock = new Member();
         mock.setUserId(userId);
         return mock;
 //        return memberRepository.selectById(userId)
