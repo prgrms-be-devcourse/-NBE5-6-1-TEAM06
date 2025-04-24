@@ -12,16 +12,23 @@
 <h2>장바구니 페이지입니다~~~</h2>
 
     <c:forEach var="cartProduct" items="${cartList}" varStatus="status">
+    <form action="order" method="post">
         <h4>${status.index + 1}</h4>
-        <p>장바구니 번호 : ${cartProduct.cartId}</p>
-        <p>상품 명 : ${cartProduct.productName}</p>
-        <p>상품 수량 : ${cartProduct.productCnt} 팩</p>
-        <p>상품 가격(1팩) : ${cartProduct.productPrice} 원</p>
-        <p>총 상품 가격 : ${cartProduct.productPrice * cartProduct.productCnt} 원</p>
+        <p><b>상품 명</b> : ${cartProduct.productName}</p>
+        <strong>상품 수량: </strong>
+        <label>
+            <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" style="width: 35px;"/>
+        </label>
+        <strong> 팩</strong> <button type="submit">저장하기</button>
+        <p><b>상품 가격 (1팩) :</b> ${cartProduct.productPrice} <b>원</b></p>
+        <p><b>총 상품 가격 :</b> ${cartProduct.productPrice * cartProduct.productCnt} <b>원</b></p>
+
+        <button type="submit">구매하기</button>
 
         <p>---------------------------------------</p><br>
-
+    </form>
     </c:forEach>
+    <button type="submit" style="width: 120px">전체 구매하기</button>
 </main>
 <%@ include file="/WEB-INF/view/include/footer.jsp" %>
 </body>

@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -51,14 +52,14 @@ public class MemberController {
         return "member/cartList";
     }
 
-    @PutMapping("cartList")
+    @PostMapping("cartList")
     public String modifyCart(@ModelAttribute CartRequest cartRequest) {
-        return "redirect:/member/cartList";
+
+        return "order";
     }
 
     @DeleteMapping("cartList")
     public String deleteCartList(@ModelAttribute CartRequest cartRequest) {
         return "redirect:/member/cartList";
     }
-
 }

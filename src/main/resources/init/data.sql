@@ -1,9 +1,10 @@
-insert into Member(user_id, password, user_name, role, tel, createdat) values ('admin@example.com', '9999','ADMIN', 'ADMIN' , '9999-9999', '2025-03-24 10:23:30');
-insert into Member(user_id, password, user_name, role, tel, createdat) values ('kdu@example.com', '1111','김도윤', 'USER' , '1111-1111', '2025-03-25 10:23:30');
-insert into Member(user_id, password, user_name, role, tel, createdat) values ('ash@example.com', '2222','안세희', 'USER' , '2222-2222', '2025-03-26 10:23:30');
-insert into Member(user_id, password, user_name, role, tel, createdat) values ('lkh@example.com', '3333','이강현', 'USER' , '3333-3333', '2025-03-27 10:23:30');
-insert into Member(user_id, password, user_name, role, tel, createdat) values ('lcr@example.com', '5555','이초롱', 'USER' , '5555-5555', '2025-03-28 10:23:30');
-insert into Member(user_id, password, user_name, role, tel, createdat) values ('hyj@example.com', '6666','황영준', 'USER' , '6666-6666', '2025-03-29 10:23:30');
+
+insert into Member(user_id, password, user_name, role, tel, created_at) values ('admin@example.com', '9999','ADMIN', 'ADMIN' , '9999-9999', '2025-03-24 10:23:30');
+insert into Member(user_id, password, user_name, role, tel, created_at) values ('kdu@example.com', '1111','김도윤', 'USER' , '1111-1111', '2025-03-25 10:23:30');
+insert into Member(user_id, password, user_name, role, tel, created_at) values ('ash@example.com', '2222','안세희', 'USER' , '2222-2222', '2025-03-26 10:23:30');
+insert into Member(user_id, password, user_name, role, tel, created_at) values ('lkh@example.com', '3333','이강현', 'USER' , '3333-3333', '2025-03-27 10:23:30');
+insert into Member(user_id, password, user_name, role, tel, created_at) values ('lcr@example.com', '5555','이초롱', 'USER' , '5555-5555', '2025-03-28 10:23:30');
+insert into Member(user_id, password, user_name, role, tel, created_at) values ('hyj@example.com', '6666','황영준', 'USER' , '6666-6666', '2025-03-29 10:23:30');
 
 insert into product(CATEGORY, PRODUCT_NAME, PRICE, STOCK, INFO) VALUES ('COFFEE','Colombia Nariño',5000,100,'콜롬비아 남서부, 에콰도르와 인접한 고산 지대에 위치한 나리뇨는 해발 1,800m 이상의 고도에서 커피가 재배됩니다. 이 지역은 낮과 밤의 기온 차가 커 체리의 숙성이 천천히 이루어지며, 그 결과 복합적인 향미와 뛰어난 단맛, 밝은 산미를 지닌 커피가 생산됩니다. 나리뇨 커피는 꿀처럼 부드러운 단맛과 감귤류, 플로럴한 향이 어우러진 뛰어난 균형감을 자랑합니다. 카투라(Caturra), 카스티요(Castillo) 등의 품종이 주로 재배됩니다.');
 insert into product(CATEGORY, PRODUCT_NAME, PRICE, STOCK, INFO) VALUES ('COFFEE','Brazil Serra do Caparaó',5000,100,'브라질 남동부, 에스피리투 산투(ES)와 미나스 제라이스(MG) 경계에 위치한 세하 도 카파라오는 브라질에서 보기 드문 고산지대 커피 생산지입니다. 1,000~1,400m의 고도에서 소규모 농장 중심으로 재배되며, 내추럴과 허니 프로세싱이 활발히 이루어지는 지역입니다. 이곳의 커피는 견과류와 초콜릿의 고소한 풍미, 붉은 과일의 단맛, 깔끔한 산미가 조화를 이루며, 브라질 커피 특유의 부드럽고 마일드한 매력을 지니고 있습니다.');

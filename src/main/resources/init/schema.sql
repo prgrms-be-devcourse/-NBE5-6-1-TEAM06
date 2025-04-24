@@ -7,8 +7,7 @@ CREATE TABLE `Member`
     `USER_NAME`  VARCHAR(20) NULL COMMENT '이름',
     `ROLE`   VARCHAR(20) NOT NULL COMMENT '역할',
     `TEL`   VARCHAR(20)  NULL COMMENT '전화번호',
-    `CREATEDAT`  timestamp NOT NULL COMMENT '생성일자'
-
+    `CREATED_AT`  timestamp NOT NULL COMMENT '생성일자'
 );
 
 DROP TABLE IF EXISTS `PRODUCT`;
