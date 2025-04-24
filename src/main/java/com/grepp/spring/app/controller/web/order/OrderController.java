@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
-@RequestMapping("/order")
+@RequestMapping("order")
 public class OrderController {
 
     private final OrderService orderService;
-
 
     @GetMapping
     public String showOrderPage(@ModelAttribute OrderRequest request, Model model) {
@@ -28,8 +27,6 @@ public class OrderController {
         model.addAttribute("order", response);
         return "/order/order";
     }
-
-
 
     @PostMapping
     public String handleOrder(

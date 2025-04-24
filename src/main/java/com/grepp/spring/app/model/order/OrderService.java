@@ -1,18 +1,16 @@
 package com.grepp.spring.app.model.order;
 
+import com.grepp.spring.app.controller.web.order.code.OrderStatus;
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
-import com.grepp.spring.app.controller.web.order.code.OrderStatus;
+import com.grepp.spring.app.model.cart.CartService;
 import com.grepp.spring.app.model.order.dto.OrderDto;
 import com.grepp.spring.app.model.order.dto.OrderItemDto;
-import com.grepp.spring.app.model.product.dto.ProductDto;
 import com.grepp.spring.app.model.product.ProductService;
-//import com.grepp.spring.app.model.cart.service.CartService;
-
+import com.grepp.spring.app.model.product.dto.ProductDto;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,13 +21,22 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-//    main 통합 이후 주석 해제
-//    private final CartService cartService;
+    private final CartService cartService;
     private final ProductService productService;
 
     public List<OrderDto> selectAll() {
         return orderRepository.selectAll();
     }
+
+    public List<OrderDto> getAllOrders() {
+        return orderRepository.findAllOrders();
+    }
+
+    public void deleteOrder(Long orderId) {
+        orderRepository.deleteOrderDetails(orderId);
+        orderRepository.deleteOrder(orderId);
+    }
+
 
     public OrderResponse createOrder(OrderRequest request) {
         List<OrderItemDto> items;
@@ -61,7 +68,6 @@ public class OrderService {
                     .totalPrice(10000)
                     .build()
             );
-
 
 
         } else {

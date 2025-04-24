@@ -6,7 +6,7 @@
 <mapper namespace="com.grepp.spring.app.model.product.mapper.ProductMapper">
 
   <select id="findById" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
-    SELECT * FROM product WHERE product_id = #{product_id}
+    SELECT * FROM product WHERE product_id = #{productId}
   </select>
 
   <select id="findAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
@@ -24,7 +24,7 @@
     category = #{category},
     price = #{price},
     stock = #{stock}
-    WHERE product_id = #{product_id}
+    WHERE product_id = #{productId}
   </update>
 
   <delete id="delete" parameterType="long">

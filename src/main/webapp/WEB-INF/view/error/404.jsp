@@ -1,20 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: cho
-  Date: 2025. 4. 8.
-  Time: 오전 10:04
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page isErrorPage="true" contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang='ko'>
 <head>
     <title>Title</title>
     <link href="/assets/css/error/404.css" rel="stylesheet">
 </head>
 <body>
-<body>
+
 <div>
-    <svg width="1123" height="837" viewBox="0 0 1123 837" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1123" height="837" viewBox="0 0 1123 837" fill="none"
+         xmlns="http://www.w3.org/2000/svg">
         <rect width="1123" height="837" fill="black"/>
         <g id="sky" filter="url(#filter0_d)">
             <rect id="background" x="30" y="26" width="1063" height="777" rx="20" fill="black"/>
@@ -74,6 +69,7 @@
             <filter id="filter0_d" x="0" y="0" width="1123" height="837" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+
                 <feOffset dy="4"/>
                 <feGaussianBlur stdDeviation="15"/>
                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0"/>
@@ -81,21 +77,26 @@
                 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
             </filter>
             <linearGradient id="paint0_linear" x1="470.721" y1="674.368" x2="470.721" y2="738.768" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
             </linearGradient>
             <linearGradient id="paint1_linear" x1="548.051" y1="674.118" x2="548.051" y2="738.518" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
             </linearGradient>
             <linearGradient id="paint2_linear" x1="597.051" y1="674.118" x2="597.051" y2="738.518" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
             </linearGradient>
+
             <linearGradient id="paint3_linear" x1="674.051" y1="674.118" x2="674.051" y2="738.518" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
@@ -109,6 +110,5 @@
     <h3>Page Not Found - lets take you <a href="https://twitter.com/namratapdr">BACK</a></h3>
 </div>
 </body>
-
-</body>
 </html>
+

@@ -1,5 +1,4 @@
 package com.grepp.spring.app.model.order.dto;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Getter;
@@ -21,4 +20,5 @@ public class OrderDto {
 
     // DB에 없는 것
     private List<OrderItemDto> items;
+
 }
