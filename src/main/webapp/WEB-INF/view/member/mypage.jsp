@@ -11,6 +11,8 @@
 
 <main class="container">
     <h4>구매한 상품 정보 보여주기</h4>
+    <h4>${member.userId}</h4>
+    <h4>${member.username}</h4>
 </main>
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>

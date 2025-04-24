@@ -4,7 +4,7 @@ CREATE TABLE `MEMBER`
 (
     `USER_ID`    VARCHAR(36) PRIMARY KEY COMMENT '회원 아이디',
     `PASSWORD`   VARCHAR(70) NOT NULL COMMENT '회원 비밀번호',
-    `EMAIL`      VARCHAR(50) NOT NULL COMMENT '회원 이메일',
+    `USER_NAME`      VARCHAR(50) NOT NULL COMMENT '회원 이름',
     `ROLE`      CHAR(50)    NULL     DEFAULT 'ROLE_USER' COMMENT '회원 등급',
     `TEL`        VARCHAR(15) NULL COMMENT '회원 전화번호',
     `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '가입일시',

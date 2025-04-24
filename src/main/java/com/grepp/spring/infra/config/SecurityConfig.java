@@ -29,16 +29,16 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
-    
+
     @Value("${remember-me.key}")
     private String rememberMeKey;
-    
+
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
-                   .build();
+            .build();
     }
-    
+
     @Bean
     public AuthenticationSuccessHandler successHandler(){
         return new AuthenticationSuccessHandler() {
@@ -46,51 +46,56 @@ public class SecurityConfig {
             public void onAuthenticationSuccess(HttpServletRequest request,
                 HttpServletResponse response, Authentication authentication)
                 throws IOException, ServletException {
-                
+
                 boolean isAdmin = authentication.getAuthorities()
-                                      .stream()
-                                      .anyMatch(authority ->
-                                                    authority.getAuthority().equals("ROLE_ADMIN"));
-                
+                    .stream()
+                    .anyMatch(authority ->
+                        authority.getAuthority().equals("ROLE_ADMIN"));
+
                 if(isAdmin){
                     response.sendRedirect("/admin");
                     return;
                 }
-                
+
                 response.sendRedirect("/");
             }
         };
-        
+
     }
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        
+
         // * : 1depth 아래 모든 경로
         // ** : 모든 depth 의 모든 경로
         // Security Config 에는 인증과 관련된 설정만 지정 (PermitAll or Authenticated)
         http
             .authorizeHttpRequests(
                 (requests) -> requests
-                                  .requestMatchers(GET, "/member/signup").permitAll()
-                                  .requestMatchers(GET, "/member/signin").permitAll()
-                                  .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                                  .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
+                    .requestMatchers(GET, "/", "/assets/**", "/download/**").permitAll()
+                    .requestMatchers(GET, "/book/list").permitAll()
+                    .requestMatchers(GET, "/api/book/list").permitAll()
+                    .requestMatchers(GET, "/api/member/exists/*").permitAll()
+                    .requestMatchers(GET, "/member/signup").permitAll()
+                    .requestMatchers(GET, "/member/signin").permitAll()
+                    .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                    .anyRequest().authenticated()
             )
             .formLogin((form) -> form
-                                     .loginPage("/member/signin")
-                                     .usernameParameter("userId")
-                                     .loginProcessingUrl("/member/signin")
-                                     .defaultSuccessUrl("/")
-                                     .successHandler(successHandler())
-                                     .permitAll()
+                .loginPage("/member/signin")
+                .usernameParameter("userId")
+                .loginProcessingUrl("/member/signin")
+                .defaultSuccessUrl("/")
+                .successHandler(successHandler())
+                .permitAll()
             )
             .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
             .logout(LogoutConfigurer::permitAll);
-        
+
         return http.build();
     }
-    
+
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
