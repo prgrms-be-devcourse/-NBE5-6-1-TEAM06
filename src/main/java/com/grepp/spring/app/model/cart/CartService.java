@@ -13,7 +13,7 @@ public class CartService {
 
     private final CartRepository cartRepository;
 
-    public List<CartProduct> getCartList() {
-        return cartRepository.findCartWithProduct();
+    public List<CartProduct> getCartListByUserId(String userId) {
+        return cartRepository.findCartWithProductByUserId(userId);
     }
 }

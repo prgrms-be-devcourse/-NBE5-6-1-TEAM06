@@ -6,12 +6,14 @@ import org.apache.ibatis.type.Alias;
 @Data
 @Alias("CartProduct")
 public class CartProduct {
-    private int cartId;
-    private String userId;
-    private int productId;
+    private Long cartDetailsId;
+    private Long cartId;
+    private Long productId;
     private int productCnt;
 
+    private String userId;
+
     private String productName;
-    private int productPrice;
+    private int ProductPrice;
 
 }

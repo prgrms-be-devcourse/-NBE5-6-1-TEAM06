@@ -17,23 +17,23 @@ insert into cart(user_id)  values ('lcr@example.com');
 insert into cart(user_id)  values ('hyj@example.com');
 
 
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,1,5,'2025-04-01 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,2,5,'2025-04-01 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,3,5,'2025-04-01 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,4,5,'2025-04-01 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,1,1,'2025-04-01 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,2,1,'2025-04-01 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,3,1,'2025-04-01 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,4,1,'2025-04-01 10:23:30');
 
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,1,5,'2025-04-02 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,2,5,'2025-04-02 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,3,5,'2025-04-02 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,4,5,'2025-04-02 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,1,2,'2025-04-02 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,2,2,'2025-04-02 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,3,2,'2025-04-02 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (2,4,2,'2025-04-02 10:23:30');
 
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,1,5,'2025-04-03 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,2,5,'2025-04-03 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,3,5,'2025-04-03 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,4,5,'2025-04-03 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,1,3,'2025-04-03 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,2,3,'2025-04-03 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,3,3,'2025-04-03 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (3,4,3,'2025-04-03 10:23:30');
 
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,1,5,'2025-04-05 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,2,5,'2025-04-05 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,3,5,'2025-04-05 10:23:30');
-insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,4,5,'2025-04-05 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,1,4,'2025-04-05 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,2,4,'2025-04-05 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,3,4,'2025-04-05 10:23:30');
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,4,4,'2025-04-05 10:23:30');
 
