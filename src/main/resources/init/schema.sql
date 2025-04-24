@@ -1,15 +1,15 @@
-DROP TABLE IF EXISTS `MEMBER`;
-
-CREATE TABLE `MEMBER`
-(
-    `USER_ID`    VARCHAR(36) PRIMARY KEY COMMENT '회원 아이디',
-    `PASSWORD`   VARCHAR(70) NOT NULL COMMENT '회원 비밀번호',
-    `EMAIL`      VARCHAR(50) NOT NULL COMMENT '회원 이메일',
-    `ROLE`      CHAR(50)    NULL     DEFAULT 'ROLE_USER' COMMENT '회원 등급',
-    `TEL`        VARCHAR(15) NULL COMMENT '회원 전화번호',
-    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '가입일시',
-    `ACTIVATED`  bool        NOT NULL DEFAULT true COMMENT '활성여부'
-);
+# DROP TABLE IF EXISTS `MEMBER`;
+#
+# CREATE TABLE `MEMBER`
+# (
+#     `USER_ID`    VARCHAR(36) PRIMARY KEY COMMENT '회원 아이디',
+#     `PASSWORD`   VARCHAR(70) NOT NULL COMMENT '회원 비밀번호',
+#     `EMAIL`      VARCHAR(50) NOT NULL COMMENT '회원 이메일',
+#     `ROLE`      CHAR(50)    NULL     DEFAULT 'ROLE_USER' COMMENT '회원 등급',
+#     `TEL`        VARCHAR(15) NULL COMMENT '회원 전화번호',
+#     `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '가입일시',
+#     `ACTIVATED`  bool        NOT NULL DEFAULT true COMMENT '활성여부'
+# );
 
 DROP TABLE IF EXISTS `TEAM`;
 CREATE TABLE `TEAM`
@@ -86,17 +86,17 @@ CREATE TABLE `RENT_HISTORY`
     `STATE`      CHAR(20)  NULL COMMENT '대출상태'
 );
 
-DROP TABLE IF EXISTS `MEMBER_INFO`;
-
-CREATE TABLE `MEMBER_INFO`
-(
-    `USER_ID`       VARCHAR(36) PRIMARY KEY COMMENT '회원 아이디',
-    `CREATED_AT`    timestamp NULL DEFAULT now() COMMENT '가입일자',
-    `LOGIN_DATE`    timestamp NULL COMMENT '마지막로그인일자',
-    `MODIFY_DATE`   timestamp NULL COMMENT '마지막수정일자',
-    `LEAVE_DATE`    timestamp NULL COMMENT '탈퇴일자',
-    `RENTABLE_DATE` timestamp NULL DEFAULT now() COMMENT '대출가능일자'
-);
+# DROP TABLE IF EXISTS `MEMBER_INFO`;
+#
+# CREATE TABLE `MEMBER_INFO`
+# (
+#     `USER_ID`       VARCHAR(36) PRIMARY KEY COMMENT '회원 아이디',
+#     `CREATED_AT`    timestamp NULL DEFAULT now() COMMENT '가입일자',
+#     `LOGIN_DATE`    timestamp NULL COMMENT '마지막로그인일자',
+#     `MODIFY_DATE`   timestamp NULL COMMENT '마지막수정일자',
+#     `LEAVE_DATE`    timestamp NULL COMMENT '탈퇴일자',
+#     `RENTABLE_DATE` timestamp NULL DEFAULT now() COMMENT '대출가능일자'
+# );
 
 DROP TABLE IF EXISTS `RENT`;
 
@@ -108,4 +108,75 @@ CREATE TABLE `RENT`
     `IS_RETURN`  bool        NULL     DEFAULT 0 COMMENT '반납여부',
     `TITLE`      VARCHAR(50) NOT NULL COMMENT '대출건제목',
     `ACTIVATED`  boolean     NOT NULL DEFAULT true
+);
+
+# 여기서부터 삽입
+DROP TABLE IF EXISTS `Member`;
+
+CREATE TABLE `Member` (
+                          `user_id` varchar(20) NOT NULL COMMENT '유저 아이디 (PK)',
+                          `password` varchar(20) NOT NULL,
+                          `user_name` varchar(20) NOT NULL,
+                          `role` varchar(20) NOT NULL DEFAULT 'ROLE_USER',
+                          `tel` varchar(20) NOT NULL,
+                          `created_at` DATE NOT NULL,
+                          PRIMARY KEY (`user_id`)
+);
+
+DROP TABLE IF EXISTS `order_details`;
+
+CREATE TABLE `order_details` (
+                                 `order_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderDetailsId',
+                                 `order_id` varchar(20) NOT NULL COMMENT 'orderId',
+                                 `product_id` BIGINT NOT NULL COMMENT 'productId',
+                                 `order_cnt` INT NOT NULL COMMENT 'orderCnt',
+                                 `product_price` INT NOT NULL COMMENT 'productPrice',
+                                 PRIMARY KEY (`order_details_id`)
+);
+
+DROP TABLE IF EXISTS `order`;
+
+CREATE TABLE `order` (
+                         `order_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderId',
+                         `user_id` varchar(20) NOT NULL COMMENT 'userId',
+                         `order_date` DATE NOT NULL COMMENT 'orderDate',
+                         `expect_delivery_date` DATE NOT NULL COMMENT 'expectDeliveryDate',
+                         `address` varchar(20) NOT NULL COMMENT 'address',
+                         `post_number` varchar(20) NOT NULL COMMENT 'postNumber',
+                         `total_price` INT NOT NULL COMMENT 'totalPrice',
+                         `order_items` INT NOT NULL COMMENT 'orderItems',
+                         `activated` BOOLEAN NOT NULL COMMENT 'activated',
+                         PRIMARY KEY (`order_id`)
+);
+
+DROP TABLE IF EXISTS `product`;
+
+CREATE TABLE `product` (
+                           `product_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'productId',
+                           `category` varchar(20) NULL,
+                           `product_name` varchar(50) NOT NULL,
+                           `price` INT NOT NULL,
+                           `stock` INT NOT NULL,
+                           `info` TEXT NULL,
+                           `product_img` varchar(30) NULL,
+                           PRIMARY KEY (`product_id`)
+);
+
+DROP TABLE IF EXISTS `cart`;
+
+CREATE TABLE `cart` (
+                        `cart_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'cartId',
+                        `user_id` varchar(20) NOT NULL COMMENT '이메일',
+                        PRIMARY KEY (`cart_id`)
+);
+
+DROP TABLE IF EXISTS `cart_details`;
+
+CREATE TABLE `cart_details` (
+                                `cart_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'cartDetailsId',
+                                `cart_id` BIGINT NOT NULL,
+                                `product_id` BIGINT NOT NULL,
+                                `product_cnt` INT NOT NULL,
+                                `created_at` DATE NOT NULL,
+                                PRIMARY KEY (`cart_details_id`)
 );

@@ -8,18 +8,28 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @ToString
+@Getter
+@Setter
 public class OrderRequest {
 
+    // member table / user_id
     @NotBlank
     private String userId;
 
     @NotBlank
     @Size(min = 10, max =30)
-    private String userEmail;
+    private String tel;
 
     @NotBlank
-    private String userAddress; // principal 에서 get.userAddress 해도 될것같음
+    @Size(min = 10, max =150)
+    private String address; // main 통합 후 principal 에서 get.userAddress 해도 될것같음
 
+    @NotBlank
+    @Size(min = 4, max =5)
+    private String postNumber;
+
+    private boolean fromCart; // 장바구니 기반 주문 여부
+    private List<Long> productIds;
+    private List<Integer> quantities;
 
 }
