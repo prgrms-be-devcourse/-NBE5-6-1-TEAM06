@@ -1,12 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: cho
-  Date: 2025. 4. 8.
-  Time: 오전 10:04
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page isErrorPage="true" contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang='ko'>
+
 <head>
     <title>Title</title>
     <link href="/assets/css/error/404.css" rel="stylesheet">
@@ -14,6 +9,7 @@
 <body>
 <div>
     <svg width="1123" height="837" viewBox="0 0 1123 837" fill="none" xmlns="http://www.w3.org/2000/svg">
+
         <rect width="1123" height="837" fill="black"/>
         <g id="sky" filter="url(#filter0_d)">
             <rect id="background" x="30" y="26" width="1063" height="777" rx="20" fill="black"/>
@@ -34,6 +30,7 @@
                 <path id="Vector_14" d="M297.97 357.71H295.9V355.64H295.06V357.71H292.99V358.55H295.06V360.62H295.9V358.55H297.97V357.71Z" fill="white"/>
                 <path id="Vector_15" d="M321.98 268.67H319.91V266.6H319.07V268.67H317V269.51H319.07V271.58H319.91V269.51H321.98V268.67Z" fill="white"/>
                 <path id="Vector_16" d="M956.9 333.07C957.916 333.07 958.74 332.246 958.74 331.23C958.74 330.214 957.916 329.39 956.9 329.39C955.884 329.39 955.06 330.214 955.06 331.23C955.06 332.246 955.884 333.07 956.9 333.07Z" fill="white"/>
+
             </g>
             <g id="rocket">
                 <path id="Vector_17" d="M635.46 400H466V406.78H635.46V400Z" fill="#535461"/>
@@ -73,6 +70,7 @@
             <filter id="filter0_d" x="0" y="0" width="1123" height="837" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+
                 <feOffset dy="4"/>
                 <feGaussianBlur stdDeviation="15"/>
                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0"/>
@@ -80,21 +78,25 @@
                 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
             </filter>
             <linearGradient id="paint0_linear" x1="470.721" y1="674.368" x2="470.721" y2="738.768" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
             </linearGradient>
             <linearGradient id="paint1_linear" x1="548.051" y1="674.118" x2="548.051" y2="738.518" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
             </linearGradient>
             <linearGradient id="paint2_linear" x1="597.051" y1="674.118" x2="597.051" y2="738.518" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
             </linearGradient>
             <linearGradient id="paint3_linear" x1="674.051" y1="674.118" x2="674.051" y2="738.518" gradientUnits="userSpaceOnUse">
+
                 <stop stop-color="#E0E0E0"/>
                 <stop offset="0.31" stop-color="#FCCC63"/>
                 <stop offset="0.77" stop-color="#F55F44"/>
@@ -103,6 +105,7 @@
     </svg>
 </div>
 <div class="text">
+
     <h1>500 error</h1>
     <h2>Couldn't launch :(</h2>
     <h3>Internal Sever Error, I'm sorry - lets take you <a href="https://twitter.com/namratapdr">BACK</a></h3>

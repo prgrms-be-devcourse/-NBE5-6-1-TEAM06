@@ -23,6 +23,7 @@
     <div class="footer-copyright">
         <div class="container">
             © 2025 Copyright Team : Drop the Git
+
         </div>
     </div>
 </footer>
