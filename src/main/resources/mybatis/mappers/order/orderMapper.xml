@@ -21,8 +21,13 @@
     </select>
 
     <!-- 주문 삭제 -->
-    <delete id="deleteOrder">
-        DELETE FROM orders WHERE ORDER_ID = #{cartId}
+    <delete id="deleteOrderDetails">
+        DELETE FROM order_details WHERE order_id = #{orderId}
     </delete>
+
+    <delete id="deleteOrder">
+        DELETE FROM orders WHERE order_id = #{orderId}
+    </delete>
+
 
 </mapper>

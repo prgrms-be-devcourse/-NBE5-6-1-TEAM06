@@ -17,8 +17,9 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findAllOrders();
     }
 
-    public void deleteOrder(Long cartId) {
-        orderRepository.deleteOrder(cartId);
+    public void deleteOrder(Long orderId) {
+        orderRepository.deleteOrderDetails(orderId);
+        orderRepository.deleteOrder(orderId);
     }
 }
 

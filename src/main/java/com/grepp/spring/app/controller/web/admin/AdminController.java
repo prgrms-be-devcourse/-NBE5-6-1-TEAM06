@@ -32,9 +32,10 @@ public class AdminController {
     }
 
     @DeleteMapping("/orderList")
-    public ResponseEntity<ApiResponse<?>> deleteOrder(@RequestParam Long orderId) {
+    public String deleteOrder(@RequestParam Long orderId) {
         orderService.deleteOrder(orderId);
-        return ResponseEntity.ok(ApiResponse.noContent());
+        return "redirect:/admin/dashboard";
     }
+
 }
 

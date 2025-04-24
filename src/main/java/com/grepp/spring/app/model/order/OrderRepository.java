@@ -11,7 +11,8 @@ import java.util.List;
 @Repository
 public interface OrderRepository {
     List<OrderDto> findAllOrders();
-    void deleteOrder(Long cartId);
+    void deleteOrderDetails(Long orderId);
+    void deleteOrder(Long orderId);
 }
 
 
