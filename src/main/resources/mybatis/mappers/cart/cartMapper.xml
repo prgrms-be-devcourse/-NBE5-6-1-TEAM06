@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.grepp.spring.app.model.cart.CartRepository">
+
+  <resultMap id="cartProductMap" type="CartProduct">
+    <id property="cartId" column="cart_id"/>
+    <result property="userId" column="user_id" />
+    <result property="productId" column="product_id" />
+    <result property="productCnt" column="product_cnt" />
+    <result property="productName" column="product_name" />
+    <result property="productPrice" column="price" />
+  </resultMap>
+
+  <select id="findCartWithProduct" resultMap="cartProductMap">
+
+    SELECT c.cart_id, c.user_id, c.product_id, c.product_cnt, p.product_name, p.price
+    FROM cart c
+    JOIN product p ON c.product_id = p.product_id
+
+  </select>
+
+</mapper>

@@ -1,111 +1,51 @@
 DROP TABLE IF EXISTS `MEMBER`;
 
-CREATE TABLE `MEMBER`
+CREATE TABLE `USER`
 (
-    `USER_ID`    VARCHAR(36) PRIMARY KEY COMMENT '회원 아이디',
-    `PASSWORD`   VARCHAR(70) NOT NULL COMMENT '회원 비밀번호',
-    `EMAIL`      VARCHAR(50) NOT NULL COMMENT '회원 이메일',
-    `ROLE`      CHAR(50)    NULL     DEFAULT 'ROLE_USER' COMMENT '회원 등급',
-    `TEL`        VARCHAR(15) NULL COMMENT '회원 전화번호',
-    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '가입일시',
-    `ACTIVATED`  bool        NOT NULL DEFAULT true COMMENT '활성여부'
+    `USER_ID`    VARCHAR(20) PRIMARY KEY COMMENT '회원 아이디',
+    `PASSWORD`   VARCHAR(20) NOT NULL COMMENT '비밀번호',
+    `USER_NAME`  VARCHAR(20) NULL COMMENT '이름',
+    `ROLE`   VARCHAR(20) NOT NULL COMMENT '역할',
+    `TEL`   VARCHAR(20)  NULL COMMENT '전화번호',
+    `CREATEDAT`  timestamp NOT NULL COMMENT '생성일자'
+
 );
 
-DROP TABLE IF EXISTS `TEAM`;
-CREATE TABLE `TEAM`
+DROP TABLE IF EXISTS `PRODUCT`;
+
+CREATE TABLE `PRODUCT`
 (
-    `TEAM_ID` int  NOT NULL auto_increment PRIMARY KEY COMMENT '팀아이디',
-    `NAME`  VARCHAR(255) NOT NULL ,
-    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '등록일',
-    `ACTIVATED`  bool        NOT NULL DEFAULT true COMMENT '활성여부'
+    `PRODUCT_ID`    BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '상품번호',
+    `CATEGORY`      VARCHAR(20) NULL COMMENT '상품 카테고리',
+    `PRODUCT_NAME`   VARCHAR(20) NULL NULL COMMENT '상품명',
+    `PRICE`   INT NOT NULL COMMENT '가격',
+    `STOCK`   INT NOT NULL COMMENT '재고',
+    `INFO`    TEXT NULL COMMENT '상품 정보',
+    `PRODUCT_IMG` VARCHAR(30) NULL COMMENT '상품 이미지'
+
 );
 
-DROP TABLE IF EXISTS `TEAM_MEMBER`;
-CREATE TABLE `TEAM_MEMBER`
+ALTER TABLE `PRODUCT`
+MODIFY COLUMN `PRODUCT_NAME` VARCHAR(50) NULL COMMENT '상품명';
+
+DROP TABLE IF EXISTS `CART`;
+
+CREATE TABLE `CART`
 (
-    `TM_ID` int  NOT NULL auto_increment PRIMARY KEY,
-    `TEAM_ID` int  NOT NULL COMMENT '팀아이디',
-    `USER_ID`  VARCHAR(255) NOT NULL ,
-    `ROLE`      CHAR(50)    NULL,
-    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '작가 등록일',
-    `ACTIVATED`  bool        NOT NULL DEFAULT true COMMENT '활성여부'
+    `CART_ID`    BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '장바구니 번호',
+    `USER_ID`      VARCHAR(20) NOT NULL COMMENT '회원 아이디',
+    CONSTRAINT `fk_user` FOREIGN KEY (`USER_ID`) REFERENCES `USER`(`USER_ID`)
 );
 
-DROP TABLE IF EXISTS `BOOK`;
+DROP TABLE IF EXISTS `CART_DETAILS`;
 
-CREATE TABLE `BOOK`
+CREATE TABLE `CART_DETAILS`
 (
-    `BK_IDX`     int          NOT NULL auto_increment PRIMARY KEY COMMENT '도서번호',
-    `CATEGORY`   CHAR(20)     NULL COMMENT '도서카테고리',
-    `TITLE`      VARCHAR(255) NOT NULL COMMENT '도서명',
-    `AUTHOR`     VARCHAR(36)  NOT NULL COMMENT '저자',
-    `INFO`       VARCHAR(36)  NULL COMMENT '도서설명',
-    `AMOUNT`     int          NULL     DEFAULT 0 COMMENT '도서재고',
-    `CREATED_AT` timestamp    NULL     DEFAULT now() COMMENT '도서등록일자',
-    `RENT_CNT`   int          NULL     DEFAULT 0 COMMENT '대출횟수',
-    `ACTIVATED`  boolean      NOT NULL DEFAULT true
-);
-
-DROP TABLE IF EXISTS `RENT_BOOK`;
-
-CREATE TABLE `RENT_BOOK`
-(
-    `RB_IDX`      int          NOT NULL auto_increment PRIMARY KEY COMMENT '대출도서번호',
-    `RENT_ID`     int          NOT NULL COMMENT '대출번호',
-    `BK_IDX`      int          NOT NULL COMMENT '도서번호',
-    `BOOK_TITLE`  VARCHAR(255) NOT NULL COMMENT '도서명',
-    `CREATED_AT`  timestamp    NULL     DEFAULT now() COMMENT '대출일자',
-    `STATE`       VARCHAR(36)  NULL     DEFAULT 'RE00' COMMENT '대출도서상태',
-    `RETURN_DATE` timestamp    NULL COMMENT '반납예정일자',
-    `ACTIVATED`   boolean      NOT NULL DEFAULT true
-);
-
-DROP TABLE IF EXISTS `BOOK_IMG`;
-
-CREATE TABLE `BOOK_IMG`
-(
-    `BI_IDX`           int          NOT NULL auto_increment PRIMARY KEY COMMENT '파일번호',
-    `BK_IDX`           int          NOT NULL,
-    `TYPE`             VARCHAR(36)  NOT NULL,
-    `ORIGIN_FILE_NAME` VARCHAR(36)  NOT NULL COMMENT '원본파일명',
-    `RENAME_FILE_NAME` VARCHAR(36)  NOT NULL COMMENT '저장파일명',
-    `SAVE_PATH`        VARCHAR(255) NOT NULL COMMENT '저장경로',
-    `CREATED_AT`       timestamp    NULL     DEFAULT now() COMMENT '파일등록일자',
-    `ACTIVATED`        boolean      NOT NULL DEFAULT true
-);
-
-DROP TABLE IF EXISTS `RENT_HISTORY`;
-
-CREATE TABLE `RENT_HISTORY`
-(
-    `RH_IDX`     int       NOT NULL auto_increment PRIMARY KEY COMMENT '대출이력번호',
-    `RENT_ID`    int       NOT NULL COMMENT '대출번호',
-    `RB_IDX`     int       NOT NULL COMMENT '대출도서번호',
-    `BK_IDX`     int       NULL COMMENT '도서번호',
-    `CREATED_AT` timestamp NULL DEFAULT now() COMMENT '이력등록일자',
-    `STATE`      CHAR(20)  NULL COMMENT '대출상태'
-);
-
-DROP TABLE IF EXISTS `MEMBER_INFO`;
-
-CREATE TABLE `MEMBER_INFO`
-(
-    `USER_ID`       VARCHAR(36) PRIMARY KEY COMMENT '회원 아이디',
-    `CREATED_AT`    timestamp NULL DEFAULT now() COMMENT '가입일자',
-    `LOGIN_DATE`    timestamp NULL COMMENT '마지막로그인일자',
-    `MODIFY_DATE`   timestamp NULL COMMENT '마지막수정일자',
-    `LEAVE_DATE`    timestamp NULL COMMENT '탈퇴일자',
-    `RENTABLE_DATE` timestamp NULL DEFAULT now() COMMENT '대출가능일자'
-);
-
-DROP TABLE IF EXISTS `RENT`;
-
-CREATE TABLE `RENT`
-(
-    `RENT_ID`    int         NOT NULL auto_increment PRIMARY KEY COMMENT '대출번호',
-    `USER_ID`    VARCHAR(36) NOT NULL COMMENT '회원 아이디',
-    `CREATED_AT` timestamp   NULL     DEFAULT now() COMMENT '대출일자',
-    `IS_RETURN`  bool        NULL     DEFAULT 0 COMMENT '반납여부',
-    `TITLE`      VARCHAR(50) NOT NULL COMMENT '대출건제목',
-    `ACTIVATED`  boolean     NOT NULL DEFAULT true
+    `CART_DETAILS_ID`    INT AUTO_INCREMENT PRIMARY KEY COMMENT '장바구니 번호',
+    `CART_ID`      BIGINT NOT NULL COMMENT '장바구니 아이디',
+    `PRODUCT_ID`   BIGINT NULL NULL COMMENT '상품번호',
+    `PRODUCT_CNT`   INT NOT NULL COMMENT '상품 수량',
+    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '생성일자',
+    CONSTRAINT `fk_cart` FOREIGN KEY (`CART_ID`) REFERENCES `CART`(`CART_ID`),
+    CONSTRAINT `fk_product` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `PRODUCT`(`PRODUCT_ID`)
 );

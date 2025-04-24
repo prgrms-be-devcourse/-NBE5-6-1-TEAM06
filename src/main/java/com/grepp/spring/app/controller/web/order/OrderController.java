@@ -1,8 +1,11 @@
 package com.grepp.spring.app.controller.web.order;
 
+import com.grepp.spring.app.controller.web.member.form.CartRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -10,5 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @RequestMapping("order")
 public class OrderController {
+
+    //TODO : 장바구니 담기, 장바구니에서 -> 결제로 이동
+
+    @GetMapping
+    public String cartToOrder(@ModelAttribute CartRequest cartRequest) {
+        return "order/orderExample";
+    }
 
 }
