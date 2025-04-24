@@ -1,16 +1,16 @@
 <%@ page language="java" %>
 <style>
-  .page-footer {
-    background-color: #3c1b03 !important;
-  }
+    .page-footer {
+        background-color: #3c1b03 !important;
+    }
 
-  .page-footer .white-text {
-    color: #fff !important;
-  }
+    .page-footer .white-text {
+        color: #fff !important;
+    }
 
-  .footer-copyright {
-    background-color: #2a1202 !important; /* 하단 짙은색 구분 가능 */
-  }
+    .footer-copyright {
+        background-color: #2a1202 !important; /* 하단 짙은색 구분 가능 */
+    }
 </style>
 <footer class="page-footer">
     <div class="container">
@@ -28,5 +28,5 @@
     </div>
 </footer>
 <script>
-  M.AutoInit();
+    M.AutoInit();
 </script>
