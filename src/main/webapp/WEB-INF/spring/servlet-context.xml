@@ -15,6 +15,10 @@
   <context:property-placeholder location="classpath:application.properties"/>
   <mvc:annotation-driven/>
 
+<<<<<<< HEAD
   <mvc:resources location="/assets/" mapping="/assets/**"/>
+=======
+<!--  <mvc:resources location="/assets" mapping="/assets/**"/>-->
+>>>>>>> origin/kdy
 
 </beans>

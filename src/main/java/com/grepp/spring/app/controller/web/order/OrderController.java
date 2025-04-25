@@ -1,5 +1,6 @@
 package com.grepp.spring.app.controller.web.order;
 
+<<<<<<< HEAD
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
 import com.grepp.spring.app.model.order.OrderService;
@@ -12,6 +13,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+=======
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+>>>>>>> origin/kdy
 
 @Controller
 @RequiredArgsConstructor
@@ -19,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("order")
 public class OrderController {
 
+<<<<<<< HEAD
     private final OrderService orderService;
 
     @GetMapping
@@ -45,4 +53,6 @@ public class OrderController {
         }
         return "redirect:/";
     }
+=======
+>>>>>>> origin/kdy
 }

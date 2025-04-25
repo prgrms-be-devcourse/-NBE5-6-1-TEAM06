@@ -11,7 +11,11 @@
   </resultMap>
 
   <select id="selectById" resultMap="memberMap">
+<<<<<<< HEAD
     select * from member where user_id = #{userId} and activated
+=======
+    select * from member where user_id = #{userId}
+>>>>>>> origin/kdy
   </select>
 
   <select id="selectInfoById" resultType="MemberInfo">

@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 public class DBConfig {
+<<<<<<< HEAD
 
     @Value("${spring.datasource.url}")
     private String url;
@@ -40,6 +41,30 @@ public class DBConfig {
     @Value("${data.script.name:empty-data.sql}")
     private String data;
 
+=======
+    
+    @Value("${spring.datasource.url}")
+    private String url;
+    
+    @Value("${spring.datasource.username}")
+    private String username;
+    
+    @Value("${spring.datasource.password}")
+    private String password;
+    
+    @Value("${spring.datasource.driver}")
+    private String driver;
+    
+    @Value("${spring.datasource.hikari.maximum-pool-size}")
+    private int poolSize;
+    
+    @Value("${schema.script.name:empty-schema.sql}")
+    private String schema;
+    
+    @Value("${data.script.name:empty-data.sql}")
+    private String data;
+    
+>>>>>>> origin/kdy
     @Bean
     public DataSource dataSource() {
         HikariConfig config = new HikariConfig();
@@ -50,28 +75,48 @@ public class DBConfig {
         config.setMaximumPoolSize(poolSize);
         return new HikariDataSource(config);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/kdy
     @PreDestroy
     public void cleanup() {
         AbandonedConnectionCleanupThread.checkedShutdown();
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/kdy
     @Bean
     public DataSourceTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/kdy
     @Bean
     public ResourceDatabasePopulator databasePopulator() {
         ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
         Resource schemaResource = new ClassPathResource("init/" + schema);
         Resource dataResource = new ClassPathResource("init/" + data);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> origin/kdy
         populator.addScripts(schemaResource, dataResource);
         populator.setContinueOnError(false);
         return populator;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/kdy
     @Bean
     public DataSourceInitializer databasePopulatorInitializer(
         DataSource dataSource, ResourceDatabasePopulator databasePopulator) {
@@ -80,4 +125,9 @@ public class DBConfig {
         initializer.setDatabasePopulator(databasePopulator);
         return initializer;
     }
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> origin/kdy
 }

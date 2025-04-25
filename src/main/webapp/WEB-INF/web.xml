@@ -4,6 +4,7 @@
   xmlns="https://jakarta.ee/xml/ns/jakartaee"
   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
 
+<<<<<<< HEAD
   <!--  -->
   <filter>
     <filter-name>hiddenHttpMethodFilter</filter-name>
@@ -16,16 +17,21 @@
   </filter-mapping>
   <!--  -->
 
+=======
+>>>>>>> origin/kdy
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/spring/*-context.xml</param-value>
   </context-param>
 
+<<<<<<< HEAD
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/assets/*</url-pattern>
   </servlet-mapping>
 
+=======
+>>>>>>> origin/kdy
   <error-page>
     <error-code>500</error-code>
     <location>/WEB-INF/view/error/500.jsp</location>
@@ -83,4 +89,9 @@
     <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/kdy
 </web-app>

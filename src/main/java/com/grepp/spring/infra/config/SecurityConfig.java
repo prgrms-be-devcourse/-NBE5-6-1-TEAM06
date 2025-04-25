@@ -29,6 +29,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
+<<<<<<< HEAD
     
     @Value("${remember-me.key}")
     private String rememberMeKey;
@@ -39,6 +40,18 @@ public class SecurityConfig {
                    .build();
     }
     
+=======
+
+    @Value("${remember-me.key}")
+    private String rememberMeKey;
+
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+        return http.getSharedObject(AuthenticationManagerBuilder.class)
+            .build();
+    }
+
+>>>>>>> origin/kdy
     @Bean
     public AuthenticationSuccessHandler successHandler(){
         return new AuthenticationSuccessHandler() {
@@ -46,16 +59,26 @@ public class SecurityConfig {
             public void onAuthenticationSuccess(HttpServletRequest request,
                 HttpServletResponse response, Authentication authentication)
                 throws IOException, ServletException {
+<<<<<<< HEAD
                 
                 boolean isAdmin = authentication.getAuthorities()
                                       .stream()
                                       .anyMatch(authority ->
                                                     authority.getAuthority().equals("ROLE_ADMIN"));
                 
+=======
+
+                boolean isAdmin = authentication.getAuthorities()
+                    .stream()
+                    .anyMatch(authority ->
+                        authority.getAuthority().equals("ROLE_ADMIN"));
+
+>>>>>>> origin/kdy
                 if(isAdmin){
                     response.sendRedirect("/admin");
                     return;
                 }
+<<<<<<< HEAD
                 
                 response.sendRedirect("/");
             }
@@ -66,12 +89,25 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         
+=======
+
+                response.sendRedirect("/");
+            }
+        };
+
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+>>>>>>> origin/kdy
         // * : 1depth 아래 모든 경로
         // ** : 모든 depth 의 모든 경로
         // Security Config 에는 인증과 관련된 설정만 지정 (PermitAll or Authenticated)
         http
             .authorizeHttpRequests(
                 (requests) -> requests
+<<<<<<< HEAD
 //                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
                                   .requestMatchers(GET, "/member/signup").permitAll()
                                   .requestMatchers(GET, "/member/signin").permitAll()
@@ -92,6 +128,32 @@ public class SecurityConfig {
         return http.build();
     }
     
+=======
+                    .requestMatchers(GET, "/", "/assets/**", "/download/**").permitAll()
+                    .requestMatchers(GET, "/book/list").permitAll()
+                    .requestMatchers(GET, "/api/book/list").permitAll()
+                    .requestMatchers(GET, "/api/member/exists/*").permitAll()
+                    .requestMatchers(GET, "/member/signup").permitAll()
+                    .requestMatchers(GET, "/member/signin").permitAll()
+                    .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                    .anyRequest().authenticated()
+            )
+            .formLogin((form) -> form
+                .loginPage("/member/signin")
+                .usernameParameter("userId")
+                .loginProcessingUrl("/member/signin")
+                .defaultSuccessUrl("/")
+                .successHandler(successHandler())
+                .permitAll()
+            )
+            .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
+            .logout(LogoutConfigurer::permitAll);
+
+        return http.build();
+    }
+
+
+>>>>>>> origin/kdy
     @Bean
     public PasswordEncoder passwordEncoder(){
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
