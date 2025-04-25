@@ -12,7 +12,11 @@
 <h2>장바구니 페이지입니다~~~</h2>
 
     <c:forEach var="cartProduct" items="${cartList}" varStatus="status">
-    <form action="order" method="post">
+    <form action="cartList" method="post">
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />
+
         <h4>${status.index + 1}</h4>
         <p><b>상품 명</b> : ${cartProduct.productName}</p>
         <strong>상품 수량: </strong>
@@ -28,7 +32,10 @@
         <p>---------------------------------------</p><br>
     </form>
     </c:forEach>
-    <button type="submit" style="width: 120px">전체 구매하기</button>
+    <form action="order" method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <button type="submit" style="width: 120px">전체 구매하기</button>
+    </form>
 </main>
 <%@ include file="/WEB-INF/view/include/footer.jsp" %>
 </body>

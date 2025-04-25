@@ -16,4 +16,8 @@ public class CartService {
     public List<CartProduct> getCartListByUserId(String userId) {
         return cartRepository.findCartWithProductByUserId(userId);
     }
+
+    public void modifyProductCnt(long cartDetailsId, int productCnt) {
+        cartRepository.modifyProductCnt(cartDetailsId, productCnt);
+    }
 }

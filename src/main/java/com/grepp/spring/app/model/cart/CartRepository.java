@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface CartRepository {
 
     List<CartProduct> findCartWithProductByUserId(@Param("userId") String userId);
+
+    void modifyProductCnt(@Param("cartDetailsId") long cartDetailsId, @Param("productCnt") int productCnt);
 }

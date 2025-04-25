@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,14 +33,16 @@ public class CartController {
 
     //TODO : 장바구니 리스트 수정 로직
     @PostMapping
-    public String modifyCart(@ModelAttribute CartRequest cartRequest) {
-
-        return "order";
+    public String modifyCart(CartRequest cartRequest) {
+        int productCnt = cartRequest.getProductCnt();
+        long cartDetailsId = cartRequest.getCartDetailsId();
+        cartService.modifyProductCnt(cartDetailsId, productCnt);
+        return "redirect:/cartList";
     }
 
     //TODO : 장바구니 리스트 삭제 로직
     @DeleteMapping
-    public String deleteCartList(@ModelAttribute CartRequest cartRequest) {
+    public String deleteCartList(CartRequest cartRequest) {
         return "redirect:cart/cartList";
     }
 
