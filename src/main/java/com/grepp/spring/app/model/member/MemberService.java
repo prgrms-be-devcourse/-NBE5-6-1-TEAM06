@@ -30,9 +30,8 @@ public class MemberService {
         dto.setRole(role);
         memberRepository.insert(dto);
         
-        MemberInfo memberInfo = new MemberInfo();
-        memberInfo.setUserId(dto.getUserId());
-        memberRepository.insertInfo(memberInfo);
+
+
     }
     
 //    public Principal signin(String userId, String password) {

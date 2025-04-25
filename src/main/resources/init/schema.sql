@@ -7,8 +7,8 @@ CREATE TABLE `MEMBER`
     `USER_NAME`      VARCHAR(50) NOT NULL COMMENT '회원 이름',
     `ROLE`      CHAR(50)    NULL     DEFAULT 'ROLE_USER' COMMENT '회원 등급',
     `TEL`        VARCHAR(15) NULL COMMENT '회원 전화번호',
-    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '가입일시',
-    `ACTIVATED`  bool        NOT NULL DEFAULT true COMMENT '활성여부'
+    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '가입일시'
+
 );
 
 DROP TABLE IF EXISTS `TEAM`;

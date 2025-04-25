@@ -11,7 +11,7 @@
   </resultMap>
 
   <select id="selectById" resultMap="memberMap">
-    select * from member where user_id = #{userId} and activated
+    select * from member where user_id = #{userId}
   </select>
 
   <select id="selectInfoById" resultType="MemberInfo">

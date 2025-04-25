@@ -13,6 +13,6 @@ public class Member {
     private String username;
     private Role role;
     private String tel;
-    private MemberInfo info;
-    private Boolean activated;
+//    private MemberInfo info;
+//    private Boolean activated;
 }

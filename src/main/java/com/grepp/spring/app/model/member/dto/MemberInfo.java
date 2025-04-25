@@ -8,10 +8,4 @@ import org.apache.ibatis.type.Alias;
 @Alias("MemberInfo")
 public class MemberInfo {
 
-    private String userId;
-    private LocalDateTime createdAt = LocalDateTime.now();
-    private LocalDateTime loginDate;
-    private LocalDateTime modifyDate;
-    private LocalDateTime leaveDate;
-    private LocalDateTime rentableDate = LocalDateTime.now();
 }

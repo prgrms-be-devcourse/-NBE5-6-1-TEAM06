@@ -1,4 +1,5 @@
 <%@ page language="java" %>
+
 <header class="header">
     <nav class="navbar white">
         <div class="nav-wrapper ">
