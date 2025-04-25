@@ -20,4 +20,8 @@ public class CartService {
     public void modifyProductCnt(long cartDetailsId, int productCnt) {
         cartRepository.modifyProductCnt(cartDetailsId, productCnt);
     }
+
+    public void delete(long cartDetailsId) {
+        cartRepository.delete(cartDetailsId);
+    }
 }

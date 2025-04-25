@@ -18,6 +18,7 @@
         <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />
 
         <h4>${status.index + 1}</h4>
+
         <p><b>상품 명</b> : ${cartProduct.productName}</p>
         <strong>상품 수량: </strong>
         <label>
@@ -29,9 +30,16 @@
 
         <button type="submit">구매하기</button>
 
-        <p>---------------------------------------</p><br>
     </form>
+
+        <form action="cartList" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />
+            <button type="submit">상품 삭제하기</button>
+        </form>
+        <p>---------------------------------------</p><br>
     </c:forEach>
+
     <form action="order" method="post">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         <button type="submit" style="width: 120px">전체 구매하기</button>
