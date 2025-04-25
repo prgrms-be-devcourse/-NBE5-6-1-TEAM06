@@ -2,21 +2,23 @@ package com.grepp.spring.app.model.order.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter
 @ToString
 public class OrderDto {
-    private Integer orderId;
+
+    private Long orderId;
     private String userId;
+    private LocalDateTime orderDate; //order_date
+    private LocalDateTime expectDeliveryDate;
     private String address;
-    private Integer postNumber;
-    private Integer totalPrice;
-    private LocalDateTime orderedAt; //order_date
-    private LocalDateTime expectDeliveryAt;
-    private List<OrderItemDto> orderItems;
+    private String postNumber;
+    private int totalPrice;
+    private int orderItems;
     private Boolean activated;
+
+    // DB에 없는 것
+    private List<OrderItemDto> items;
 
 }

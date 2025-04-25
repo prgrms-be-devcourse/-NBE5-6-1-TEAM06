@@ -3,7 +3,6 @@ package com.grepp.spring.infra.config;
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,51 +20,49 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.AccessDeniedHandler;
-import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
-    
+
     @Value("${remember-me.key}")
     private String rememberMeKey;
-    
+
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
-                   .build();
+            .build();
     }
-    
+
     @Bean
-    public AuthenticationSuccessHandler successHandler(){
+    public AuthenticationSuccessHandler successHandler() {
         return new AuthenticationSuccessHandler() {
             @Override
             public void onAuthenticationSuccess(HttpServletRequest request,
                 HttpServletResponse response, Authentication authentication)
                 throws IOException, ServletException {
-                
+
                 boolean isAdmin = authentication.getAuthorities()
-                                      .stream()
-                                      .anyMatch(authority ->
-                                                    authority.getAuthority().equals("ROLE_ADMIN"));
-                
-                if(isAdmin){
+                    .stream()
+                    .anyMatch(authority ->
+                        authority.getAuthority().equals("ROLE_ADMIN"));
+
+                if (isAdmin) {
                     response.sendRedirect("/admin");
                     return;
                 }
-                
+
                 response.sendRedirect("/");
             }
         };
-        
+
     }
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        
+
         // * : 1depth 아래 모든 경로
         // ** : 모든 depth 의 모든 경로
         // Security Config 에는 인증과 관련된 설정만 지정 (PermitAll or Authenticated)
@@ -73,27 +70,27 @@ public class SecurityConfig {
             .authorizeHttpRequests(
                 (requests) -> requests
 //                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
-                                  .requestMatchers(GET, "/member/signup").permitAll()
-                                  .requestMatchers(GET, "/member/signin").permitAll()
-                                  .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                                  .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
+                    .requestMatchers(GET, "/member/signup").permitAll()
+                    .requestMatchers(GET, "/member/signin").permitAll()
+                    .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
             )
             .formLogin((form) -> form
-                                     .loginPage("/member/signin")
-                                     .usernameParameter("userId")
-                                     .loginProcessingUrl("/member/signin")
-                                     .defaultSuccessUrl("/")
-                                     .successHandler(successHandler())
-                                     .permitAll()
+                .loginPage("/member/signin")
+                .usernameParameter("userId")
+                .loginProcessingUrl("/member/signin")
+                .defaultSuccessUrl("/")
+                .successHandler(successHandler())
+                .permitAll()
             )
             .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
             .logout(LogoutConfigurer::permitAll);
-        
+
         return http.build();
     }
-    
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 

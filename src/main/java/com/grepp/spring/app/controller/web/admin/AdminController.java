@@ -1,16 +1,22 @@
 package com.grepp.spring.app.controller.web.admin;
 
+import com.grepp.spring.app.controller.web.member.form.SignupRequest;
+import com.grepp.spring.app.model.auth.code.Role;
+import com.grepp.spring.app.model.member.MemberService;
 import com.grepp.spring.app.model.order.OrderService;
 import com.grepp.spring.app.model.order.dto.OrderDto;
+import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.util.List;
 
 @Controller
 @Slf4j
@@ -21,6 +27,23 @@ import java.util.List;
 public class AdminController {
 
     private final OrderService orderService;
+    private final MemberService memberService;
+
+
+    @GetMapping("signup")
+    public String signup(SignupRequest form){
+        return "admin/signup";
+    }
+
+    @PostMapping("signup")
+    public String signup(@Valid SignupRequest form, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "admin/signup";
+        }
+
+        memberService.signup(form.toDto(), Role.ROLE_ADMIN);
+        return "redirect:/";
+    }
 
     @GetMapping("dashboard")
     public String orderList(Model model) {
@@ -34,5 +57,4 @@ public class AdminController {
         orderService.deleteOrder(orderId);
         return "redirect:/admin/dashboard";
     }
-
 }

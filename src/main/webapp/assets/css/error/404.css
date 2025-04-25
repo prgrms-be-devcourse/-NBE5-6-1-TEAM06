@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/kdy
 body {
   height: 95vh;
   background: #000000;
@@ -8,6 +11,7 @@ body {
   color: #E0E0E0;
   font-family: 'Fira Mono', monospace;
 }
+<<<<<<< HEAD
 h1{
   font-size: 2.5rem;
   font-family: 'Permanent Marker', cursive;
@@ -21,6 +25,25 @@ svg{
 
 }
 #rocket{
+=======
+
+h1 {
+  font-size: 2.5rem;
+  font-family: 'Permanent Marker', cursive;
+}
+
+div {
+  transform-style: preserve-3d;
+}
+
+svg {
+  width: clamp(300px, 70%, 600px);
+  height: 500px;
+
+}
+
+#rocket {
+>>>>>>> origin/kdy
 
   transform: translateY(750px);
 
@@ -31,15 +54,20 @@ svg{
   from {
     transform: translateY(750px);
   }
+<<<<<<< HEAD
 
   to {
 
+=======
+  to {
+>>>>>>> origin/kdy
     perspective: 500px;
     transform: translateY(0px);
   }
 }
 
 #stars {
+<<<<<<< HEAD
   animation: twinkling 2s linear ;
 }
 @keyframes twinkling {
@@ -66,5 +94,37 @@ svg{
 }
 a{
   color:#F66947;
+=======
+  animation: twinkling 2s linear;
+}
+
+@keyframes twinkling {
+
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.text {
+  opacity: 0;
+  animation: appear 1s ease-in forwards;
+  animation-delay: 1.8s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+a {
+  color: #F66947;
+>>>>>>> origin/kdy
   text-decoration: none;
 }

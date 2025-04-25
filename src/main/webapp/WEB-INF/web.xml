@@ -3,7 +3,6 @@
   version="6.0"
   xmlns="https://jakarta.ee/xml/ns/jakartaee"
   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-
   <!--  -->
   <filter>
     <filter-name>hiddenHttpMethodFilter</filter-name>
@@ -20,7 +19,6 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/spring/*-context.xml</param-value>
   </context-param>
-
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/assets/*</url-pattern>
@@ -83,4 +81,5 @@
     <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
 </web-app>
