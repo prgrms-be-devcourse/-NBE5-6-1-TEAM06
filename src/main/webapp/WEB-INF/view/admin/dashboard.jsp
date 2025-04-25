@@ -21,11 +21,11 @@
         <thead>
         <tr>
             <th>주문번호</th>
-            <th>고객이름</th>
-            <th>상품명</th>
-            <th>수량</th>
+            <th>이메일</th>
             <th>총 가격</th>
+            <th>수량</th>
             <th>주문일</th>
+            <th>활성여부</th>
             <th>삭제</th>
         </tr>
         </thead>
@@ -33,13 +33,13 @@
         <c:forEach var="order" items="${orders}">
             <tr>
                 <td>${order.orderId}</td>
-                <td>${order.userName}</td>
-                <td>${order.productName}</td>
-                <td>${order.productCnt}</td>
+                <td>${order.userId}</td>
                 <td>${order.totalPrice}</td>
-                <td>${order.createdAt}</td>
+                <td>${order.orderItems}</td>
+                <td>${order.orderDate}</td>
+                <td>${order.activated}</td>
                 <td>
-                    <form method="post" action="/admin/orderList" onsubmit="return confirm('삭제하시겠습니까?');">
+                    <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('삭제하시겠습니까?');">
                         <input type="hidden" name="_method" value="delete"/>
                         <input type="hidden" name="orderId" value="${order.orderId}"/>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -50,6 +50,7 @@
         </c:forEach>
         </tbody>
     </table>
+
 </main>
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>

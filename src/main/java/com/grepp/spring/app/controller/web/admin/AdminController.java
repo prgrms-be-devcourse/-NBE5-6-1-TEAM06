@@ -52,8 +52,8 @@ public class AdminController {
         return "admin/dashboard";
     }
 
-    @DeleteMapping("orderList")
-    public String deleteOrder(@RequestParam Long orderId) {
+    @DeleteMapping("deleteOrder")
+    public String deleteOrder(@RequestParam("orderId") Long orderId) {
         orderService.deleteOrder(orderId);
         return "redirect:/admin/dashboard";
     }

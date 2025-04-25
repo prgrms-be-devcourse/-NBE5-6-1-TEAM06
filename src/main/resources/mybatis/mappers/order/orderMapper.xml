@@ -22,21 +22,34 @@
   <!-- 모든 주문 내역 조회 -->
   <select id="findAllOrders" resultType="com.grepp.spring.app.model.order.dto.OrderDto">
     SELECT
-    o.ORDER_ID AS orderId,
-    u.USER_NAME AS userName,
-    p.PRODUCT_NAME AS productName,
-    od.PRODUCT_CNT AS productCnt,
-    (od.PRODUCT_CNT * p.PRICE) AS totalPrice,
-    od.CREATED_AT AS createdAt
-    FROM orders o
-    JOIN order_details od ON o.ORDER_ID = od.ORDER_ID
-    JOIN product p ON od.PRODUCT_ID = p.PRODUCT_ID
-    JOIN user u ON o.USER_ID = u.USER_ID
+    o.order_id       AS orderId,
+    o.user_id        AS userId,
+    o.order_date     AS orderDate,
+    o.expect_delivery_date AS expectDeliveryDate,
+    o.address        AS address,
+    o.post_number    AS postNumber,
+    o.total_price    AS totalPrice,
+    o.order_items    AS orderItems,
+    o.activated      AS activated
+    FROM `order` o
+    ORDER BY o.order_date DESC
   </select>
 
+
+
   <!-- 주문 삭제 -->
-  <delete id="deleteOrder">
-    DELETE FROM orders WHERE ORDER_ID = #{cartId}
+  <delete id="deleteOrderDetails">
+    DELETE FROM order_details WHERE order_id = #{orderId}
   </delete>
+
+
+  <delete id="deleteOrder">
+    DELETE FROM `order` WHERE order_id = #{orderId}
+  </delete>
+
+
+<!--  <delete id="deleteOrder">-->
+<!--    DELETE FROM orders WHERE ORDER_ID = #{cartId}-->
+<!--  </delete>-->
 
 </mapper>
