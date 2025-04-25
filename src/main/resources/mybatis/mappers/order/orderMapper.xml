@@ -41,48 +41,5 @@
   </delete>
 
 
-  <!-- ash 작성 -->
-  <resultMap id="orderWithItemsMap" type="com.grepp.spring.app.model.order.dto.OrderDto">
-    <id property="orderId" column="order_id"/>
-    <result property="userId" column="user_id"/>
-    <result property="orderedAt" column="ordered_at"/>
-    <result property="expectDeliveriedAt" column="expect_deliveried_at"/>
-    <result property="address" column="address"/>
-    <result property="postNumber" column="post_number"/>
-    <result property="totalPrice" column="total_price"/>
-    <result property="activated" column="activated"/>
-
-    <!-- 💡 List<OrderItemDto> -->
-    <!-- property orderDto에 있는 List<OrderItemDto> "orderItems" -->
-    <collection property="orderItems"
-                ofType="com.grepp.spring.app.model.order.dto.OrderItemDto"
-                column="order_id"
-                select="selectOrderItemsByOrderId"/>
-  </resultMap>
-
-  <select id="findOrdersByUserId" parameterType="String" resultMap="orderWithItemsMap">
-    SELECT * FROM `order` WHERE user_id = #{userId}
-  </select>
-
-  <select id="selectOrderItemsByOrderId" parameterType="long"
-          resultType="com.grepp.spring.app.model.order.dto.OrderItemDto">
-    SELECT
-    od.order_details_id AS orderItemId,
-    od.product_id AS productId,
-    p.product_name AS productName,
-    od.product_price AS productPrice,
-    od.order_cnt AS orderCnt
-    FROM order_details od
-    JOIN product p ON od.product_id = p.product_id
-    WHERE od.order_id = #{orderId}
-  </select>
-
-  <update id="cancelOrderByOrderId" parameterType="long">
-    UPDATE `order`
-    SET activated = false
-    WHERE order_id = #{orderId}
-  </update>
-
-
 
 </mapper>

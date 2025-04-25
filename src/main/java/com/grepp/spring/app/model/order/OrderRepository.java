@@ -13,7 +13,4 @@ public interface OrderRepository {
     void deleteOrderDetails(Long orderId);
     void deleteOrder(Long orderId);
     List<OrderDto> selectAll();
-
-    List<OrderDto> findOrdersByUserId(String userId);
-    int cancelOrderByOrderId(Long orderId);
 }

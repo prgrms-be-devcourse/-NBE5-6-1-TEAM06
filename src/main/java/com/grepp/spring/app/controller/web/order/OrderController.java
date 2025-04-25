@@ -2,6 +2,7 @@ package com.grepp.spring.app.controller.web.order;
 
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
+import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,20 +44,9 @@ public class OrderController {
     }
 
     //TODO : 장바구니 담기, 장바구니에서 -> 결제로 이동
-
 //    @GetMapping
 //    public String cartToOrder(@ModelAttribute CartRequest cartRequest) {
 //        return "order/orderExample";
 //    }
-
-
-    @GetMapping("/cancel/result")
-    public String cancelResult(@RequestParam Long orderId, Model model) {
-        boolean success = orderService.cancelOrder(orderId);
-
-        model.addAttribute("status", success ? "success" : "fail");
-
-        return "order/orderCancelResult";
-    }
 
 }

@@ -31,18 +31,7 @@ public class OrderService {
     }
 
 
-    // todo ash
-    public List<OrderDto> getOrdersByUserId(String userId) {
-        return orderRepository.findOrdersByUserId(userId);
-
-    }
-
-    // todo cancel 검증 : 지금은 항상 실패로 연결
-    public boolean cancelOrder(Long orderId) {
-        int updated = orderRepository.cancelOrderByOrderId(orderId);
-        return updated > 0;
-    }
-
+    // 이거랑 아래 deleteOrder 제것(ash) 같은데... 혹시 몰라서 그냥 남겨둡니다...
     public List<OrderDto> getAllOrders() {
         return orderRepository.findAllOrders();
     }

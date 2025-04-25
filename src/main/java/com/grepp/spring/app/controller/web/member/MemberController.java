@@ -9,7 +9,9 @@ import com.grepp.spring.app.model.cart.CartService;
 import com.grepp.spring.app.model.cart.dto.CartProduct;
 import com.grepp.spring.app.model.member.MemberService;
 import com.grepp.spring.app.model.member.dto.Member;
+import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
+import com.grepp.spring.app.model.order.dto.ASHOrderDto;
 import com.grepp.spring.app.model.order.dto.OrderDto;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -21,6 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -35,6 +38,7 @@ public class MemberController {
     private final MemberService memberService;
     private final CartService cartService;
     private final OrderService orderService;
+    private final ASHOrderService ashOrderService;
 
     @GetMapping("signup")
     public String signup(SignupRequest form) {
@@ -69,11 +73,29 @@ public class MemberController {
         Member member = memberService.findById(userId);
         model.addAttribute("member", member);
 
-        List<OrderDto> orderList = orderService.getOrdersByUserId(userId);
+        List<ASHOrderDto> orderList = ashOrderService.getOrdersByUserId(userId);
         model.addAttribute("orderList", orderList);
 
         return "member/mypage";
     }
+
+
+    @DeleteMapping("/order/{orderId}/cancel")
+    public String cancelOrder(@PathVariable Long orderId, RedirectAttributes redirectAttributes) {
+        boolean success = ashOrderService.cancelOrder(orderId);
+
+        redirectAttributes.addAttribute("status", success ? "success" : "fail");
+        return "redirect:/member/order/cancel/result";
+    }
+
+
+    // 결과 화면을 보여줌
+    @GetMapping("order/cancel/result")
+    public String showCancelResult(@RequestParam String status, Model model) {
+        model.addAttribute("status", status);
+        return "order/orderCancelResult";
+    }
+
 
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or authentication.name == #id")

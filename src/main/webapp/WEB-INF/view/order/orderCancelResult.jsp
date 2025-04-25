@@ -12,23 +12,22 @@
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 
 <main class="container">
-    <div class="menu-name">
-        <strong>${member.userId}</strong> 주문 취소 성공 실패 화면
     </div>
     <c:choose>
-        <c:when test="${status == 'success'}">
-            <h4> 주문 취소 성공</h4>
-
+    <c:when test="${status == 'success'}">
+        <div class="menu-name">
+        <strong>${member.userId}</strong>님, 주문이 성공적으로 취소되었습니다.
+        </div>
         </c:when>
 
         <c:when test="${status == 'fail'}">
-            <h2> 취소 실패</h2>
+        <h2> ${member.userId}님, 주문 취소가 실패되었습니다.</h2>
         </c:when>
 
         <c:otherwise>
-            <h1> 오류 발생</h1>
+        <h1> 오류 발생</h1>
         </c:otherwise>
-    </c:choose>
+        </c:choose>
 
 </main>
 
