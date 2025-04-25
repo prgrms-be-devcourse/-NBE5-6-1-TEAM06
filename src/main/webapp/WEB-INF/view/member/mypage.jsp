@@ -28,8 +28,10 @@
 
                 <tr>
                     <th colspan="4" style="text-align: left;">
-                        주문일시: 2025-05-05 13:00:00<br>
-                        (주문번호: ${order.orderId})
+                        주문번호: ${order.orderId}<br>
+                        (주문일시: ${order.orderedAt}<br>
+                        (배송예정일: ${order.expectDeliveryAt}
+
                     </th>
                 </tr>
 
@@ -56,12 +58,39 @@
             </table>
 
             <div style="text-align: right;">
-                <button type="submit" class="cancel-btn">주문 전체 취소</button>
+                <button type="button" class="cancel-btn" onclick="cancelOrder('${order.orderId}')">주문 전체 취소</button>
             </div>
         </div>
     </c:forEach>
 </main>
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
+
+<script>
+    function cancelOrder(orderId){
+        console.log("전달된 orderId:", orderId);
+        if(!confirm("주문된 상품을 모두 취소하겠습니까?")) return;
+
+        fetch(`/order/${orderId}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (response.ok) {
+                    // 취소 성공 페이지 만들기
+                    location.href=`/order/cancel/result?orderId=${orderId}`;
+                } else {
+                    // 취소 실패 페이지 만들기
+                    location.href=`/order/cancel/result?orderId=${orderId}`;
+                }
+            })
+            // error 확인
+            .catch(error => {
+                // location.href='/error';
+                console.error("에러 발생:", error);
+                alert("오류가 발생했습니다.");
+            });
+    }
+</script>
+
 </body>
 </html>

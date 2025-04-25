@@ -7,4 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OrderRepository {
     List<OrderDto> selectAll();
+
+    List<OrderDto> findOrdersByUserId(String userId);
+
+    int cancelOrderByOrderId(Long orderId);
 }

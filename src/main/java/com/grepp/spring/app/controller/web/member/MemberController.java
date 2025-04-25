@@ -6,14 +6,17 @@ import com.grepp.spring.app.model.cart.dto.CartProduct;
 import com.grepp.spring.app.model.member.MemberService;
 import com.grepp.spring.app.model.member.dto.Member;
 import com.grepp.spring.app.model.order.OrderService;
+import com.grepp.spring.app.model.order.dto.OrderDto;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -68,12 +71,15 @@ public class MemberController {
     @GetMapping("mypage")
     public String mypage(Authentication authentication, Model model){
         log.info("authentication : {}", authentication);
-        // note ash 화면 테스트용 하드코딩된 userId
-        String userId = "testUser";
+        // 화면 테스트용 하드코딩된 userId
+        String userId = "ash@example.com";
         // authentication.getName();
 
         Member member = memberService.findById(userId);
-        model.addAttribute("memberDto", member);
+        model.addAttribute("member", member);
+
+        List<OrderDto> orderList = orderService.getOrdersByUserId(userId);
+        model.addAttribute("orderList", orderList);
 
         return "member/mypage";
     }

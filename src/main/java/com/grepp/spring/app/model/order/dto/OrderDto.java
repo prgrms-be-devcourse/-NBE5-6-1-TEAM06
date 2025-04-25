@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class OrderDto {
-    private Integer orderId;
+    private Long orderId;
     private String userId;
     private String address;
     private Integer postNumber;
@@ -21,5 +21,6 @@ public class OrderDto {
     private List<OrderItemDto> orderItems;
     private Boolean activated;
 
-
+    // mock 용. 추후 삭제 예정
+    private List<MockOrderItemDto> orderDetails;
 }
