@@ -1,50 +1,60 @@
-DROP TABLE IF EXISTS `MEMBER`;
+DROP TABLE IF EXISTS `Member`;
 
-CREATE TABLE `Member`
-(
-    `USER_ID`    VARCHAR(20) PRIMARY KEY COMMENT '회원 아이디',
-    `PASSWORD`   VARCHAR(20) NOT NULL COMMENT '비밀번호',
-    `USER_NAME`  VARCHAR(20) NULL COMMENT '이름',
-    `ROLE`   VARCHAR(20) NOT NULL COMMENT '역할',
-    `TEL`   VARCHAR(20)  NULL COMMENT '전화번호',
-    `CREATED_AT`  timestamp NOT NULL COMMENT '생성일자'
+CREATE TABLE `Member` (
+                          `user_id` varchar(20) NOT NULL COMMENT '유저 아이디 (PK)',
+                          `password` varchar(70) NOT NULL,
+                          `user_name` varchar(20) NOT NULL,
+                          `role` varchar(20) NOT NULL DEFAULT 'ROLE_USER',
+                          `tel` varchar(20) NOT NULL,
+                          `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+                          PRIMARY KEY (`user_id`)
 );
 
-DROP TABLE IF EXISTS `PRODUCT`;
 
-CREATE TABLE `PRODUCT`
-(
-    `PRODUCT_ID`    BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '상품번호',
-    `CATEGORY`      VARCHAR(20) NULL COMMENT '상품 카테고리',
-    `PRODUCT_NAME`   VARCHAR(20) NULL NULL COMMENT '상품명',
-    `PRICE`   INT NOT NULL COMMENT '가격',
-    `STOCK`   INT NOT NULL COMMENT '재고',
-    `INFO`    TEXT NULL COMMENT '상품 정보',
-    `PRODUCT_IMG` VARCHAR(30) NULL COMMENT '상품 이미지'
-
+CREATE TABLE `product` (
+                           `product_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'productId',
+                           `category` varchar(20) NULL,
+                           `product_name` varchar(50) NOT NULL,
+                           `price` INT NOT NULL,
+                           `stock` INT NOT NULL,
+                           `info` TEXT NULL,
+                           `product_img` varchar(30) NULL,
+                           PRIMARY KEY (`product_id`)
 );
 
-ALTER TABLE `PRODUCT`
-MODIFY COLUMN `PRODUCT_NAME` VARCHAR(50) NULL COMMENT '상품명';
-
-DROP TABLE IF EXISTS `CART`;
-
-CREATE TABLE `CART`
-(
-    `CART_ID`    BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '장바구니 번호',
-    `USER_ID`      VARCHAR(20) NOT NULL COMMENT '회원 아이디',
-    CONSTRAINT `fk_user` FOREIGN KEY (`USER_ID`) REFERENCES `Member`(`USER_ID`)
+CREATE TABLE `order` (
+                         `order_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderId',
+                         `user_id` varchar(20) NOT NULL COMMENT 'userId',
+                         `ordered_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         `expect_deliveried_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         `address` varchar(20) NOT NULL COMMENT 'address',
+                         `post_number` varchar(20) NOT NULL COMMENT 'postNumber',
+                         `total_price` INT NOT NULL COMMENT 'totalPrice',
+                         `order_items` INT NOT NULL COMMENT 'orderItems',
+                         `activated` BOOLEAN NOT NULL COMMENT 'activated',
+                         PRIMARY KEY (`order_id`)
 );
 
-DROP TABLE IF EXISTS `CART_DETAILS`;
+CREATE TABLE `order_details` (
+                                 `order_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderDetailsId',
+                                 `order_id` varchar(20) NOT NULL COMMENT 'orderId',
+                                 `product_id` BIGINT NOT NULL COMMENT 'productId',
+                                 `order_cnt` INT NOT NULL COMMENT 'orderCnt',
+                                 `product_price` INT NOT NULL COMMENT 'productPrice',
+                                 PRIMARY KEY (`order_details_id`)
+);
 
-CREATE TABLE `CART_DETAILS`
-(
-    `CART_DETAILS_ID`    INT AUTO_INCREMENT PRIMARY KEY COMMENT '장바구니 번호',
-    `CART_ID`      BIGINT NOT NULL COMMENT '장바구니 아이디',
-    `PRODUCT_ID`   BIGINT NULL NULL COMMENT '상품번호',
-    `PRODUCT_CNT`   INT NOT NULL COMMENT '상품 수량',
-    `CREATED_AT` timestamp   NOT NULL DEFAULT now() COMMENT '생성일자',
-    CONSTRAINT `fk_cart` FOREIGN KEY (`CART_ID`) REFERENCES `CART`(`CART_ID`),
-    CONSTRAINT `fk_product` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `PRODUCT`(`PRODUCT_ID`)
+CREATE TABLE `cart` (
+                        `cart_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'cartId',
+                        `user_id` varchar(20) NOT NULL COMMENT '이메일',
+                        PRIMARY KEY (`cart_id`)
+);
+
+CREATE TABLE `cart_details` (
+                                `cart_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'cartDetailsId',
+                                `cart_id` BIGINT NOT NULL,
+                                `product_id` BIGINT NOT NULL,
+                                `product_cnt` INT NOT NULL,
+                                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                PRIMARY KEY (`cart_details_id`)
 );

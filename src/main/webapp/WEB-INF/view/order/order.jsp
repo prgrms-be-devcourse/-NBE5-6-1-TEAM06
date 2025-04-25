@@ -147,22 +147,28 @@
             <form action="/order" method="post">
                 <div class="mb-3">
                     <label for="email" class="form-label">이메일</label>
-                    <input type="email" class="form-control mb-1" id="email">
+                    <input type="email" class="form-control mb-1" id="email" name="userId">
+                </div>
+                <div class="mb-3">
+                    <label for="tel" class="form-label">전화번호</label>
+                    <input type="text" class="form-control mb-1" id="tel" name="tel">
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">주소</label>
-                    <input type="text" class="form-control mb-1" id="address">
+                    <input type="text" class="form-control mb-1" id="address" name="address">
                 </div>
                 <div class="mb-3">
                     <label for="postcode" class="form-label">우편번호</label>
-                    <input type="text" class="form-control" id="postcode">
+                    <input type="text" class="form-control" id="postcode" name="postNumber">
                 </div>
+
                 <div>당일 오후 2시 이후의 주문은 다음날 배송을 시작합니다.</div>
 
                 <div class="row pt-2 pb-2 border-top">
                     <h5 class="col">총금액</h5>
                     <h5 class="col text-end">15000원</h5>
                 </div>
+
                 <button type="submit" name="action" value="cart"
                         class="waves-effect waves-light btn-l hover">
                     <i class="material-icons left">shopping_cart</i>
@@ -177,6 +183,10 @@
         </div>
     </div>
 </div>
+
+<input type="hidden" name="productIds" value="1">
+<input type="hidden" name="quantities" value="2">
+
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
 <script>
   document.addEventListener("DOMContentLoaded", function () {

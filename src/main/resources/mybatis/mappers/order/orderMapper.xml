@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
+
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
@@ -19,8 +20,28 @@
     select * from order_details_id where order_id = #{orderId}
   </select>
 
+  <!-- 모든 주문 내역 조회 -->
+  <select id="findAllOrders" resultType="com.grepp.spring.app.model.order.dto.OrderDto">
+    SELECT
+    o.ORDER_ID AS orderId,
+    u.USER_NAME AS userName,
+    p.PRODUCT_NAME AS productName,
+    od.PRODUCT_CNT AS productCnt,
+    (od.PRODUCT_CNT * p.PRICE) AS totalPrice,
+    od.CREATED_AT AS createdAt
+    FROM orders o
+    JOIN order_details od ON o.ORDER_ID = od.ORDER_ID
+    JOIN product p ON od.PRODUCT_ID = p.PRODUCT_ID
+    JOIN user u ON o.USER_ID = u.USER_ID
+  </select>
 
-<!-- ash 작성 -->
+  <!-- 주문 삭제 -->
+  <delete id="deleteOrder">
+    DELETE FROM orders WHERE ORDER_ID = #{cartId}
+  </delete>
+
+
+  <!-- ash 작성 -->
   <resultMap id="orderWithItemsMap" type="com.grepp.spring.app.model.order.dto.OrderDto">
     <id property="orderId" column="order_id"/>
     <result property="userId" column="user_id"/>
@@ -61,6 +82,7 @@
     SET activated = false
     WHERE order_id = #{orderId}
   </update>
+
 
 
 </mapper>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap');
-body{
+
+body {
   height: 95vh;
   background: #000000;
   text-align: center;
@@ -29,13 +30,18 @@ svg{
   from {
     transform: translateY(750px);
   }
-  to{
+
+  to {
+
+
     perspective: 500px;
     transform: translateY(0px);
   }
 }
+
 #stars {
-  animation: twinkling 2s linear ;
+<<<<<<< HEAD
+animation: twinkling 2s linear ;
 }
 @keyframes twinkling {
 

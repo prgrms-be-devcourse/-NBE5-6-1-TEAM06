@@ -6,17 +6,13 @@
 
   <resultMap id="memberMap" type="Member">
     <id property="userId" column="user_id"/>
-    <association property="info" javaType="MemberInfo"
-                 column="user_id" select="selectInfoById"/>
+<!--    <association property="info" javaType="MemberInfo"-->
+<!--      column="user_id" select="selectInfoById"/>-->
   </resultMap>
 
   <select id="selectById" resultMap="memberMap">
-    select * from member where user_id = #{userId} and activated
-  </select>
 
-  <select id="selectInfoById" resultType="MemberInfo">
-    select * from member_info where user_id = #{userId}
+    select * from member where user_id = #{userId}
   </select>
-
 
 </mapper>
