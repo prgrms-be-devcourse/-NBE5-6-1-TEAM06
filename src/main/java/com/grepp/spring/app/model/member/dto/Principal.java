@@ -7,7 +7,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("MEMBER_PRINCIPAL")
 public record Principal(
-    String user_Id,
+    String userId,
     List<Role> Roles,
     LocalDateTime loginedAt
 ) {

@@ -81,17 +81,17 @@ public class MemberController {
     // allowMethods : cors 를 허용할 메소드 지정
     // allowHeaders : cors 를 허용할 http 헤더 지정
     //@CrossOrigin(origins = "http://localhost:63342", allowCredentials = "true")
-    @GetMapping("info")
-    public String allInfo(
-        @SessionAttribute(name = "principal", required = false)
-        Principal principal,
-        RedirectAttributes redirectAttributes){
-        
-        if(principal == null || principal.Roles().contains(Role.ANONYMOUS))
-            throw new CommonException(ResponseCode.UNAUTHORIZED);
-        
-        log.info("당신의 모든 개인정보를 탈취당했습니다.");
-        redirectAttributes.addAttribute("error", "당신의 모든 개인정보입니다.");
-        return "redirect:/";
-    }
+//    @GetMapping("info")
+//    public String allInfo(
+//        @SessionAttribute(name = "principal", required = false)
+//        Principal principal,
+//        RedirectAttributes redirectAttributes){
+//
+//        if(principal == null || principal.Roles().contains(Role.ANONYMOUS))
+//            throw new CommonException(ResponseCode.UNAUTHORIZED);
+//
+//        log.info("당신의 모든 개인정보를 탈취당했습니다.");
+//        redirectAttributes.addAttribute("error", "당신의 모든 개인정보입니다.");
+//        return "redirect:/";
+//    }
 }

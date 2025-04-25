@@ -15,25 +15,24 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 @RequiredArgsConstructor
 public class MemberService {
-    
+
     private final PasswordEncoder passwordEncoder;
     private final MemberRepository memberRepository;
-    
+
     @Transactional
     public void signup(Member dto, Role role) {
-        if(memberRepository.existsMember(dto.getUserId()))
+        if (memberRepository.existsMember(dto.getUserId())) {
             throw new CommonException(ResponseCode.BAD_REQUEST);
-        
-        String encodedPassword = passwordEncoder.encode(dto.getPassword());
-        dto.setPassword(encodedPassword);
-        
+        }
+
+        dto.setPassword(passwordEncoder.encode(dto.getPassword()));
+
         dto.setRole(role);
         memberRepository.insert(dto);
-        
 
 
     }
-    
+
 //    public Principal signin(String userId, String password) {
 //
 //        Optional<Member> optional = memberRepository.selectById(userId);
@@ -48,13 +47,13 @@ public class MemberService {
 //
 //        return new Principal(userId, List.of(Role.ROLE_USER), LocalDateTime.now());
 //    }
-    
+
     public Boolean isDuplicatedId(String id) {
         return memberRepository.existsMember(id);
     }
-    
+
     public Member findById(String userId) {
         return memberRepository.selectById(userId)
-                            .orElseThrow(() -> new CommonException(ResponseCode.BAD_REQUEST));
+            .orElseThrow(() -> new CommonException(ResponseCode.BAD_REQUEST));
     }
 }

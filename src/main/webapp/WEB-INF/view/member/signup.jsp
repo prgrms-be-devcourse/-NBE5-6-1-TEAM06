@@ -56,7 +56,7 @@
     const response = await fetch('/api/member/exists/' + id);
     const data = await response.json();
     validElement.style.display = 'block';
-    validElement.textContent = data.data ? '사용이 불가능한 아이디 입니다.' : '사용 가능한 아이디 입니다.';
+    validElement.textContent = data.data ? '중복된 아이디가 있습니다' : '';
   });
 
   document.querySelector('#signupForm').addEventListener('submit', async ev => {

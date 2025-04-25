@@ -17,22 +17,19 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Slf4j
 public class AuthService implements UserDetailsService {
-    
+
     private final MemberRepository memberRepository;
 
-    
-    
+
     @Override
-    public UserDetails loadUserByUsername(String username){
-        
+    public UserDetails loadUserByUsername(String username) {
+
         Member member = memberRepository.selectById(username)
-                            .orElseThrow(() -> new UsernameNotFoundException(username));
-        
+            .orElseThrow(() -> new UsernameNotFoundException(username));
+
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(member.getRole().name()));
-        
 
-        
         // 스프링시큐리티는 기본적으로 권한 앞에 ROLE_ 이 있음을 가정
         // hasRole("ADMIN") =>  ROLE_ADMIN 권한이 있는 지 확인.
         // TEAM_{teamId}:{role}
@@ -40,6 +37,6 @@ public class AuthService implements UserDetailsService {
 
         return Principal.createPrincipal(member, authorities);
     }
-    
-    
+
+
 }
