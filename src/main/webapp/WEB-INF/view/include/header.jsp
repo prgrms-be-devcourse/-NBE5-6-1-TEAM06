@@ -1,4 +1,6 @@
 <%@ page language="java" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <header class="header">
     <nav class="navbar white">
@@ -16,7 +18,14 @@
                     </li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
-                    <li><a href="/member/mypage" class="grey-text">mypage</a></li>
+                    <c:choose>
+                        <c:when test="${fn:contains(pageContext.request.requestURI, 'member/mypage')}">
+                            <li><a href="/order/cart" class="grey-text">cart</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="/member/mypage" class="grey-text">mypage</a></li>
+                        </c:otherwise>
+                    </c:choose>
                     <li><a href="#" id="logout" class="grey-text">logout</a></li>
                     <li>
                         <a href="mobile.html">
@@ -26,6 +35,7 @@
                     </li>
                 </sec:authorize>
 
+
             </ul>
         </div>
     </nav>
@@ -33,11 +43,10 @@
 <form:form action="/logout" method="post" id="logoutForm">
 </form:form>
 <script>
-
   (() => {
 
     const logout = document.querySelector('#logout');
-    if(!logout) return;
+    if (!logout) return;
 
     logout.addEventListener('click', ev => {
       ev.preventDefault();
@@ -45,4 +54,6 @@
     });
 
   })();
+
 </script>
+

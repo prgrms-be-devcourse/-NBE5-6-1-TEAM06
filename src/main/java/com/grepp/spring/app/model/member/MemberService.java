@@ -1,8 +1,6 @@
 package com.grepp.spring.app.model.member;
-
 import com.grepp.spring.app.model.auth.code.Role;
 import com.grepp.spring.app.model.member.dto.Member;
-import com.grepp.spring.app.model.member.dto.MemberInfo;
 import com.grepp.spring.infra.error.exceptions.CommonException;
 import com.grepp.spring.infra.response.ResponseCode;
 import lombok.RequiredArgsConstructor;

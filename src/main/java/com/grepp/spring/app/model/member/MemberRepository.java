@@ -1,7 +1,6 @@
 package com.grepp.spring.app.model.member;
 
 import com.grepp.spring.app.model.member.dto.Member;
-import com.grepp.spring.app.model.member.dto.MemberInfo;
 import java.util.Optional;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -21,6 +20,4 @@ public interface MemberRepository {
         + "values(#{userId}, #{password}, #{username}, #{tel}, #{role})")
     void insert(Member dto);
 
-    @Insert("insert into member_info(USER_ID) values (#{userId})")
-    void insertInfo(MemberInfo memberInfo);
 }

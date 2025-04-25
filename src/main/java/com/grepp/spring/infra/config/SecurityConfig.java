@@ -3,7 +3,6 @@ package com.grepp.spring.infra.config;
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,8 +20,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.AccessDeniedHandler;
-import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
@@ -40,7 +37,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationSuccessHandler successHandler(){
+    public AuthenticationSuccessHandler successHandler() {
         return new AuthenticationSuccessHandler() {
             @Override
             public void onAuthenticationSuccess(HttpServletRequest request,
@@ -52,7 +49,7 @@ public class SecurityConfig {
                     .anyMatch(authority ->
                         authority.getAuthority().equals("ROLE_ADMIN"));
 
-                if(isAdmin){
+                if (isAdmin) {
                     response.sendRedirect("/admin");
                     return;
                 }
@@ -72,14 +69,11 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(
                 (requests) -> requests
-                    .requestMatchers(GET, "/", "/assets/**", "/download/**").permitAll()
-                    .requestMatchers(GET, "/book/list").permitAll()
-                    .requestMatchers(GET, "/api/book/list").permitAll()
-                    .requestMatchers(GET, "/api/member/exists/*").permitAll()
+//                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
                     .requestMatchers(GET, "/member/signup").permitAll()
                     .requestMatchers(GET, "/member/signin").permitAll()
                     .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                    .anyRequest().authenticated()
+                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
             )
             .formLogin((form) -> form
                 .loginPage("/member/signin")
@@ -95,9 +89,8 @@ public class SecurityConfig {
         return http.build();
     }
 
-
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 

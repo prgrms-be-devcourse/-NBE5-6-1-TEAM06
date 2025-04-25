@@ -9,6 +9,7 @@
 <%@include file="/WEB-INF/view/include/header.jsp" %>
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 <main class="container">
+
     <form:form modelAttribute="signupRequest" class="col s12" action="/member/signup" method="post" id="signupForm">
         <div class="row">
             <div class="input-field col s7 ">
@@ -26,6 +27,7 @@
                 <form:errors path="password" cssClass="helper-text"/>
             </div>
             <div class="input-field col s7 ">
+
                 <i class="material-icons prefix">account_circle</i>
                 <form:input path="username" id="username" name="username" type="text" placeholder="username"
                             class="validate"/>

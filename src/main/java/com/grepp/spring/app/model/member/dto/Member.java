@@ -15,4 +15,5 @@ public class Member {
     private String tel;
 //    private MemberInfo info;
 //    private Boolean activated;
+
 }

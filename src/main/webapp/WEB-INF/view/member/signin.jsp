@@ -9,6 +9,7 @@
 <%@include file="/WEB-INF/view/include/header.jsp" %>
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 <main class="container">
+
     <c:if test="${param.error!=null}">
         <div class="card-panel red lighten-2 text-white">아이디나 비밀번호를 확인하세요</div>
     </c:if>

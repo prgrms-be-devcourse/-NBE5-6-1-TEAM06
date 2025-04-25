@@ -29,4 +29,5 @@ public class SignupRequest {
         member.setTel(tel);
         return member;
     }
+
 }
