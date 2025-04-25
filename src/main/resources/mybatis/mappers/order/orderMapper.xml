@@ -45,11 +45,11 @@
   <resultMap id="orderWithItemsMap" type="com.grepp.spring.app.model.order.dto.OrderDto">
     <id property="orderId" column="order_id"/>
     <result property="userId" column="user_id"/>
+    <result property="orderedAt" column="ordered_at"/>
+    <result property="expectDeliveriedAt" column="expect_deliveried_at"/>
     <result property="address" column="address"/>
     <result property="postNumber" column="post_number"/>
     <result property="totalPrice" column="total_price"/>
-    <result property="orderedAt" column="ordered_date"/>
-    <result property="expectDeliveryAt" column="expect_delivery_date"/>
     <result property="activated" column="activated"/>
 
     <!-- 💡 List<OrderItemDto> -->
