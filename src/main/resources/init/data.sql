@@ -16,6 +16,9 @@ insert into cart(user_id)  values ('ash@example.com');
 insert into cart(user_id)  values ('lkh@example.com');
 insert into cart(user_id)  values ('lcr@example.com');
 insert into cart(user_id)  values ('hyj@example.com');
+insert into cart(user_id)  values ('test@email.com');
+
+insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (6,1,50,'2025-04-01 10:23:30');
 
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,1,1,'2025-04-01 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (1,2,1,'2025-04-01 10:23:30');

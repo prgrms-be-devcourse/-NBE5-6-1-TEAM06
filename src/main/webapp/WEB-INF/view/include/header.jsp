@@ -20,7 +20,7 @@
                 <sec:authorize access="isAuthenticated()">
                     <c:choose>
                         <c:when test="${fn:contains(pageContext.request.requestURI, 'member/mypage')}">
-                            <li><a href="/order/cart" class="grey-text">cart</a></li>
+                            <li><a href="/cartList" class="grey-text">cart</a></li>
                         </c:when>
                         <c:otherwise>
                             <li><a href="/member/mypage" class="grey-text">mypage</a></li>

@@ -69,10 +69,11 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(
                 (requests) -> requests
-//                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
                     .requestMatchers(GET, "/member/signup").permitAll()
                     .requestMatchers(GET, "/member/signin").permitAll()
                     .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                    .requestMatchers(GET,"/cartList").authenticated()
+                    .requestMatchers(GET,"/order").authenticated()
                     .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
             )
             .formLogin((form) -> form
