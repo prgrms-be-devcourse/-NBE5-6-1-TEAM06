@@ -41,7 +41,7 @@ public class CartController {
     }
 
     //TODO : 장바구니 리스트 삭제 로직
-    @DeleteMapping
+    @PostMapping("delete")
     public String deleteCartList(CartDetatilsRequest cartDetatilsRequest) {
         long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
         cartService.delete(cartDetailsId);
