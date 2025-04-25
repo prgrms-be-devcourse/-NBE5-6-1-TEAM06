@@ -37,7 +37,7 @@ insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,3,4,'2025-04-05 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (4,4,4,'2025-04-05 10:23:30');
 
-INSERT INTO `order`(order_id, user_id, order_date, expect_delivery_date, address, post_number, total_price, order_items, activated)
+INSERT INTO `order`(order_id, user_id, ordered_at, expect_deliveried_at, address, post_number, total_price, order_items, activated)
 VALUES
     (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000, 2, true),
     (2, 'ash@example.com', '2025-04-02', '2025-04-04', '서울 마포구', '23456', 15000, 3, true),

@@ -1,14 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<<<<<<< HEAD
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@include file="/WEB-INF/view/include/page.jsp" %>
 
-=======
-<%@include file="/WEB-INF/view/include/page.jsp" %>
->>>>>>> origin/kdy
 <html>
 <head>
     <title>Grepp</title>
@@ -17,7 +13,6 @@
 <body>
 <%@include file="/WEB-INF/view/include/header.jsp" %>
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
-<<<<<<< HEAD
 
 <main class="container">
     <h4>모든 고객의 주문 내역</h4>
@@ -60,13 +55,3 @@
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
 </body>
 </html>
-
-=======
-<main class="container">
-<h4> 모든 고객의 주문 내역을 볼 수 있는 페이지 - 이메일별로 나열</h4>
-</main>
-<%@include file="/WEB-INF/view/include/footer.jsp" %>
-
-</body>
-</html>
->>>>>>> origin/kdy

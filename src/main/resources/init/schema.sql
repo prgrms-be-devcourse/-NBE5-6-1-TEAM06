@@ -2,11 +2,11 @@ DROP TABLE IF EXISTS `Member`;
 
 CREATE TABLE `Member` (
                           `user_id` varchar(20) NOT NULL COMMENT '유저 아이디 (PK)',
-                          `password` varchar(20) NOT NULL,
+                          `password` varchar(70) NOT NULL,
                           `user_name` varchar(20) NOT NULL,
                           `role` varchar(20) NOT NULL DEFAULT 'ROLE_USER',
                           `tel` varchar(20) NOT NULL,
-                          `created_at` DATE NOT NULL,
+                          `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
                           PRIMARY KEY (`user_id`)
 );
 
@@ -25,8 +25,8 @@ CREATE TABLE `product` (
 CREATE TABLE `order` (
                          `order_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderId',
                          `user_id` varchar(20) NOT NULL COMMENT 'userId',
-                         `order_date` DATE NOT NULL COMMENT 'orderDate',
-                         `expect_delivery_date` DATE NOT NULL COMMENT 'expectDeliveryDate',
+                         `ordered_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         `expect_deliveried_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                          `address` varchar(20) NOT NULL COMMENT 'address',
                          `post_number` varchar(20) NOT NULL COMMENT 'postNumber',
                          `total_price` INT NOT NULL COMMENT 'totalPrice',
@@ -55,6 +55,6 @@ CREATE TABLE `cart_details` (
                                 `cart_id` BIGINT NOT NULL,
                                 `product_id` BIGINT NOT NULL,
                                 `product_cnt` INT NOT NULL,
-                                `created_at` DATE NOT NULL,
+                                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                 PRIMARY KEY (`cart_details_id`)
 );

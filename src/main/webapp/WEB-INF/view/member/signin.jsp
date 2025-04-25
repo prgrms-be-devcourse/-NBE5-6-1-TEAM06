@@ -9,16 +9,7 @@
 <%@include file="/WEB-INF/view/include/header.jsp" %>
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 <main class="container">
-<<<<<<< HEAD
-    <c:if test="${not empty param.error}">
-        <div class="card-panel red lighten-2 text-white">아이디나 비밀번호를 확인하세요</div>
-    </c:if>
-    <form:form modelAttribute="signinForm" class="col s12" action="/member/signin" method="post">
-        <div class="row">
-            <div class="input-field col s7 ">
-                <i class="material-icons prefix">account_circle</i>
-                <form:input path="userId" id="userId" name="userId" type="text" placeholder="userId"
-=======
+
     <c:if test="${param.error!=null}">
         <div class="card-panel red lighten-2 text-white">아이디나 비밀번호를 확인하세요</div>
     </c:if>
@@ -27,7 +18,6 @@
             <div class="input-field col s7 ">
                 <i class="material-icons prefix">account_circle</i>
                 <form:input path="userId" id="userId" name="userId" type="email" placeholder="userId"
->>>>>>> origin/kdy
                             class="validate"/>
                 <form:errors path="userId" cssClass="helper-text"/>
             </div>

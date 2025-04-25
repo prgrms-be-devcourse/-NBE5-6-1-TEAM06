@@ -1,16 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/WEB-INF/view/include/page.jsp" %>
-<<<<<<< HEAD
-
 <html>
 <head>
     <title>Grepp</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage.css">
-=======
-<html>
-<head>
-    <title>Grepp</title>
->>>>>>> origin/kdy
+
     <%@include file="/WEB-INF/view/include/static.jsp" %>
 </head>
 <body>
@@ -18,7 +12,6 @@
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 
 <main class="container">
-<<<<<<< HEAD
     <div class="menu-name">
         <strong>${member.userId}</strong> 님의 주문 목록입니다
     </div>
@@ -67,11 +60,6 @@
             </div>
         </div>
     </c:forEach>
-=======
-    <h4>구매한 상품 정보 보여주기</h4>
-    <h4>${member.userId}</h4>
-    <h4>${member.username}</h4>
->>>>>>> origin/kdy
 </main>
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
