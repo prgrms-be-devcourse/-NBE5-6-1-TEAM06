@@ -26,7 +26,7 @@
             <th>수량</th>
             <th>주문일</th>
             <th>활성여부</th>
-            <th>삭제</th>
+            <th>주문취소</th>
         </tr>
         </thead>
         <tbody>
@@ -43,7 +43,7 @@
                         <input type="hidden" name="_method" value="delete"/>
                         <input type="hidden" name="orderId" value="${order.orderId}"/>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <button class="btn red">삭제</button>
+                        <button class="btn red">주문취소</button>
                     </form>
                 </td>
             </tr>

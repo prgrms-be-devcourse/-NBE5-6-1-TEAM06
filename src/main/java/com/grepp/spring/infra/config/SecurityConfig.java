@@ -73,7 +73,8 @@ public class SecurityConfig {
                     .requestMatchers(GET, "/member/signup").permitAll()
                     .requestMatchers(GET, "/member/signin").permitAll()
                     .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
+                    .requestMatchers("/admin/**").authenticated()
+                    //.anyRequest().permitAll() // 관리자 로그인 만든 후 주석 풀기
             )
             .formLogin((form) -> form
                 .loginPage("/member/signin")
