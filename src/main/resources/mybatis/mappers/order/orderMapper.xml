@@ -8,7 +8,8 @@
 
   <resultMap id="orderMap" type="com.grepp.spring.app.model.order.dto.OrderDto">
     <id property="orderId" column="order_id"/>
-    <collection property="items" ofType="com.grepp.spring.app.model.order.dto.orderItemDto"
+    <result property="orderDate" column="ordered_at"/>
+    <collection property="items" ofType="com.grepp.spring.app.model.order.dto.OrderItemDto"
       column="order_id" select="selectOrderItemDtoByOrderId"/>
   </resultMap>
 
@@ -18,13 +19,16 @@
 
   <select id="selectOrderItemDtoByOrderId" resultType="com.grepp.spring.app.model.order.dto.OrderItemDto">
     SELECT
-    order_details_id AS orderDetailsId,
-    order_id,
-    product_id,
-    order_cnt,
-    product_price
-    FROM order_details
-    WHERE order_id = #{orderId}
+    od.order_details_id AS orderDetailsId,
+    od.order_id,
+    od.product_id,
+    od.order_cnt AS orderCnt,
+    od.order_cnt AS quantity,
+    od.product_price AS productPrice,
+    p.product_name AS productName
+    FROM order_details od
+    JOIN product p ON od.product_id = p.product_id
+    WHERE od.order_id = #{orderId}
   </select>
 
 

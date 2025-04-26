@@ -22,10 +22,10 @@
         <tr>
             <th>주문번호</th>
             <th>이메일</th>
+            <th>주문상세</th>
             <th>총 가격</th>
-            <th>수량</th>
+            <th>총 수량</th>
             <th>주문일</th>
-            <th>활성여부</th>
             <th>주문취소</th>
         </tr>
         </thead>
@@ -34,12 +34,16 @@
             <tr>
                 <td>${order.orderId}</td>
                 <td>${order.userId}</td>
+                <td>
+                    <c:forEach var="item" items="${order.items}">
+                        ${item.productName} (${item.quantity})<br/>
+                    </c:forEach>
+                </td>
                 <td>${order.totalPrice}</td>
                 <td>${order.orderItems}</td>
                 <td>${order.orderDate}</td>
-                <td>${order.activated}</td>
                 <td>
-                    <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('삭제하시겠습니까?');">
+                    <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 삭제하시겠습니까?');">
                         <input type="hidden" name="_method" value="delete"/>
                         <input type="hidden" name="orderId" value="${order.orderId}"/>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
