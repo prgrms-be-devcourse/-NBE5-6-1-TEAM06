@@ -31,7 +31,6 @@ public class CartController {
         return "cart/cartList";
     }
 
-    //TODO : 장바구니 리스트 수정 로직
     @PostMapping
     public String modifyCart(CartDetatilsRequest cartDetatilsRequest) {
         int productCnt = cartDetatilsRequest.getProductCnt();
@@ -40,7 +39,6 @@ public class CartController {
         return "redirect:/cartList";
     }
 
-    //TODO : 장바구니 리스트 삭제 로직
     @PostMapping("delete")
     public String deleteCartList(CartDetatilsRequest cartDetatilsRequest) {
         long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
@@ -49,8 +47,8 @@ public class CartController {
     }
 
     //TODO : 장바구니 -> 결제  로직
-    @PostMapping
-    public String cartToOrder() {
-        return "redirect:/order";
-    }
+//    @PostMapping
+//    public String cartToOrder() {
+//        return "redirect:/order";
+//    }
 }
