@@ -3,7 +3,7 @@ package com.grepp.spring.app.controller.web.cart.form;
 import lombok.Data;
 
 @Data
-public class CartRequest {
+public class CartDetatilsRequest {
     private int productCnt;
     private long cartDetailsId;
 }

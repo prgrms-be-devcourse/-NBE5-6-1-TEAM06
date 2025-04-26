@@ -38,4 +38,9 @@
     where cart_details_id = #{cartDetailsId}
   </update>
 
+  <delete id="delete">
+    DELETE from cart_details
+    WHERE cart_details_id = #{cartDetailsId}
+  </delete>
+
 </mapper>
