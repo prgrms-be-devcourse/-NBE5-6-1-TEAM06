@@ -75,6 +75,7 @@ public class SecurityConfig {
                                 .requestMatchers(GET, "/member/signup").permitAll()
                                 .requestMatchers(GET, "/member/signin").permitAll()
                                 .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                                .requestMatchers("/admin/**").permitAll()//나중에 삭제
                                 .anyRequest().authenticated() //  나머지는 로그인 필요!
                 )
                 .formLogin((form) -> form

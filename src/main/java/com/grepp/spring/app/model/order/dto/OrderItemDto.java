@@ -2,16 +2,17 @@ package com.grepp.spring.app.model.order.dto;
 
 import java.util.List;
 import java.util.Map;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+
+import lombok.*;
 
 @Getter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class OrderItemDto {
 
-    private Long oderDetailsId;
+    private Long orderDetailsId;
     private String orderId;
     private long productId;
     private Integer orderCnt;
