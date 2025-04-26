@@ -12,9 +12,11 @@ import lombok.ToString;
 @Setter
 public class OrderRequest {
 
-    // member table / user_id
     @NotBlank
     private String userId;
+    @NotBlank
+    private String userName;
+
 
     @NotBlank
     @Size(min = 10, max =30)
@@ -31,5 +33,4 @@ public class OrderRequest {
     private boolean fromCart; // 장바구니 기반 주문 여부
     private List<Long> productIds;
     private List<Integer> quantities;
-
 }

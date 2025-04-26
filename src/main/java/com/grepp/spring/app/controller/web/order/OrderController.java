@@ -38,7 +38,7 @@ public class OrderController {
         } else if (action.equals("order")) {
             OrderResponse response = orderService.createOrder(request);
             model.addAttribute("order", response);
-            return "orderComplete"; // orderComplete.jsp 를 보여줌
+            return "/order/orderComplete";
         }
         return "redirect:/";
     }
