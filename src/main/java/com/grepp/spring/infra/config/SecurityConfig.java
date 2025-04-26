@@ -4,7 +4,6 @@ import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -70,12 +69,11 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         (requests) -> requests
-//                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
                                 .requestMatchers(GET, "/").permitAll()      // 메인 페이지 - 누구나 접근 가능
                                 .requestMatchers(GET, "/member/signup").permitAll()
                                 .requestMatchers(GET, "/member/signin").permitAll()
-                                .requestMatchers(GET, "/member/order/**").authenticated()
-                                .requestMatchers(GET, "/member/cartList/**").authenticated()
+                                .requestMatchers(GET, "order/**").authenticated()
+                                .requestMatchers(GET, "cartList/**").authenticated()
                                 .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
                                 .anyRequest().permitAll() //  나머지는 로그인 필요!
                 )
