@@ -24,6 +24,7 @@
                 select="selectOrderItemsByOrderId"/>
   </resultMap>
 
+  <!-- 유저의 모든 주문내역(취소 미포함) -->
   <select id="findOrderListByUserId" parameterType="String" resultMap="orderWithItemsMap">
     SELECT * FROM `order` WHERE user_id = #{userId}
     AND activated = 1
@@ -42,11 +43,32 @@
     WHERE od.order_id = #{orderId}
   </select>
 
+  <!-- 주문 취소 -->
   <update id="cancelByOrderId" parameterType="Long">
     UPDATE `order`
     SET activated = 0
     WHERE order_id = #{orderId}
   </update>
+
+  <!-- 주문 취소 후 화면에 뿌려줄 userId (취소한 OrderId로 찾음) -->
+  <select id="findUserIdByOrderId" parameterType="Long">
+    SELECT user_id
+    FROM `ORDER`
+    WHERE order_id = #{orderId}
+  </select>
+
+  <!-- 주문 취소 후 화면에 뿌려줄 <OrderDto> : OrderItemDto를 안음 -->
+  <select id="findOrderByOrderId" parameterType="Long" resultMap="orderWithItemsMap">
+    SELECT
+    o.order_id,
+    o.user_id,
+    o.ordered_at,
+    o.expect_deliveried_at,
+    o.total_price,
+    o.activated
+    FROM `order` o
+    WHERE o.order_id = #{orderId}
+  </select>
 
 
 

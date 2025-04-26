@@ -75,6 +75,7 @@ public class SecurityConfig {
                                 .requestMatchers(GET, "order/**").authenticated()
                                 .requestMatchers(GET, "cartList/**").authenticated()
                                 .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                                .requestMatchers(GET, "/api/member/exists/**").permitAll()      //회원가입...
                                 .anyRequest().permitAll() //  나머지는 로그인 필요!
                 )
                 .formLogin((form) -> form

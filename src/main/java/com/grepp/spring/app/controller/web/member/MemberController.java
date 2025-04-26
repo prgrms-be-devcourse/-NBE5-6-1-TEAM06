@@ -78,19 +78,29 @@ public class MemberController {
         return "member/mypage";
     }
 
-
     @DeleteMapping("/order/{orderId}/cancel")
     public String cancelOrder(@PathVariable Long orderId, RedirectAttributes redirectAttributes) {
         boolean success = ashOrderService.cancelOrder(orderId);
 
-        redirectAttributes.addAttribute("status", success ? "success" : "fail");
-        return "redirect:/member/order/cancel/result";
+        if (success) {
+            ASHOrderDto order = ashOrderService.getOrdersByOrderId(orderId);
+            String userId = ashOrderService.findUserIdById(orderId);
+            redirectAttributes.addAttribute("status", "success");
+            return "redirect:/member/order/cancel/result?userId=" + userId + "&orderId=" + orderId;
+        } else {
+            String userId = ashOrderService.findUserIdById(orderId);
+            redirectAttributes.addAttribute("status", "fail");
+            return "redirect:/member/order/cancel/result?userId=" + userId + "&orderId=" + orderId;
+        }
     }
-
 
     // 결과 화면을 보여줌
     @GetMapping("order/cancel/result")
-    public String showCancelResult(@RequestParam String status, Model model) {
+    public String showCancelResult(@RequestParam String status, @RequestParam Long orderId,
+                                   Model model) {
+
+        ASHOrderDto order = ashOrderService.getOrdersByOrderId(orderId);
+        model.addAttribute("order", order);
         model.addAttribute("status", status);
         return "order/orderCancelResult";
     }

@@ -12,5 +12,6 @@ public interface ASHOrderRepository {
 
     List<ASHOrderDto> findOrderListByUserId(String userId);
     int cancelByOrderId(Long orderId);
-
+    String findUserIdByOrderId(Long orderId);
+    ASHOrderDto findOrderByOrderId(Long orderId);
 }
