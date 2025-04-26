@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d80b75e6-6730-4b89-98f4-98e471d389a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/error/404.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/error/404.css" afterDir="false" />
-    </list>
+    <list default="true" id="d80b75e6-6730-4b89-98f4-98e471d389a1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +55,10 @@
     &quot;accountId&quot;: &quot;b607fd37-9eb0-4fd6-9400-0b6ef9f25949&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="JspContextManager">
+    <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/include/header.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/spring/cookie.jsp" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -88,7 +88,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Tomcat Server.Tomcat 10.1.39.executor": "Run",
-    "git-widget-placeholder": "lkh",
+    "git-widget-placeholder": "kdy",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/LeeKangHyeon/Programmers_dev/backend/f_spring/springboot-boilerplate",
     "node.js.detected.package.eslint": "true",
