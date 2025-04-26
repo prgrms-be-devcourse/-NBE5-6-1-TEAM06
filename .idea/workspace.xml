@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="mvc:war exploded" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3f5677b-2bff-4040-9306-35fd8a0f6c2d" name="Changes" comment="" />
+    <list default="true" id="e1094f5e-dd0f-4556-bb9e-7cb6838917f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/OrderDetailsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/form/OrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/form/OrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/response/OrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/response/OrderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/OrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/dto/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/order/orderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/order/orderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/order/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/order/orderComplete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/order/orderComplete.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,54 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Leeka99&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Leeka99"
   }
-}</component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1745679040" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="lkh" />
-                    <option name="lastUsedInstant" value="1745679039" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git&quot;,
-    &quot;accountId&quot;: &quot;b607fd37-9eb0-4fd6-9400-0b6ef9f25949&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git",
+    "accountId": "b607fd37-9eb0-4fd6-9400-0b6ef9f25949"
   }
-}</component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="LogFilters">
-    <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
-  </component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -73,10 +46,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2wGAOqFb05u7ZnRqg0OuYXyo0eN" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2wHA8NRlS1NmfPnjP9vswCgnWgs" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -84,26 +57,23 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "Tomcat Server.Tomcat 10.1.39.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
+    "git-widget-placeholder": "Merging main",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
   }
 }]]></component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="girdsCircles" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="girdsCircles" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration name="Tomcat 10.1.39" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.39" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
@@ -116,7 +86,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="3b1b1be6-eb08-4dcf-8627-0409df7630d5" />
+        <option name="BASE_DIRECTORY_NAME" value="5dcef612-43a9-433a-9d4e-3783a6517b01" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -124,7 +94,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="58726" />
+        <option name="DEBUG_PORT" value="54245" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -205,29 +175,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d3f5677b-2bff-4040-9306-35fd8a0f6c2d" name="Changes" comment="" />
-      <created>1745657509859</created>
+      <changelist id="e1094f5e-dd0f-4556-bb9e-7cb6838917f1" name="Changes" comment="" />
+      <created>1745687966674</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745657509859</updated>
-      <workItem from="1745657512668" duration="1370000" />
-      <workItem from="1745671325463" duration="1135000" />
-      <workItem from="1745678133476" duration="581000" />
+      <updated>1745687966674</updated>
+      <workItem from="1745687969001" duration="25000" />
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
