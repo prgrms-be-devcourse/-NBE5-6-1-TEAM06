@@ -48,4 +48,9 @@ public class CartController {
         return "redirect:/cartList";
     }
 
+    //TODO : 장바구니 -> 결제  로직
+    @PostMapping
+    public String cartToOrder() {
+        return "redirect:/order";
+    }
 }
