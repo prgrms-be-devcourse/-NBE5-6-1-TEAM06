@@ -1,5 +1,6 @@
 package com.grepp.spring.app.model.order;
 
+
 import com.grepp.spring.app.controller.web.order.code.OrderStatus;
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
@@ -8,12 +9,13 @@ import com.grepp.spring.app.model.order.dto.OrderDto;
 import com.grepp.spring.app.model.order.dto.OrderItemDto;
 import com.grepp.spring.app.model.product.ProductService;
 import com.grepp.spring.app.model.product.dto.ProductDto;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -28,6 +30,8 @@ public class OrderService {
         return orderRepository.selectAll();
     }
 
+
+    // 이거랑 아래 deleteOrder 제것(ash) 같은데... 혹시 몰라서 그냥 남겨둡니다...
     public List<OrderDto> getAllOrders() {
         return orderRepository.findAllOrders();
     }
@@ -59,14 +63,14 @@ public class OrderService {
 
             // 지금은 cartService 없음 → 하드코딩으로 대체
             items = List.of(
-                OrderItemDto.builder()
-                    .productCode("TEMP-001")
-                    .category("테스트 카테고리")
-                    .productName("하드코딩 상품")
-                    .productPrice(5000)
-                    .quantity(2)
-                    .totalPrice(10000)
-                    .build()
+                    OrderItemDto.builder()
+                            .productCode("TEMP-001")
+                            .category("테스트 카테고리")
+                            .productName("하드코딩 상품")
+                            .productPrice(5000)
+                            .quantity(2)
+                            .totalPrice(10000)
+                            .build()
             );
 
 
@@ -84,19 +88,19 @@ public class OrderService {
                 ProductDto product = productService.getProduct(productId);
 
                 items.add(OrderItemDto.builder()
-                    .productCode(product.getCode())
-                    .category(product.getCategory())
-                    .productName(product.getName())
-                    .productPrice(product.getPrice())
-                    .quantity(quantity)
-                    .totalPrice(product.getPrice() * quantity)
-                    .build());
+                        .productCode(product.getCode())
+                        .category(product.getCategory())
+                        .productName(product.getName())
+                        .productPrice(product.getPrice())
+                        .quantity(quantity)
+                        .totalPrice(product.getPrice() * quantity)
+                        .build());
             }
         }
 
         int totalPrice = items.stream()
-            .mapToInt(OrderItemDto::getTotalPrice)
-            .sum();
+                .mapToInt(OrderItemDto::getTotalPrice)
+                .sum();
 
         LocalDateTime now = LocalDateTime.now();
 
@@ -110,14 +114,14 @@ public class OrderService {
         }
 
         return OrderResponse.builder()
-            .orderId(1001L)
-            .userId(request.getUserId())
-            .message(request.getUserId() + "님 주문이 완료되었습니다 .ᐟ")
-            .orderStatus(OrderStatus.PAYMENT_COMPLETED)
-            .totalPrice(totalPrice)
-            .orderDate(now)
-            .expectDeliveryDate(expectDeliveryAt)
-            .items(items)
-            .build();
+                .orderId(1001L)
+                .userId(request.getUserId())
+                .message(request.getUserId() + "님 주문이 완료되었습니다 .ᐟ")
+                .orderStatus(OrderStatus.PAYMENT_COMPLETED)
+                .totalPrice(totalPrice)
+                .orderDate(now)
+                .expectDeliveryDate(expectDeliveryAt)
+                .items(items)
+                .build();
     }
 }

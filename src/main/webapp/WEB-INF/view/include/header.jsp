@@ -20,7 +20,7 @@
                 <sec:authorize access="isAuthenticated()">
                     <c:choose>
                         <c:when test="${fn:contains(pageContext.request.requestURI, 'member/mypage')}">
-                            <li><a href="/order/cart" class="grey-text">cart</a></li>
+                            <li><a href="/member/cartList" class="grey-text">cart</a></li>
                         </c:when>
                         <c:otherwise>
                             <li><a href="/member/mypage" class="grey-text">mypage</a></li>
@@ -43,17 +43,17 @@
 <form:form action="/logout" method="post" id="logoutForm">
 </form:form>
 <script>
-  (() => {
+    (() => {
 
-    const logout = document.querySelector('#logout');
-    if (!logout) return;
+        const logout = document.querySelector('#logout');
+        if (!logout) return;
 
-    logout.addEventListener('click', ev => {
-      ev.preventDefault();
-      logoutForm.submit();
-    });
+        logout.addEventListener('click', ev => {
+            ev.preventDefault();
+            logoutForm.submit();
+        });
 
-  })();
+    })();
 
 </script>
 
