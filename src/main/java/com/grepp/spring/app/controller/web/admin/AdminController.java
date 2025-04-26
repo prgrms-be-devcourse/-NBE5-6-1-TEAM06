@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 @RequestMapping("admin")
 //@PreAuthorize("hasRole('ADMIN')")
-
 public class AdminController {
 
     private final OrderService orderService;

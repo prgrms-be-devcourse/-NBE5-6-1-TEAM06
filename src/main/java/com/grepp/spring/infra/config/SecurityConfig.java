@@ -70,13 +70,15 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         (requests) -> requests
-//                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
+                                .requestMatchers("/assets/**", "/favicon.ico").permitAll()
                                 .requestMatchers(GET, "/").permitAll()      // 메인 페이지 - 누구나 접근 가능
                                 .requestMatchers(GET, "/member/signup").permitAll()
                                 .requestMatchers(GET, "/member/signin").permitAll()
-                                .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                                .requestMatchers(GET, "/member/order/**").authenticated()
+                                .requestMatchers(GET, "/member/cartList/**").authenticated()
                                 .requestMatchers("/admin/**").permitAll()//나중에 삭제
-                                .anyRequest().authenticated() //  나머지는 로그인 필요!
+                                .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                                .anyRequest().permitAll() //  나머지는 로그인 필요!
                 )
                 .formLogin((form) -> form
                         .loginPage("/member/signin")

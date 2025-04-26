@@ -43,7 +43,7 @@
                 <td>${order.orderItems}</td>
                 <td>${order.orderDate}</td>
                 <td>
-                    <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                    <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 취소하시겠습니까?');">
                         <input type="hidden" name="_method" value="delete"/>
                         <input type="hidden" name="orderId" value="${order.orderId}"/>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

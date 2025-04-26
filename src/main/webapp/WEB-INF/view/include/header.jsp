@@ -1,6 +1,8 @@
 <%@ page language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<% boolean isAdmin = request.isUserInRole("ROLE_ADMIN"); %>
 
 <header class="header">
     <nav class="navbar white">
@@ -17,16 +19,21 @@
                         </a>
                     </li>
                 </sec:authorize>
+
                 <sec:authorize access="isAuthenticated()">
                     <c:choose>
-                        <c:when test="${fn:contains(pageContext.request.requestURI, 'member/mypage')}">
+                        <c:when test="${isAdmin}">
+                            <li><a href="/admin/dashboard" class="grey-text">adminpage</a></li>
+                        </c:when>
 
+                        <c:when test="${fn:contains(pageContext.request.requestURI, 'member/mypage')}">
                             <li><a href="/cartList" class="grey-text">cart</a></li>
                         </c:when>
                         <c:otherwise>
                             <li><a href="/member/mypage" class="grey-text">mypage</a></li>
                         </c:otherwise>
                     </c:choose>
+
                     <li><a href="#" id="logout" class="grey-text">logout</a></li>
                     <li>
                         <a href="mobile.html">
