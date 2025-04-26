@@ -6,15 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../../../assets/css/order.css" rel="stylesheet">
 </head>
 <body class="container-fluid">
 
 <div class="row justify-content-center m-4">
-    <h1 class="text-center" onclick="location.href='index.jsp'" style="cursor: pointer;">Grids & Circle</h1>
+    <h1 class="text-center" onclick="location.href='index.jsp'" style="cursor: pointer;">Grids &
+        Circle</h1>
 </div>
 
 <div class="card">
@@ -24,77 +27,89 @@
             <h5><b>Product List</b></h5>
             <ul class="list-group products">
                 <li class="list-group-item d-flex mt-3">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg" alt=""></div>
+                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
+                                            alt=""></div>
                     <div class="col">
                         <div class="row text-muted">커피콩</div>
                         <div class="row item-name">Columbia Nariñó</div>
                     </div>
                     <div class="col text-center price">5000원</div>
                     <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
                             <i class="material-icons">remove</i>
                         </button>
                         <input type="number" class="form-control quantity-input" value="0" min="0"
                                data-name="Columbia Nariñó"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
                             <i class="material-icons">add</i>
                         </button>
                     </div>
                 </li>
                 <li class="list-group-item d-flex mt-2">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg" alt=""></div>
+                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
+                                            alt=""></div>
                     <div class="col">
                         <div class="row text-muted">커피콩</div>
                         <div class="row item-name">Brazil Serra Do Caparaó</div>
                     </div>
                     <div class="col text-center price">5000원</div>
                     <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
                             <i class="material-icons">remove</i>
                         </button>
                         <input type="number" class="form-control quantity-input" value="0" min="0"
                                data-name="Brazil Serra Do Caparaó"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
                             <i class="material-icons">add</i>
                         </button>
                     </div>
                 </li>
                 <li class="list-group-item d-flex mt-2">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg" alt=""></div>
+                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
+                                            alt=""></div>
                     <div class="col">
                         <div class="row text-muted">커피콩</div>
                         <div class="row item-name">Columbia Quindío</div>
                     </div>
                     <div class="col text-center price">5000원</div>
                     <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
                             <i class="material-icons">remove</i>
                         </button>
                         <input type="number" class="form-control quantity-input" value="0" min="0"
                                data-name="Columbia Quindío"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
                             <i class="material-icons">add</i>
                         </button>
                     </div>
                 </li>
                 <li class="list-group-item d-flex mt-2">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg" alt=""></div>
+                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
+                                            alt=""></div>
                     <div class="col">
                         <div class="row text-muted">커피콩</div>
                         <div class="row item-name">Ethiopia Sidamo</div>
                     </div>
                     <div class="col text-center price">5000원</div>
                     <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
                             <i class="material-icons">remove</i>
                         </button>
                         <input type="number" class="form-control quantity-input" value="0" min="0"
                                data-name="Ethiopia Sidamo"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
-                        <button type="button" class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
+                        <button type="button"
+                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
                             <i class="material-icons">add</i>
                         </button>
                     </div>
@@ -111,7 +126,10 @@
             <ul id="summary-list" class="list-unstyled"></ul>
 
             <form action="/order" method="post">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <input type="hidden" name="productIds" value="${item.productId}">
+                <input type="hidden" name="quantities" value="${item.quantity}">
+
                 <div class="mb-3">
                     <label for="email" class="form-label">이메일</label>
                     <input type="email" class="form-control mb-1" id="email" name="userId">
@@ -133,10 +151,12 @@
                     <h5 class="col">총금액</h5>
                     <h5 class="col text-end">15000원</h5>
                 </div>
-                <button type="submit" name="action" value="cart" class="waves-effect waves-light btn-l hover">
+                <button type="submit" name="action" value="cart"
+                        class="waves-effect waves-light btn-l hover">
                     <i class="material-icons left">shopping_cart</i>장바구니
                 </button>
-                <button type="submit" name="action" value="order" class="waves-effect waves-light btn-l hover">
+                <button type="submit" name="action" value="order"
+                        class="waves-effect waves-light btn-l hover">
                     <i class="material-icons left">payment</i>결제하기
                 </button>
             </form>
@@ -156,30 +176,41 @@
     console.log("Quantity Inputs:", quantityInputs.length);
 
     function updateSummary() {
-
       const items = [...document.querySelectorAll('.list-group.products > li')];
+      let totalPrice = 0; // 총 금액을 저장할 변수
 
-      const f = items.map(v => {
-        const eachPrice = Number(v.querySelector('.price'));
+      const f = items
+      .map(v => {
+        const priceText = v.querySelector('.price').textContent.trim(); // "5000원" 형식
+        const price = Number(priceText.replace('원', '')); // "원" 제거 후 숫자로 변환
         const itemName = v.querySelector('.item-name').textContent.trim();
         const quantity = Number(v.querySelector('.quantity-input').value);
 
         if (quantity >= 1) {
+          totalPrice += price * quantity; // 총 금액 누적 계산
           return `<li>
-                    <div class='row'>
-                        <h6 class="p-0">\${itemName}
-                            <span class="badge bg-dark">\${quantity}개</span>
-                        </h6>
-                    </div>
-                </li>`;
+                          <div class='row'>
+                              <h6 class="p-0">\${itemName}
+                                  <span class="badge bg-dark">\${quantity}개</span>
+                              </h6>
+                          </div>
+                      </li>`;
         }
-
         return null;
-      }).filter(v => v !== null).join('');
+      })
+      .filter(v => v !== null)
+      .join('');
 
-      console.log(f)
+      console.log(f);
+      console.log("Total Price: ", totalPrice); // 콘솔에 총 금액 출력 (디버깅용)
 
       summaryList.innerHTML = f;
+
+      // 총금액 UI 업데이트
+      const totalPriceElement = document.querySelector('.summary .row.border-top h5.text-end');
+      if (totalPriceElement) {
+        totalPriceElement.textContent = `\${totalPrice}원`;
+      }
     }
 
     increaseBtns.forEach((btn, idx) => {
