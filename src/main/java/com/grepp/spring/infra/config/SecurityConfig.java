@@ -86,6 +86,27 @@ public class SecurityConfig {
                 )
                 .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
                 .logout(LogoutConfigurer::permitAll);
+//=======
+//            .authorizeHttpRequests(
+//                (requests) -> requests
+//                    .requestMatchers(GET, "/member/signup").permitAll()
+//                    .requestMatchers(GET, "/member/signin").permitAll()
+//                    .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+//                    .requestMatchers(GET,"/cartList").authenticated()
+//                    .requestMatchers(GET,"/order").authenticated()
+//                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
+//            )
+//            .formLogin((form) -> form
+//                .loginPage("/member/signin")
+//                .usernameParameter("userId")
+//                .loginProcessingUrl("/member/signin")
+//                .defaultSuccessUrl("/")
+//                .successHandler(successHandler())
+//                .permitAll()
+//            )
+//            .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
+//            .logout(LogoutConfigurer::permitAll);
+//>>>>>>> origin/lkh
 
         return http.build();
     }
