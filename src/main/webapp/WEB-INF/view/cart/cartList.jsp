@@ -151,12 +151,14 @@
 
       minusBtn.addEventListener("click", () => {
         let val = parseInt(input.value);
-        input.value = val - 1; // 수량 증가
+        if (val > 1) {
+          input.value = val - 1;
+        }
       });
 
       plusBtn.addEventListener("click", () => {
         let val = parseInt(input.value);
-        input.value = val + 1; // 수량 증가
+        input.value = val + 1;
       });
     });
   });
