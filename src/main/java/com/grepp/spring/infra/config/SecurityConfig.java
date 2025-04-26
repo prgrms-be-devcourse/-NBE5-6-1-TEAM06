@@ -28,8 +28,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-    // 삭제해도 됨
-//    @Value("${remember-me.key:defaultSecretKey}")
     @Value("${remember-me.key}")
     private String rememberMeKey;
 
@@ -46,14 +44,6 @@ public class SecurityConfig {
             public void onAuthenticationSuccess(HttpServletRequest request,
                 HttpServletResponse response, Authentication authentication)
                 throws IOException, ServletException {
-//삭제해도 됨
-//                // ✅ remember-me 체크 안 했으면 쿠키 제거
-//                if (request.getParameter("remember-me.key") == null) {
-//                    Cookie cookie = new Cookie("remember-me.key", null);
-//                    cookie.setMaxAge(0);
-//                    cookie.setPath("/");
-//                    response.addCookie(cookie);
-//                }
 
                 boolean isAdmin = authentication.getAuthorities()
                     .stream()
@@ -96,10 +86,6 @@ public class SecurityConfig {
                 .permitAll()
             )
             .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
-
-            // 삭제해도 됨
-//            .rememberMe(rememberMe -> rememberMe
-//                .key(rememberMeKey != null && !rememberMeKey.isEmpty() ? rememberMeKey : "defaultSecretKey"))
             .logout(LogoutConfigurer::permitAll);
 
         return http.build();
