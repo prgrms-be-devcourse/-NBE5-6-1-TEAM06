@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.grepp.spring.app.model.order.ASHOrderRepository">
+
+
+  <!-- ash 작성 -->
+  <resultMap id="orderWithItemsMap" type="com.grepp.spring.app.model.order.dto.ASHOrderDto">
+    <id property="orderId" column="order_id"/>
+    <result property="userId" column="user_id"/>
+    <result property="orderedAt" column="ordered_at"/>
+    <result property="expectedDeliveryAt" column="expect_deliveried_at"/>
+    <result property="totalPrice" column="total_price"/>
+    <result property="activated" column="activated"/>
+
+    <!-- 💡 List<OrderItemDto> -->
+    <!-- property orderDto에 있는 List<OrderItemDto> "orderItems" -->
+    <collection property="items"
+                ofType="com.grepp.spring.app.model.order.dto.ASHOrderItemDto"
+                column="order_id"
+                select="selectOrderItemsByOrderId"/>
+  </resultMap>
+
+  <select id="findOrderListByUserId" parameterType="String" resultMap="orderWithItemsMap">
+    SELECT * FROM `order` WHERE user_id = #{userId}
+    AND activated = 1
+  </select>
+
+  <select id="selectOrderItemsByOrderId" parameterType="Long"
+          resultType="com.grepp.spring.app.model.order.dto.ASHOrderItemDto">
+    SELECT
+    od.order_details_id AS orderDetailsId,
+    od.product_id AS productId,
+    p.product_name AS productName,
+    od.product_price AS productPrice,
+    od.order_cnt AS orderCnt
+    FROM order_details od
+    JOIN product p ON od.product_id = p.product_id
+    WHERE od.order_id = #{orderId}
+  </select>
+
+  <update id="cancelByOrderId" parameterType="Long">
+    UPDATE `order`
+    SET activated = 0
+    WHERE order_id = #{orderId}
+  </update>
+
+
+
+</mapper>

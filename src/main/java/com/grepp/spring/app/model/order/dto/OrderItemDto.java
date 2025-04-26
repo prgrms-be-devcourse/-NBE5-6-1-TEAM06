@@ -19,7 +19,7 @@ public class OrderItemDto {
 
     // DB에 없는 것
     private String productName;
-    private Integer totalPrice;
+    private Integer totalPrice;  //unitPrice
     private Map<Long, Integer> orderQuantities;
     private String productCode;
     private String category;

@@ -27,12 +27,12 @@
   text-align: center;
   padding: 10px;
   border-bottom: 1px solid #eee;
-  border-right: 1px solid #ddd; /* 세로줄 추가 */
+  border-right: 1px solid #ddd;
 }
 
 .order-table th:last-child,
 .order-table td:last-child {
-  border-right: none; /* 마지막 열에는 세로줄 안 보이게 */
+  border-right: none;
 }
 
 
@@ -59,9 +59,10 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .cancel-btn:hover {
-  background-color: #959292;
+  background-color: #5c4031;
+  color: white;
 }

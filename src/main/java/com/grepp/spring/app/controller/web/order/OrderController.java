@@ -2,16 +2,13 @@ package com.grepp.spring.app.controller.web.order;
 
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
+import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -45,4 +42,11 @@ public class OrderController {
         }
         return "redirect:/";
     }
+
+    //TODO : 장바구니 담기, 장바구니에서 -> 결제로 이동
+//    @GetMapping
+//    public String cartToOrder(@ModelAttribute CartRequest cartRequest) {
+//        return "order/orderExample";
+//    }
+
 }

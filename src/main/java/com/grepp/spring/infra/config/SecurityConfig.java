@@ -4,6 +4,7 @@ import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
-            .build();
+                .build();
     }
 
     @Bean
@@ -41,13 +42,13 @@ public class SecurityConfig {
         return new AuthenticationSuccessHandler() {
             @Override
             public void onAuthenticationSuccess(HttpServletRequest request,
-                HttpServletResponse response, Authentication authentication)
-                throws IOException, ServletException {
+                                                HttpServletResponse response, Authentication authentication)
+                    throws IOException, ServletException {
 
                 boolean isAdmin = authentication.getAuthorities()
-                    .stream()
-                    .anyMatch(authority ->
-                        authority.getAuthority().equals("ROLE_ADMIN"));
+                        .stream()
+                        .anyMatch(authority ->
+                                authority.getAuthority().equals("ROLE_ADMIN"));
 
                 if (isAdmin) {
                     response.sendRedirect("/admin");
@@ -67,24 +68,47 @@ public class SecurityConfig {
         // ** : 모든 depth 의 모든 경로
         // Security Config 에는 인증과 관련된 설정만 지정 (PermitAll or Authenticated)
         http
-            .authorizeHttpRequests(
-                (requests) -> requests
+                .authorizeHttpRequests(
+                        (requests) -> requests
 //                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
-                    .requestMatchers(GET, "/member/signup").permitAll()
-                    .requestMatchers(GET, "/member/signin").permitAll()
-                    .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
-            )
-            .formLogin((form) -> form
-                .loginPage("/member/signin")
-                .usernameParameter("userId")
-                .loginProcessingUrl("/member/signin")
-                .defaultSuccessUrl("/")
-                .successHandler(successHandler())
-                .permitAll()
-            )
-            .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
-            .logout(LogoutConfigurer::permitAll);
+                                .requestMatchers(GET, "/").permitAll()      // 메인 페이지 - 누구나 접근 가능
+                                .requestMatchers(GET, "/member/signup").permitAll()
+                                .requestMatchers(GET, "/member/signin").permitAll()
+                                .requestMatchers(GET, "/order/**").authenticated()
+                                .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                                .anyRequest().permitAll() //  나머지는 로그인 필요!
+                )
+                .formLogin((form) -> form
+                        .loginPage("/member/signin")
+                        .usernameParameter("userId")
+                        .loginProcessingUrl("/member/signin")
+                        .defaultSuccessUrl("/")
+                        .successHandler(successHandler())
+                        .permitAll()
+                )
+                .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
+                .logout(LogoutConfigurer::permitAll);
+//=======
+//            .authorizeHttpRequests(
+//                (requests) -> requests
+//                    .requestMatchers(GET, "/member/signup").permitAll()
+//                    .requestMatchers(GET, "/member/signin").permitAll()
+//                    .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+//                    .requestMatchers(GET,"/cartList").authenticated()
+//                    .requestMatchers(GET,"/order").authenticated()
+//                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
+//            )
+//            .formLogin((form) -> form
+//                .loginPage("/member/signin")
+//                .usernameParameter("userId")
+//                .loginProcessingUrl("/member/signin")
+//                .defaultSuccessUrl("/")
+//                .successHandler(successHandler())
+//                .permitAll()
+//            )
+//            .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
+//            .logout(LogoutConfigurer::permitAll);
+//>>>>>>> origin/lkh
 
         return http.build();
     }
