@@ -67,7 +67,7 @@
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
-        <a href="/member/mypage"><button >구매하기</button></a>
+        <a href="/order"><button >구매하기</button></a>
     </div>
 
 
