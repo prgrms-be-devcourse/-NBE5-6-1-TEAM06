@@ -74,8 +74,10 @@ public class SecurityConfig {
                                 .requestMatchers(GET, "/").permitAll()      // 메인 페이지 - 누구나 접근 가능
                                 .requestMatchers(GET, "/member/signup").permitAll()
                                 .requestMatchers(GET, "/member/signin").permitAll()
+                                .requestMatchers(GET, "/member/order/**").authenticated()
+                                .requestMatchers(GET, "/member/cartList/**").authenticated()
                                 .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                                .anyRequest().authenticated() //  나머지는 로그인 필요!
+                                .anyRequest().permitAll() //  나머지는 로그인 필요!
                 )
                 .formLogin((form) -> form
                         .loginPage("/member/signin")

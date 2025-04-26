@@ -9,8 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47dc6e9f-9194-4b63-b85d-a80807efa144" name="Changes" comment="">
+    <list default="true" id="d3f5677b-2bff-4040-9306-35fd8a0f6c2d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/member/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/member/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/member/dto/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/member/dto/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/infra/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/infra/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/signup.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,76 +30,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Leeka99&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Leeka99"
   }
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-}</component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1745654309" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="lkh" />
-                    <option name="lastUsedInstant" value="1745654308" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git&quot;,
-    &quot;accountId&quot;: &quot;b607fd37-9eb0-4fd6-9400-0b6ef9f25949&quot;
-=======
-}&lt;/component&gt;
-  &lt;component name=&quot;GitToolBoxStore&quot;&gt;
-    &lt;option name=&quot;recentBranches&quot;&gt;
-      &lt;RecentBranches&gt;
-        &lt;option name=&quot;branchesForRepo&quot;&gt;
-          &lt;list&gt;
-            &lt;RecentBranchesForRepo&gt;
-              &lt;option name=&quot;branches&quot;&gt;
-                &lt;list&gt;
-                  &lt;RecentBranch&gt;
-                    &lt;option name=&quot;branchName&quot; value=&quot;lkh&quot; /&gt;
-                    &lt;option name=&quot;lastUsedInstant&quot; value=&quot;1745651134&quot; /&gt;
-                  &lt;/RecentBranch&gt;
-                  &lt;RecentBranch&gt;
-                    &lt;option name=&quot;branchName&quot; value=&quot;main&quot; /&gt;
-                    &lt;option name=&quot;lastUsedInstant&quot; value=&quot;1745645652&quot; /&gt;
-                  &lt;/RecentBranch&gt;
-                &lt;/list&gt;
-              &lt;/option&gt;
-              &lt;option name=&quot;repositoryRootUrl&quot; value=&quot;file://C:/LeeKangHyeon/Programmers_dev/teamProjects/first/girdsCircles&quot; /&gt;
-            &lt;/RecentBranchesForRepo&gt;
-          &lt;/list&gt;
-        &lt;/option&gt;
-      &lt;/RecentBranches&gt;
-    &lt;/option&gt;
-  &lt;/component&gt;
-  &lt;component name=&quot;GithubPullRequestsUISettings&quot;&gt;{
-  &amp;quot;selectedUrlAndAccountId&amp;quot;: {
-    &amp;quot;url&amp;quot;: &amp;quot;https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git&amp;quot;,
-    &amp;quot;accountId&amp;quot;: &amp;quot;b607fd37-9eb0-4fd6-9400-0b6ef9f25949&amp;quot;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/lkh
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git",
+    "accountId": "b607fd37-9eb0-4fd6-9400-0b6ef9f25949"
   }
-}</component>
+}]]></component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -104,10 +60,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2wFx5XWkfsBSbTvJhSdcVbSlJVN" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2wGAOqFb05u7ZnRqg0OuYXyo0eN" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -116,24 +72,29 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Tomcat Server.Tomcat 10.1.39.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="girdsCircles" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 10.1.39" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.39" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="mvc:war exploded">
           <settings>
@@ -142,7 +103,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="07d11eec-fb59-41e8-9bf6-d73aea914207" />
+        <option name="BASE_DIRECTORY_NAME" value="3b1b1be6-eb08-4dcf-8627-0409df7630d5" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -150,7 +111,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="57035" />
+        <option name="DEBUG_PORT" value="58726" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -231,12 +192,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="47dc6e9f-9194-4b63-b85d-a80807efa144" name="Changes" comment="" />
-      <created>1745650941552</created>
+      <changelist id="d3f5677b-2bff-4040-9306-35fd8a0f6c2d" name="Changes" comment="" />
+      <created>1745657509859</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745650941552</updated>
-      <workItem from="1745650944343" duration="27000" />
+      <updated>1745657509859</updated>
+      <workItem from="1745657512668" duration="1370000" />
     </task>
     <servers />
   </component>
