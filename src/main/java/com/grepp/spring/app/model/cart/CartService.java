@@ -1,6 +1,7 @@
 package com.grepp.spring.app.model.cart;
 
 import com.grepp.spring.app.model.cart.dto.CartProduct;
+import com.grepp.spring.app.model.order.dto.OrderItemDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,16 +18,16 @@ public class CartService {
         return cartRepository.findCartWithProductByUserId(userId);
     }
 
-    public void modifyProductCnt(long cartDetailsId, int productCnt) {
+    public void modifyProductCnt(Long cartDetailsId, int productCnt) {
         cartRepository.modifyProductCnt(cartDetailsId, productCnt);
     }
 
-    public void delete(long cartDetailsId) {
+    public void delete(Long cartDetailsId) {
         cartRepository.delete(cartDetailsId);
     }
 
-    public void orderCartList(long cartDetailsId) {
-        cartRepository.orderCartList(cartDetailsId);
+    public CartProduct orderCartList(Long cartDetailsId) {
+        return cartRepository.orderCartList(cartDetailsId);
     }
 
     public void orderAllCartList() {

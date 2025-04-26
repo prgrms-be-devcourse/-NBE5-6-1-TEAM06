@@ -14,6 +14,6 @@ public class CartProduct {
     private String userId;
 
     private String productName;
-    private int ProductPrice;
+    private int productPrice;
 
 }

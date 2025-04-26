@@ -13,7 +13,7 @@
     <result property="userId" column="user_id" />
 
     <result property="productName" column="product_name" />
-    <result property="ProductPrice" column="price" />
+    <result property="productPrice" column="price" />
   </resultMap>
 
   <select id="findCartWithProductByUserId" resultMap="cartProductMap">
@@ -43,11 +43,10 @@
     WHERE cart_details_id = #{cartDetailsId}
   </delete>
 
-  <select id="orderCartList">
-    SELECT p.product_name, cd.product_cnt
-    FROM cart_details cd
-    join product p on cd.product_id = p.product_id
-    where product_id = #{productId}
+  <select id="orderCartList" resultMap="cartProductMap">
+    SELECT product_cnt
+    FROM cart_details
+    WHERE cart_details_id = #{cartDetailsId}
   </select>
 
 </mapper>

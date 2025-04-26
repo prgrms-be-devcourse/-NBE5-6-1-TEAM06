@@ -91,6 +91,7 @@
         <form action="cartList" method="post" class="cart-card">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />
+            <input type="hidden" name="productName" value="${cartProduct.productName}" />
 
             <h4>${status.index + 1}. ${cartProduct.productName}</h4>
 

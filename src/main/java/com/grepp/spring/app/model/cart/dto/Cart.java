@@ -1,13 +1,13 @@
 package com.grepp.spring.app.model.cart.dto;
 
+import java.util.List;
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
 @Data
 @Alias("Cart")
 public class Cart {
-    private int cartId;
+    private Long cartId;
     private String userId;
-    private int productId;
-    private int productCnt;
+    private List<CartProduct> products;
 }

@@ -1,6 +1,6 @@
 package com.grepp.spring.app.controller.web.cart;
 
-import com.grepp.spring.app.controller.web.cart.form.CartDetatilsRequest;
+import com.grepp.spring.app.controller.web.cart.form.CartDetailsRequest;
 import com.grepp.spring.app.model.cart.CartService;
 import com.grepp.spring.app.model.cart.dto.CartProduct;
 import java.util.List;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @Slf4j
@@ -34,15 +35,16 @@ public class CartController {
 
     //    //TODO : 수정 로직 완료, 장바구니 -> 결제  로직 ing
     @PostMapping
-    public String modifyCart(CartDetatilsRequest cartDetatilsRequest, @RequestParam String action) {
-        int productCnt = cartDetatilsRequest.getProductCnt();
-        long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
+    public String modifyCart(CartDetailsRequest cartDetailsRequest, @RequestParam String action, @RequestParam String productName, @RequestParam int productCnt, RedirectAttributes redirectAttributes) {
+        Long cartDetailsId = cartDetailsRequest.getCartDetailsId();
         if ("save".equals(action)) {
             cartService.modifyProductCnt(cartDetailsId, productCnt);
             return "redirect:/cartList";
         }
         if ("order".equals(action)) {
-            cartService.orderCartList(cartDetailsId);
+            CartProduct cartProduct  = cartService.orderCartList(cartDetailsId);
+            redirectAttributes.addFlashAttribute("productName", productName);
+            redirectAttributes.addFlashAttribute("cnt", cartProduct.getProductCnt());
             return "redirect:/order" ;
         }
 
@@ -54,8 +56,8 @@ public class CartController {
     }
 
     @PostMapping("delete")
-    public String deleteCartList(CartDetatilsRequest cartDetatilsRequest) {
-        long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
+    public String deleteCartList(CartDetailsRequest cartDetailsRequest) {
+        Long cartDetailsId = cartDetailsRequest.getCartDetailsId();
         cartService.delete(cartDetailsId);
         return "redirect:/cartList";
     }
