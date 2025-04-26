@@ -43,4 +43,8 @@
     WHERE cart_details_id = #{cartDetailsId}
   </delete>
 
+  <select id="orderCartList">
+    SELECT
+  </select>
+
 </mapper>

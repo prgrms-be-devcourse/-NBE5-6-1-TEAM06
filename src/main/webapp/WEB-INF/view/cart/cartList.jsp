@@ -100,12 +100,31 @@
             </div>
 
             <div class="actions">
-                <label>
-                    수량:
-                    <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" />
-                </label>
+                <div>
+                    <b>수량</b>
+                    <button type="button"
+                            class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                        <i class="material-icons">remove</i>
+                    </button>
+
+                    <input type="number"
+                           name="productCnt"
+                           class="form-control quantity-input"
+                           value="${cartProduct.productCnt}" min="1"
+                           style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
+
+                    <button type="button"
+                            class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                        <i class="material-icons">add</i>
+                    </button>
+                </div>
+
+<%--                <label>--%>
+<%--                    수량:--%>
+<%--                    <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" />--%>
+<%--                </label>--%>
                 <button type="submit" name="action" value="save">저장하기</button>
-                <button type="submit" name="action" value="buy">구매하기</button>
+                <button type="submit" name="action" value="order">구매하기</button>
                 <button type="submit" formaction="cartList/delete">삭제하기</button>
             </div>
         </form>
@@ -114,11 +133,33 @@
     <div class="total-button">
         <form action="order" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            <button type="submit">전체 구매하기</button>
+            <button type="submit" name="action" value="orderAll">전체 구매하기</button>
         </form>
     </div>
 </main>
 
 <%@ include file="/WEB-INF/view/include/footer.jsp" %>
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const qtyControls = document.querySelectorAll(".actions"); // actions로 수정
+
+    qtyControls.forEach(control => {
+      const minusBtn = control.querySelector(".quantity-decrease");
+      const plusBtn = control.querySelector(".quantity-increase");
+      const input = control.querySelector(".quantity-input");
+
+      minusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        input.value = val - 1; // 수량 증가
+      });
+
+      plusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        input.value = val + 1; // 수량 증가
+      });
+    });
+  });
+
+</script>
 </html>
