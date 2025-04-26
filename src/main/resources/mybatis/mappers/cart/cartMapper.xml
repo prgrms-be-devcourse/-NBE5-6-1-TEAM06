@@ -44,7 +44,10 @@
   </delete>
 
   <select id="orderCartList">
-    SELECT
+    SELECT p.product_name, cd.product_cnt
+    FROM cart_details cd
+    join product p on cd.product_id = p.product_id
+    where product_id = #{productId}
   </select>
 
 </mapper>

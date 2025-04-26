@@ -46,7 +46,7 @@ public class CartController {
             return "redirect:/order" ;
         }
 
-        if ("orderAll".equals(action)) {
+         if("orderAll".equals(action)) {
             cartService.orderAllCartList();
             return "redirect:/order" ;
         }
