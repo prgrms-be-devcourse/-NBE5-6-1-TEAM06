@@ -42,7 +42,7 @@
                                 <i class="material-icons">remove</i>
                             </button>
 <%--                            // 수정--%>
-                            <input type="number" class="form-control quantity-input" value="{cartProduct.productCnt}" min="0"
+                            <input type="number" class="form-control quantity-input" value="0" min="0"
                                    data-name="${product.productName}"
                                    style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
                             <button type="button"

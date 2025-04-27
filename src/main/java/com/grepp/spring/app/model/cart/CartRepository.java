@@ -19,5 +19,5 @@ public interface CartRepository {
 
     CartProduct orderCartList(@Param("cartDetailsId") Long cartDetailsId);
 
-    void orderAllCartList();
+    List<CartProduct> orderAllCartList(@Param("cartId") Long cartId);
 }
