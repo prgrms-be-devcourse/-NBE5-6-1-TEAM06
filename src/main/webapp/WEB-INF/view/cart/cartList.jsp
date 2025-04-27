@@ -1,71 +1,3 @@
-<%--<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>--%>
-<%--<%@ include file="/WEB-INF/view/include/page.jsp" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>장바구니</title>--%>
-<%--    <%@ include file="/WEB-INF/view/include/static.jsp" %>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<%@ include file="/WEB-INF/view/include/header.jsp" %>--%>
-<%--<%@ include file="/WEB-INF/view/include/sidenav.jsp" %>--%>
-<%--<main class="container">--%>
-<%--<h2>장바구니 페이지입니다~~~</h2>--%>
-
-<%--    <c:forEach var="cartProduct" items="${cartList}" varStatus="status">--%>
-<%--    <form action="cartList" method="post">--%>
-
-<%--        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />--%>
-<%--        <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />--%>
-
-<%--        <h4>${status.index + 1}</h4>--%>
-
-<%--        <p><b>상품 명</b> : ${cartProduct.productName}</p>--%>
-<%--        <strong>상품 수량: </strong>--%>
-<%--        <label>--%>
-<%--            <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" style="width: 35px;"/>--%>
-<%--        </label>--%>
-<%--        <strong> 팩</strong> <button type="submit">저장하기</button>--%>
-<%--        <p><b>상품 가격 (1팩) :</b> ${cartProduct.productPrice} <b>원</b></p>--%>
-<%--        <p><b>총 상품 가격 :</b> ${cartProduct.productPrice * cartProduct.productCnt} <b>원</b></p>--%>
-
-<%--        <button type="submit">구매하기</button>--%>
-
-<%--    </form>--%>
-
-<%--        <form action="cartList/delete" method="post">--%>
-<%--            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />--%>
-<%--            <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />--%>
-<%--            <button type="submit">상품 삭제하기</button>--%>
-<%--        </form>--%>
-<%--        <p>---------------------------------------</p><br>--%>
-<%--    </c:forEach>--%>
-
-<%--    <form action="order" method="post">--%>
-<%--        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />--%>
-<%--        <button type="submit" style="width: 120px">전체 구매하기</button>--%>
-<%--    </form>--%>
-<%--</main>--%>
-<%--<%@ include file="/WEB-INF/view/include/footer.jsp" %>--%>
-<%--</body>--%>
-
-<%--&lt;%&ndash;<script>&ndash;%&gt;--%>
-<%--&lt;%&ndash;  function deleteCart(event, cartDetailsId) {&ndash;%&gt;--%>
-<%--&lt;%&ndash;    event.preventDefault();&ndash;%&gt;--%>
-<%--&lt;%&ndash;    fetch('/cartList', {&ndash;%&gt;--%>
-<%--&lt;%&ndash;      method: 'DELETE',&ndash;%&gt;--%>
-<%--&lt;%&ndash;      headers: {&ndash;%&gt;--%>
-<%--&lt;%&ndash;        'Content-Type': 'application/json',&ndash;%&gt;--%>
-<%--&lt;%&ndash;        'X-CSRF-TOKEN': '${_csrf.token}'&ndash;%&gt;--%>
-<%--&lt;%&ndash;      },&ndash;%&gt;--%>
-<%--&lt;%&ndash;      body: JSON.stringify({ cartDetailsId })&ndash;%&gt;--%>
-<%--&lt;%&ndash;    }).then(() => {&ndash;%&gt;--%>
-<%--&lt;%&ndash;      location.reload();&ndash;%&gt;--%>
-<%--&lt;%&ndash;    });&ndash;%&gt;--%>
-<%--&lt;%&ndash;  }&ndash;%&gt;--%>
-<%--&lt;%&ndash;</script>&ndash;%&gt;--%>
-<%--</html>--%>
-
-
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/view/include/page.jsp" %>
 <html>
@@ -168,12 +100,31 @@
             </div>
 
             <div class="actions">
-                <label>
-                    수량:
-                    <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" />
-                </label>
+                <div>
+                    <b>수량</b>
+                    <button type="button"
+                            class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                        <i class="material-icons">remove</i>
+                    </button>
+
+                    <input type="number"
+                           name="productCnt"
+                           class="form-control quantity-input"
+                           value="${cartProduct.productCnt}" min="1"
+                           style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;" />
+
+                    <button type="button"
+                            class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                        <i class="material-icons">add</i>
+                    </button>
+                </div>
+
+<%--                <label>--%>
+<%--                    수량:--%>
+<%--                    <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" />--%>
+<%--                </label>--%>
                 <button type="submit" name="action" value="save">저장하기</button>
-                <button type="submit" name="action" value="buy">구매하기</button>
+                <button type="submit" name="action" value="order">구매하기</button>
                 <button type="submit" formaction="cartList/delete">삭제하기</button>
             </div>
         </form>
@@ -182,11 +133,35 @@
     <div class="total-button">
         <form action="order" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            <button type="submit">전체 구매하기</button>
+            <button type="submit" name="action" value="orderAll">전체 구매하기</button>
         </form>
     </div>
 </main>
 
 <%@ include file="/WEB-INF/view/include/footer.jsp" %>
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const qtyControls = document.querySelectorAll(".actions"); // actions로 수정
+
+    qtyControls.forEach(control => {
+      const minusBtn = control.querySelector(".quantity-decrease");
+      const plusBtn = control.querySelector(".quantity-increase");
+      const input = control.querySelector(".quantity-input");
+
+      minusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        if (val > 1) {
+          input.value = val - 1;
+        }
+      });
+
+      plusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        input.value = val + 1;
+      });
+    });
+  });
+
+</script>
 </html>

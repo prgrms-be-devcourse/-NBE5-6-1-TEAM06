@@ -15,4 +15,8 @@ public interface CartRepository {
     void modifyProductCnt(@Param("cartDetailsId") long cartDetailsId, @Param("productCnt") int productCnt);
 
     void delete(@Param("cartDetailsId") long cartDetailsId);
+
+    void orderCartList(@Param("cartDetailsId") long cartDetailsId);
+
+    void orderAllCartList();
 }

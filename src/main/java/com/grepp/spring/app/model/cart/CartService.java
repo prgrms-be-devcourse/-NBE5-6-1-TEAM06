@@ -24,4 +24,12 @@ public class CartService {
     public void delete(long cartDetailsId) {
         cartRepository.delete(cartDetailsId);
     }
+
+    public void orderCartList(long cartDetailsId) {
+        cartRepository.orderCartList(cartDetailsId);
+    }
+
+    public void orderAllCartList() {
+        cartRepository.orderAllCartList();
+    }
 }

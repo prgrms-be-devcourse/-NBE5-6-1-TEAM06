@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Slf4j
@@ -30,21 +31,32 @@ public class CartController {
         return "cart/cartList";
     }
 
-    //TODO : 장바구니 리스트 수정 로직
+
+    //    //TODO : 수정 로직 완료, 장바구니 -> 결제  로직 ing
     @PostMapping
-    public String modifyCart(CartDetatilsRequest cartDetatilsRequest) {
+    public String modifyCart(CartDetatilsRequest cartDetatilsRequest, @RequestParam String action) {
         int productCnt = cartDetatilsRequest.getProductCnt();
         long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
-        cartService.modifyProductCnt(cartDetailsId, productCnt);
+        if ("save".equals(action)) {
+            cartService.modifyProductCnt(cartDetailsId, productCnt);
+            return "redirect:/cartList";
+        }
+        if ("order".equals(action)) {
+            cartService.orderCartList(cartDetailsId);
+            return "redirect:/order" ;
+        }
+
+        if ("orderAll".equals(action)) {
+            cartService.orderAllCartList();
+            return "redirect:/order" ;
+        }
         return "redirect:/cartList";
     }
 
-    //TODO : 장바구니 리스트 삭제 로직
     @PostMapping("delete")
     public String deleteCartList(CartDetatilsRequest cartDetatilsRequest) {
         long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
         cartService.delete(cartDetailsId);
         return "redirect:/cartList";
     }
-
 }

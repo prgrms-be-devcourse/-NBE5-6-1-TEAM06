@@ -31,16 +31,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("member")
 public class MemberController {
 
+
     private final MemberService memberService;
     private final OrderService orderService;
     private final ASHOrderService ashOrderService;
-
 
     @GetMapping("signup")
     public String signup(SignupRequest form) {
         return "member/signup";
     }
-
+    
     @PostMapping("signup")
     public String signup(
 
@@ -48,20 +48,22 @@ public class MemberController {
         BindingResult bindingResult,
         Model model) {
 
+        System.out.print("aaaaaaaaaaaaaaaaaaaaa");
+
         if (bindingResult.hasErrors()) {
             return "member/signup";
         }
-
+        
         memberService.signup(form.toDto(), Role.ROLE_USER);
         return "redirect:/";
     }
-
+    
     @GetMapping("signin")
     public String signin(SigninRequest form) {
         return "member/signin";
     }
-
-
+    
+    
     @GetMapping("mypage")
     public String mypage(Authentication authentication, Model model) {
         log.info("authentication : {}", authentication);
@@ -92,6 +94,7 @@ public class MemberController {
         model.addAttribute("status", status);
         return "order/orderCancelResult";
     }
+
 
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or authentication.name == #id")
