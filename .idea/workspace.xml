@@ -10,48 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e78567e-480c-4a3d-b9ef-4515b5c5ce37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/cart/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/cart/form/CartDetatilsRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/ASHOrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/ASHOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/ASHOrderDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/ASHOrderItemDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/order/ASHorderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/cart/cartList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/order/orderCancelResult.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/form/CartRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/order/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/test/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/auth/domain/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/auth/domain/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/cart/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/cart/CartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/cart/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/cart/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/member/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/member/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/OrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/OrderItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/order/dto/OrderItemDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/infra/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/infra/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/dto/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/mapper/ProductMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/init/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/init/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/cart/cartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/cart/cartMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/order/orderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/order/orderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/include/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/cartList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/member/mypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/error/404.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/error/404.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/mypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/product/productMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/product/productMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,36 +51,45 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2wG6c9DgY2c93epB2H98drp6un6" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Tomcat Server.Tomcat 10.1.39.executor": "Run",
-    "git-widget-placeholder": "Merging kdy",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.39.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kdy&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\backend\gridcircle\src\main\webapp\assets" />
+      <recent name="C:\backend\gridcircle\src\main\resources\assets" />
+      <recent name="C:\backend\gridcircle\src\main\java\com\grepp\spring\infra\config" />
+      <recent name="C:\backend\gridcircle\src\main\resources\static" />
+      <recent name="C:\backend\gridcircle\src\main\resources\uploads" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.39" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.39" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
@@ -206,7 +196,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1745655642428</updated>
-      <workItem from="1745655644466" duration="1147000" />
+      <workItem from="1745655644466" duration="6584000" />
+      <workItem from="1745662884281" duration="7483000" />
+      <workItem from="1745725282551" duration="1076000" />
+      <workItem from="1745726914133" duration="450000" />
+      <workItem from="1745727384405" duration="1863000" />
+      <workItem from="1745738093008" duration="473000" />
     </task>
     <servers />
   </component>

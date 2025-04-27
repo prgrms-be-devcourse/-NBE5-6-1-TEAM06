@@ -1,15 +1,26 @@
 package com.grepp.spring;
 
+import com.grepp.spring.app.model.product.ProductService;
+import com.grepp.spring.app.model.product.dto.IndexProductDto;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/")
 public class IndexController {
-    @GetMapping
-    public String index() {
+
+    private final ProductService productService;
+
+    @GetMapping()
+    public String showProducts(Model model) {
+        List<IndexProductDto> productList = productService.getAllIndexProducts();
+        model.addAttribute("products", productList);
         return "index";
     }
 }
+

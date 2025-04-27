@@ -1,5 +1,6 @@
 package com.grepp.spring.app.model.product.mapper;
 
+import com.grepp.spring.app.model.product.dto.IndexProductDto;
 import com.grepp.spring.app.model.product.dto.ProductDto;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
@@ -11,6 +12,8 @@ public interface ProductMapper {
     ProductDto findById(@Param("productId") Long productId);
 
     List<ProductDto> findAll();
+
+    List<IndexProductDto> findAllProducts();
 
     void insert(ProductDto product);
 

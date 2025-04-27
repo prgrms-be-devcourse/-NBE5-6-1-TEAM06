@@ -1,5 +1,6 @@
 package com.grepp.spring.app.model.product;
 
+import com.grepp.spring.app.model.product.dto.IndexProductDto;
 import com.grepp.spring.app.model.product.dto.ProductDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,8 @@ public class ProductService {
     public List<ProductDto> getAllProducts() {
         return productRepository.findAll();
     }
+
+    public List<IndexProductDto> getAllIndexProducts() {return productRepository.findAllProducts(); }
 
     public void addProduct(ProductDto product) {
         productRepository.save(product);
