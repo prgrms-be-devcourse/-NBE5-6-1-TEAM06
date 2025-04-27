@@ -4,8 +4,13 @@ import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
 import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
+import com.grepp.spring.app.model.product.ProductService;
+import com.grepp.spring.app.model.product.dto.ProductDto;
+import jakarta.servlet.ServletOutputStream;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,15 +18,31 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
-@RequestMapping("order")
+@RequestMapping("/order")
 public class OrderController {
 
+    @Autowired
+    private final ProductService productService;
+
+    @Autowired
     private final OrderService orderService;
 
     @GetMapping
     public String showOrderPage(@ModelAttribute OrderRequest request, Model model) {
         OrderResponse response = orderService.createOrder(request);
         model.addAttribute("order", response);
+
+        List<ProductDto> products = productService.getAllProducts();
+
+        // 여기 추가!
+        for (ProductDto p : products) {
+            System.out.println("==============================");
+            System.out.println("Product name: " + p.getProductName());
+            System.out.println("Product imgUrl: " + p.getProductImgUrl());
+        }
+
+
+        model.addAttribute("products", products);
         return "/order/order";
     }
 

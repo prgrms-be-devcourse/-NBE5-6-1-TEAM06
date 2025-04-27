@@ -88,7 +88,7 @@ public class OrderService {
                 OrderDetailsDto item = new OrderDetailsDto();
                 item.setProductCode(product.getCode());
                 item.setCategory(product.getCategory());
-                item.setProductName(product.getName());
+                item.setProductName(product.getProductName());
                 item.setProductPrice(product.getPrice());
                 item.setQuantity(quantity);
                 item.setTotalPrice(product.getPrice() * quantity);
