@@ -30,7 +30,7 @@ public class CartService {
         return cartRepository.orderCartList(cartDetailsId);
     }
 
-    public void orderAllCartList() {
-        cartRepository.orderAllCartList();
+    public List<CartProduct> orderAllCartList(Long cartId) {
+        return cartRepository.orderAllCartList(cartId);
     }
 }

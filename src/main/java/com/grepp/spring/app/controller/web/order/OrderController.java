@@ -1,7 +1,10 @@
 package com.grepp.spring.app.controller.web.order;
 
+import com.grepp.spring.app.controller.web.cart.form.CartDetailsRequest;
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
+import com.grepp.spring.app.model.cart.CartService;
+import com.grepp.spring.app.model.cart.dto.CartProduct;
 import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
 import com.grepp.spring.app.model.product.ProductService;
@@ -26,6 +29,7 @@ public class OrderController {
 
     @Autowired
     private final OrderService orderService;
+    private final CartService cartService;
 
     @GetMapping
     public String showOrderPage(@ModelAttribute OrderRequest request, Model model) {
@@ -60,8 +64,24 @@ public class OrderController {
             OrderResponse response = orderService.createOrder(request);
             model.addAttribute("order", response);
             return "/order/orderComplete";
+
         }
         return "redirect:/";
+    }
+
+    @GetMapping("cartOrderComplete")
+    public String getCartOrderComplete() {
+            return "order/cartOrderComplete";
+    }
+
+    @PostMapping("cartOrderComplete")
+    public String postCartOrderComplete(@RequestParam String action, CartDetailsRequest cartDetailsRequest, Model model) {
+        if ("cartListOrder".equals(action)) {
+            CartProduct cartProduct  = cartService.orderCartList(cartDetailsRequest.getCartDetailsId());
+            model.addAttribute("cartProduct", cartProduct);
+            return "order/cartOrderComplete" ;
+        }
+        return "redirect:/orderList";
     }
 
     //TODO : 장바구니 담기, 장바구니에서 -> 결제로 이동

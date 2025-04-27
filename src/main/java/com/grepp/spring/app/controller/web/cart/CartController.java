@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @Slf4j
@@ -32,25 +31,11 @@ public class CartController {
         return "cart/cartList";
     }
 
-
-    //    //TODO : 수정 로직 완료, 장바구니 -> 결제  로직 ing
     @PostMapping
-    public String modifyCart(@RequestParam String action, @RequestParam Long cartDetailsId, @RequestParam String productName, @RequestParam int productCnt, Model model) {
+    public String modifyCart(@RequestParam String action, @RequestParam Long cartId, @RequestParam Long cartDetailsId, @RequestParam int productCnt, Model model) {
         if ("save".equals(action)) {
             cartService.modifyProductCnt(cartDetailsId, productCnt);
             return "redirect:/cartList";
-        }
-        if ("order".equals(action)) {
-            CartProduct cartProduct  = cartService.orderCartList(cartDetailsId);
-            model.addAttribute("cartDetailsId", cartDetailsId);
-            model.addAttribute("productName", productName);
-            model.addAttribute("cartProduct", cartProduct);
-            return "order" ;
-        }
-
-         if("orderAll".equals(action)) {
-            cartService.orderAllCartList();
-            return "order" ;
         }
         return "redirect:/cartList";
     }
