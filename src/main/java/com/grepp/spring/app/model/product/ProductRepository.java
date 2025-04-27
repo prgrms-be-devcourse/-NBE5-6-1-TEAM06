@@ -1,5 +1,6 @@
 package com.grepp.spring.app.model.product;
 
+import com.grepp.spring.app.model.product.dto.IndexProductDto;
 import com.grepp.spring.app.model.product.dto.ProductDto;
 import com.grepp.spring.app.model.product.mapper.ProductMapper;
 import java.util.List;
@@ -20,6 +21,10 @@ public class ProductRepository {
 
     public List<ProductDto> findAll() {
         return productMapper.findAll();
+    }
+
+    public List<IndexProductDto> findAllProducts() {
+        return productMapper.findAllProducts();
     }
 
     public void save(ProductDto product) {

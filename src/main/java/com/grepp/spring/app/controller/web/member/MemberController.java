@@ -48,8 +48,6 @@ public class MemberController {
         BindingResult bindingResult,
         Model model) {
 
-        System.out.print("aaaaaaaaaaaaaaaaaaaaa");
-
         if (bindingResult.hasErrors()) {
             return "member/signup";
         }
