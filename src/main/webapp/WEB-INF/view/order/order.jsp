@@ -26,94 +26,31 @@
         <div class="col-md-8 mt-4 d-flex flex-column align-items-start p-3 pt-0">
             <h5><b>Product List</b></h5>
             <ul class="list-group products">
-                <li class="list-group-item d-flex mt-3">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
-                                            alt=""></div>
-                    <div class="col">
-                        <div class="row text-muted">커피콩</div>
-                        <div class="row item-name">Columbia Nariñó</div>
-                    </div>
-                    <div class="col text-center price">5000원</div>
-                    <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
-                            <i class="material-icons">remove</i>
-                        </button>
-                        <input type="number" class="form-control quantity-input" value="0" min="0"
-                               data-name="Columbia Nariñó"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
-                            <i class="material-icons">add</i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex mt-2">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
-                                            alt=""></div>
-                    <div class="col">
-                        <div class="row text-muted">커피콩</div>
-                        <div class="row item-name">Brazil Serra Do Caparaó</div>
-                    </div>
-                    <div class="col text-center price">5000원</div>
-                    <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
-                            <i class="material-icons">remove</i>
-                        </button>
-                        <input type="number" class="form-control quantity-input" value="0" min="0"
-                               data-name="Brazil Serra Do Caparaó"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
-                            <i class="material-icons">add</i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex mt-2">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
-                                            alt=""></div>
-                    <div class="col">
-                        <div class="row text-muted">커피콩</div>
-                        <div class="row item-name">Columbia Quindío</div>
-                    </div>
-                    <div class="col text-center price">5000원</div>
-                    <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
-                            <i class="material-icons">remove</i>
-                        </button>
-                        <input type="number" class="form-control quantity-input" value="0" min="0"
-                               data-name="Columbia Quindío"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
-                            <i class="material-icons">add</i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex mt-2">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/HKOFQYa.jpeg"
-                                            alt=""></div>
-                    <div class="col">
-                        <div class="row text-muted">커피콩</div>
-                        <div class="row item-name">Ethiopia Sidamo</div>
-                    </div>
-                    <div class="col text-center price">5000원</div>
-                    <div class="quantity-control d-flex align-items-center gap-1">
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
-                            <i class="material-icons">remove</i>
-                        </button>
-                        <input type="number" class="form-control quantity-input" value="0" min="0"
-                               data-name="Ethiopia Sidamo"
-                               style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
-                        <button type="button"
-                                class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
-                            <i class="material-icons">add</i>
-                        </button>
-                    </div>
-                </li>
+                <c:forEach var="product" items="${products}">
+                    <li class="list-group-item d-flex mt-2">
+                        <div class="col-2">
+                            <img class="img-fluid" src="/assets/images/${product.productImgUrl}" alt="">
+                        </div>
+                        <div class="col">
+                            <div class="row text-muted">${product.category}</div>
+                            <div class="row item-name">${product.productName}</div>
+                        </div>
+                        <div class="col text-center price">${product.price}원</div>
+                        <div class="quantity-control d-flex align-items-center gap-1">
+                            <button type="button"
+                                    class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
+                                <i class="material-icons">remove</i>
+                            </button>
+                            <input type="number" class="form-control quantity-input" value="0" min="0"
+                                   data-name="${product.productName}"
+                                   style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
+                            <button type="button"
+                                    class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                    </li>
+                </c:forEach>
             </ul>
         </div>
 
@@ -131,8 +68,8 @@
                 <input type="hidden" name="quantities" value="${item.quantity}">
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">이메일</label>
-                    <input type="email" class="form-control mb-1" id="email" name="userId">
+                    <label for="userName" class="form-label">받는 분</label>
+                    <input type="email" class="form-control mb-1" id="userName" name="userName">
                 </div>
                 <div class="mb-3">
                     <label for="tel" class="form-label">전화번호</label>
@@ -149,7 +86,7 @@
                 <div>당일 오후 2시 이후의 주문은 다음날 배송을 시작합니다.</div>
                 <div class="row pt-2 pb-2 border-top">
                     <h5 class="col">총금액</h5>
-                    <h5 class="col text-end">15000원</h5>
+                    <h5 class="col text-end">0원</h5>
                 </div>
                 <button type="submit" name="action" value="cart"
                         class="waves-effect waves-light btn-l hover">

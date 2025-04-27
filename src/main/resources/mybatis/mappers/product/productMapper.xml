@@ -6,7 +6,8 @@
 <mapper namespace="com.grepp.spring.app.model.product.mapper.ProductMapper">
 
   <select id="findById" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
-    SELECT * FROM product WHERE product_id = #{productId}
+    SELECT * FROM product
+    WHERE product_id = #{productId}
   </select>
 
   <select id="findAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
@@ -14,21 +15,25 @@
   </select>
 
   <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
-    INSERT INTO product (code, name, category, price, stock)
-    VALUES (#{code}, #{name}, #{category}, #{price}, #{stock})
+    INSERT INTO product (product_id, category, product_name, price, stock, code, info, product_img_url)
+    VALUES (#{productId}, #{category}, #{productName}, #{price}, #{stock}, #{code}, #{info}, #{productImgUrl})
   </insert>
 
   <update id="update" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
-    UPDATE product
-    SET name = #{name},
+    UPDATE product SET
     category = #{category},
+    product_name = #{productName},
     price = #{price},
-    stock = #{stock}
+    stock = #{stock},
+    code = #{code},
+    info = #{info},
+    product_img_url = #{productImgUrl}
     WHERE product_id = #{productId}
   </update>
 
   <delete id="delete" parameterType="long">
-    DELETE FROM product WHERE product_id = #{productId}
+    DELETE FROM product
+    WHERE product_id = #{productId}
   </delete>
 
 </mapper>
