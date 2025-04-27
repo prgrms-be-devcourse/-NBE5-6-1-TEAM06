@@ -9,8 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c822eeae-bcba-4be3-b975-e58f5722774a" name="Changes" comment="">
+    <list default="true" id="38a8135a-641e-43bd-b25b-b6b673f0fd71" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/dto/IndexProductDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/coffee.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/controller/web/member/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grepp/spring/app/model/product/mapper/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/product/productMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/product/productMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,43 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Leeka99&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Leeka99"
   }
-}</component>
-  <component name="GitToolBoxStore">
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="merge" />
-                    <option name="lastUsedInstant" value="1745769111" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1745769110" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
-  </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git&quot;,
-    &quot;accountId&quot;: &quot;b607fd37-9eb0-4fd6-9400-0b6ef9f25949&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/prgrms-be-devcourse/-NBE5-6-1-TEAM06.git",
+    "accountId": "b607fd37-9eb0-4fd6-9400-0b6ef9f25949"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
   "isMigrated": true
@@ -76,10 +59,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2wJoKxWIShxKkFqrQF4J7vy447j" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2wJqwj4GJ8J9izWAzakWIO13qE9" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -89,6 +72,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Tomcat Server.Tomcat 10.1.39.executor": "Run",
     "git-widget-placeholder": "Merging merge",
+    "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -121,7 +105,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="c060c161-5495-446e-b3a7-b06af2dcf6fd" />
+        <option name="BASE_DIRECTORY_NAME" value="8f095a64-e5d8-4ecd-86de-efd7cd8300a8" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -129,7 +113,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="56580" />
+        <option name="DEBUG_PORT" value="57332" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -210,12 +194,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c822eeae-bcba-4be3-b975-e58f5722774a" name="Changes" comment="" />
-      <created>1745768980248</created>
+      <changelist id="38a8135a-641e-43bd-b25b-b6b673f0fd71" name="Changes" comment="" />
+      <created>1745770265888</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745768980248</updated>
-      <workItem from="1745768981982" duration="28000" />
+      <updated>1745770265888</updated>
+      <workItem from="1745770269289" duration="384000" />
     </task>
     <servers />
   </component>
