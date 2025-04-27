@@ -15,10 +15,12 @@
 
   <select id="adminFindAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
     SELECT
+    product_id AS id,
     product_name AS name,
     stock
     FROM product
   </select>
+
 
 
   <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
@@ -38,5 +40,12 @@
   <delete id="delete" parameterType="long">
     DELETE FROM product WHERE product_id = #{productId}
   </delete>
+
+  <update id="updateStock">
+    UPDATE product
+    SET stock = #{stock}
+    WHERE product_id = #{productId}
+  </update>
+
 
 </mapper>

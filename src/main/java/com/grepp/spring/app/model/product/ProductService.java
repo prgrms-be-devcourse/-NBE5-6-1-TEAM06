@@ -32,4 +32,7 @@ public class ProductService {
     public void deleteProduct(Long id) {
         productRepository.delete(id);
     }
+
+    public void updateStock(Long productId, int stock) {productRepository.updateStock(productId, stock);}
+
 }

@@ -32,6 +32,11 @@ public class ProductRepository {
         productMapper.update(product);
     }
 
+    public void updateStock(Long productId, int stock) {
+        productMapper.updateStock(productId, stock);
+    }
+
+
     public void delete(Long id) {
         productMapper.delete(id);
     }

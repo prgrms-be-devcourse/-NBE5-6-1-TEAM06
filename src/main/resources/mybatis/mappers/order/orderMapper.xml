@@ -38,6 +38,13 @@
     WHERE order_id = #{orderId}
   </update>
 
+  <update id="updateStock">
+    UPDATE product
+    SET stock = #{stock}
+    WHERE product_id = #{productId}
+  </update>
+
+
 
 
   <!--  <delete id="deleteOrder">-->

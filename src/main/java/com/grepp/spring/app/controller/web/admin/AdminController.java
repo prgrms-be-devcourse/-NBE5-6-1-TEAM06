@@ -62,4 +62,12 @@ public class AdminController {
         orderService.cancelOrder(orderId);
         return "redirect:/admin/dashboard";
     }
+
+    @PostMapping("updateStock")
+    public String updateStock(@RequestParam("productId") Long productId,
+                              @RequestParam("stock") int stock) {
+        productService.updateStock(productId, stock);
+        return "redirect:/admin/dashboard";
+    }
+
 }

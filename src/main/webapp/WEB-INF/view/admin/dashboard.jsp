@@ -21,6 +21,7 @@
         <tr>
             <th>상품명</th>
             <th>재고</th>
+            <th>재고 수정</th>
         </tr>
         </thead>
         <tbody>
@@ -28,10 +29,41 @@
             <tr>
                 <td>${product.name}</td>
                 <td>${product.stock}</td>
+                <td>
+                    <form method="post" action="/admin/updateStock" style="display: flex; align-items: center;">
+                        <input type="hidden" name="productId" value="${product.id}" />
+
+                        <button type="button" onclick="decreaseStock(this)" class="btn">-</button>
+
+                        <input type="number" name="stock" value="${product.stock}" min="0" style="width: 60px; text-align: center; margin: 0 5px;" />
+
+                        <button type="button" onclick="increaseStock(this)" class="btn">+</button>
+
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+                        <button type="submit" class="btn blue" style="margin-left: 10px;">재고 수정</button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+
+    <script>
+        function decreaseStock(button) {
+            const input = button.nextElementSibling;
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        function increaseStock(button) {
+            const input = button.previousElementSibling;
+            input.value = parseInt(input.value) + 1;
+        }
+    </script>
+
+
 
 
     <h4>모든 고객의 주문 내역</h4>
