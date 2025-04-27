@@ -14,7 +14,7 @@
 
 <main class="container">
     <div class="menu-name">
-        <strong>${member.userId}</strong> 님의 주문 목록입니다
+        <strong>${orderList[0].userName}</strong> 님의 주문 목록입니다
     </div>
 
     <c:forEach var="order" items="${orderList}">

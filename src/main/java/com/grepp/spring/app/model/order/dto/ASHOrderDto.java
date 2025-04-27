@@ -14,6 +14,7 @@ public class ASHOrderDto {
 
     private Long orderId;
     private String userId;
+    private String userName;
     private LocalDateTime orderedAt;
     private LocalDateTime expectedDeliveryAt;
     private Integer totalPrice;

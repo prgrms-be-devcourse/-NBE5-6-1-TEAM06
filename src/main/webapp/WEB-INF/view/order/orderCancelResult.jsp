@@ -18,9 +18,9 @@
         <c:when test="${status == 'success'}">
             <div class="center-align" style="margin-top: 30px;">
                 <i class="material-icons large green-text">check_circle</i>
-                <h4 class="green-text"><strong>${order.userId}</strong>님, 주문이 성공적으로 취소되었습니다!</h4>
+                <h4 class="green-text"><strong>${order.userName}</strong>님, 주문이 성공적으로 취소되었습니다!</h4>
             </div>
-            <div class="order-box">
+            <div class="order-box-cancel">
                 <table class="order-table">
                     <colgroup>
                         <col style="width: 15%;">
@@ -67,7 +67,7 @@
         <c:when test="${status == 'fail'}">
             <div class="center-align" style="margin-top: 30px;">
                 <i class="material-icons large red-text">cancel</i>
-                <h4 class="black-text"><strong>${order.userId}</strong>님, </h4>
+                <h4 class="black-text"><strong>${order.userName}</strong>님, </h4>
                 <h4 class="red-text">주문 취소에 실패했습니다.</h4>
                 <h4 class="red-text">주문 취소 가능 기간을 확인해 주세요.</h4>
             </div>
