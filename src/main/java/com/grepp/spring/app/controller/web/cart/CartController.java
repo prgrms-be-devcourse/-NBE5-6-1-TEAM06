@@ -35,22 +35,22 @@ public class CartController {
 
     //    //TODO : 수정 로직 완료, 장바구니 -> 결제  로직 ing
     @PostMapping
-    public String modifyCart(CartDetailsRequest cartDetailsRequest, @RequestParam String action, @RequestParam String productName, @RequestParam int productCnt, RedirectAttributes redirectAttributes) {
-        Long cartDetailsId = cartDetailsRequest.getCartDetailsId();
+    public String modifyCart(@RequestParam String action, @RequestParam Long cartDetailsId, @RequestParam String productName, @RequestParam int productCnt, Model model) {
         if ("save".equals(action)) {
             cartService.modifyProductCnt(cartDetailsId, productCnt);
             return "redirect:/cartList";
         }
         if ("order".equals(action)) {
             CartProduct cartProduct  = cartService.orderCartList(cartDetailsId);
-            redirectAttributes.addFlashAttribute("productName", productName);
-            redirectAttributes.addFlashAttribute("cnt", cartProduct.getProductCnt());
-            return "redirect:/order" ;
+            model.addAttribute("cartDetailsId", cartDetailsId);
+            model.addAttribute("productName", productName);
+            model.addAttribute("cartProduct", cartProduct);
+            return "order" ;
         }
 
          if("orderAll".equals(action)) {
             cartService.orderAllCartList();
-            return "redirect:/order" ;
+            return "order" ;
         }
         return "redirect:/cartList";
     }

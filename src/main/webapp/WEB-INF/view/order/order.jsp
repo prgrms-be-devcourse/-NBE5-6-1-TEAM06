@@ -41,7 +41,8 @@
                                     class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">
                                 <i class="material-icons">remove</i>
                             </button>
-                            <input type="number" class="form-control quantity-input" value="0" min="0"
+<%--                            // 수정--%>
+                            <input type="number" class="form-control quantity-input" value="{cartProduct.productCnt}" min="0"
                                    data-name="${product.productName}"
                                    style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>
                             <button type="button"
