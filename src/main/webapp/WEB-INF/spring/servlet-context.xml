@@ -13,8 +13,8 @@
     id="multipartResolver"/>
 
   <context:property-placeholder location="classpath:application.properties"/>
-  <mvc:annotation-driven/>
 
-  <mvc:resources location="/assets/" mapping="/assets/**"/>
+  <mvc:annotation-driven/>
+  <mvc:resources mapping="/assets/**" location="/assets/" />
 
 </beans>

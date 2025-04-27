@@ -10,6 +10,7 @@ public class OrderDto {
 
     private Long orderId;
     private String userId;
+    private String userName;
     private LocalDateTime orderedAt;
     private LocalDateTime expectedDeliveryDate;
     private String address;
