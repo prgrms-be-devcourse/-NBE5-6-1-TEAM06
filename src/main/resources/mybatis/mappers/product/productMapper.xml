@@ -14,6 +14,10 @@
     SELECT * FROM product
   </select>
 
+  <select id="findAllProducts" resultType="com.grepp.spring.app.model.product.dto.IndexProductDto">
+    SELECT * FROM product
+  </select>
+
   <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
     INSERT INTO product (product_id, category, product_name, price, stock, code, info, product_img_url)
     VALUES (#{productId}, #{category}, #{productName}, #{price}, #{stock}, #{code}, #{info}, #{productImgUrl})

@@ -1,5 +1,6 @@
 package com.grepp.spring.app.model.product;
 
+import com.grepp.spring.app.model.product.dto.IndexProductDto;
 import com.grepp.spring.app.model.product.dto.ProductDto;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,6 +35,8 @@ public class ProductService {
             return dto;
         }).collect(Collectors.toList());
     }
+
+    public List<IndexProductDto> getAllIndexProducts() {return productRepository.findAllProducts(); }
 
     public void addProduct(ProductDto product) {
         productRepository.save(product);
