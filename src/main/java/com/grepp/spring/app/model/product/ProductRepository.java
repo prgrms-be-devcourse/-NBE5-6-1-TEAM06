@@ -22,6 +22,8 @@ public class ProductRepository {
         return productMapper.findAll();
     }
 
+    public List<ProductDto> adminFindAll() {return productMapper.adminFindAll();}
+
     public void save(ProductDto product) {
         productMapper.insert(product);
     }

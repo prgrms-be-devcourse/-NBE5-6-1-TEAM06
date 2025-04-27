@@ -5,6 +5,8 @@ import com.grepp.spring.app.model.auth.code.Role;
 import com.grepp.spring.app.model.member.MemberService;
 import com.grepp.spring.app.model.order.OrderService;
 import com.grepp.spring.app.model.order.dto.OrderDto;
+import com.grepp.spring.app.model.product.ProductService;
+import com.grepp.spring.app.model.product.dto.ProductDto;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,7 @@ public class AdminController {
 
     private final OrderService orderService;
     private final MemberService memberService;
+    private final ProductService productService;
 
 
     @GetMapping("signup")
@@ -47,13 +50,16 @@ public class AdminController {
     @GetMapping("dashboard")
     public String orderList(Model model) {
         List<OrderDto> orders = orderService.getAllOrders();
+        List<ProductDto> products = productService.adminGetAllProducts();
+
+        model.addAttribute("products", products);
         model.addAttribute("orders", orders);
         return "admin/dashboard";
     }
 
     @DeleteMapping("deleteOrder")
     public String deleteOrder(@RequestParam("orderId") Long orderId) {
-        orderService.deleteOrder(orderId);
+        orderService.cancelOrder(orderId);
         return "redirect:/admin/dashboard";
     }
 }

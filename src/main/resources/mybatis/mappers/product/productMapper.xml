@@ -13,6 +13,14 @@
     SELECT * FROM product
   </select>
 
+  <select id="adminFindAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
+    SELECT
+    product_name AS name,
+    stock
+    FROM product
+  </select>
+
+
   <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
     INSERT INTO product (code, name, category, price, stock)
     VALUES (#{code}, #{name}, #{category}, #{price}, #{stock})

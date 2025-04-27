@@ -19,6 +19,8 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public List<ProductDto> adminGetAllProducts() {return productRepository.adminFindAll();}
+
     public void addProduct(ProductDto product) {
         productRepository.save(product);
     }

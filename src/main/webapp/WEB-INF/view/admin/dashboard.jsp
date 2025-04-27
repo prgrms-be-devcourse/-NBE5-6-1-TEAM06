@@ -15,8 +15,26 @@
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 
 <main class="container">
-    <h4>모든 고객의 주문 내역</h4>
+    <h4>상품별 재고 현황</h4>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th>상품명</th>
+            <th>재고</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="product" items="${products}">
+            <tr>
+                <td>${product.name}</td>
+                <td>${product.stock}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 
+
+    <h4>모든 고객의 주문 내역</h4>
     <table class="striped">
         <thead>
         <tr>
