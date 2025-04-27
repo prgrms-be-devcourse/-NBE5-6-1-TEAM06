@@ -27,7 +27,6 @@
   <!-- 유저의 모든 주문내역(취소 미포함) -->
   <select id="findOrderListByUserId" parameterType="String" resultMap="orderWithItemsMap">
     SELECT * FROM `order` WHERE user_id = #{userId}
-    AND activated = 1
   </select>
 
   <select id="selectOrderItemsByOrderId" parameterType="Long"

@@ -69,14 +69,12 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         (requests) -> requests
-                                .requestMatchers(GET, "/").permitAll()      // 메인 페이지 - 누구나 접근 가능
-                                .requestMatchers(GET, "/member/signup").permitAll()
-                                .requestMatchers(GET, "/member/signin").permitAll()
-                                .requestMatchers(GET, "order/**").authenticated()
-                                .requestMatchers(GET, "cartList/**").authenticated()
-                                .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                                .requestMatchers(GET, "/api/member/exists/**").permitAll()      //회원가입...
-                                .anyRequest().permitAll() //  나머지는 로그인 필요!
+                    .requestMatchers(GET, "/member/signup").permitAll()
+                    .requestMatchers(GET, "/member/signin").permitAll()
+                    .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
+                    .requestMatchers(GET,"/cartList").authenticated()
+                    .requestMatchers(GET,"/order").authenticated()
+                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
                 )
                 .formLogin((form) -> form
                         .loginPage("/member/signin")
