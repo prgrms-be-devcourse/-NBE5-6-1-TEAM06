@@ -61,6 +61,7 @@ public class SecurityConfig {
 
     }
 
+    // rememberme-debug
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
