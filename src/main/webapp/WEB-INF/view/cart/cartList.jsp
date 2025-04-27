@@ -88,10 +88,11 @@
     <h2>장바구니</h2>
 
     <c:forEach var="cartProduct" items="${cartList}" varStatus="status">
-        <form action="cartList" method="post" class="cart-card">
+        <form method="post" class="cart-card">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />
             <input type="hidden" name="productName" value="${cartProduct.productName}" />
+            <input type="hidden" name="productCnt" value="${cartProduct.productCnt}" />
 
             <h4>${status.index + 1}. ${cartProduct.productName}</h4>
 
@@ -124,8 +125,8 @@
 <%--                    수량:--%>
 <%--                    <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" />--%>
 <%--                </label>--%>
-                <button type="submit" name="action" value="save">저장하기</button>
-                <button type="submit" name="action" value="order">구매하기</button>
+                <button type="submit" name="action" value="save" formaction="cartList">저장하기</button>
+                <button type="submit" name="action" value="order" formaction="order">구매하기</button>
                 <button type="submit" formaction="cartList/delete">삭제하기</button>
             </div>
         </form>
