@@ -8,66 +8,34 @@
 <body>
 <%@include file="/WEB-INF/view/include/header.jsp" %>
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
+
 <main class="container">
-<c:if test="${not empty param.error}">
-    <div class="card-panel red lighten-2 text-white">${param.error}</div>
-</c:if>
-<h4>메인 페이지 : 커피콩 판매 합니다~~~  </h4>
+    <c:if test="${not empty param.error}">
+        <div class="card-panel red lighten-2 text-white">${param.error}</div>
+    </c:if>
+
+    <h4 style="text-align: center;">“We sell fresh coffee beans.”</h4>
     <div class="row">
-        <div class="col s6 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>상품명</p><hr>
-                    <p>상품 설명</p>
-                </div>
-            </div>
-        </div>
-        <div class="col s6 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>상품명</p><hr>
-                    <p>상품 설명</p>
+        <c:forEach var="product" items="${products}">
+            <div class="col s4 m3">
+                <div class="card" style="text-align: center;">
+                    <div class="card-image" style="text-align: center;">
+                        <img src="/assets/images/${product.productImgUrl}"
+                             style="width: 247px; height: 160px;">
+                    </div>
+                    <div class="card-content" style="text-align: center;">
+                        <p>${product.productName}</p>
+                        <hr>
+                        <p>${product.category}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col s6 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>상품명</p><hr>
-                    <p>상품 설명</p>
-                </div>
-            </div>
-        </div>
-        <div class="col s6 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>상품명</p><hr>
-                    <p>상품 설명</p>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
-        <button>구매하기</button>
+        <button class="waves-effect waves-light btn-brown">구매하기</button>
     </div>
-
 
 
 </main>
