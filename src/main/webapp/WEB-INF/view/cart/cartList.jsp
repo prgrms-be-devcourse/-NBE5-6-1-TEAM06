@@ -88,8 +88,15 @@
     <h2>장바구니</h2>
 
     <c:forEach var="cartProduct" items="${cartList}" varStatus="status">
-        <form action="cartList" method="post" class="cart-card">
+        <form method="post" class="cart-card">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <input type="hidden" name="userName" value="${cartProduct.userName}" />
+            <input type="hidden" name="orderedAt" value="${cartProduct.orderedAt}" />
+            <input type="hidden" name="expectedDeliveryAt" value="${cartProduct.expectedDeliveryAt}" />
+            <input type="hidden" name="category" value="${cartProduct.category}" />
+            <input type="hidden" name="productName" value="${cartProduct.productName}" />
+            <input type="hidden" name="productPrice" value="${cartProduct.productPrice}" />
+            <input type="hidden" name="productCnt" value="${cartProduct.productCnt}" />
             <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}" />
 
             <h4>${status.index + 1}. ${cartProduct.productName}</h4>
@@ -123,8 +130,8 @@
 <%--                    수량:--%>
 <%--                    <input type="number" name="productCnt" value="${cartProduct.productCnt}" min="1" />--%>
 <%--                </label>--%>
-                <button type="submit" name="action" value="save">저장하기</button>
-                <button type="submit" name="action" value="order">구매하기</button>
+                <button type="submit" name="action" value="save" formaction="cartList">저장하기</button>
+                <button type="submit" name="action" value="cartListOrder" formaction="order/cartOrderComplete">구매하기</button>
                 <button type="submit" formaction="cartList/delete">삭제하기</button>
             </div>
         </form>
@@ -132,8 +139,16 @@
 
     <div class="total-button">
         <form action="order" method="post">
+<c:forEach var="cartProductAll" items="${cartProductAll}" varStatus="status">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            <button type="submit" name="action" value="orderAll">전체 구매하기</button>
+            <input type="hidden" name="productCnt" value="${cartProductAll.productId}" />
+            <input type="hidden" name="cartDetailsId" value="${cartProductAll.cartDetailsId}" />
+            <input type="hidden" name="productName" value="${cartProductAll.productName}" />
+            <input type="hidden" name="productCnt" value="${cartProductAll.productCnt}" />
+            <input type="hidden" name="category" value="${cartProductAll.category}" />
+            <input type="hidden" name="productPrice" value="${cartProductAll.productPrice}" />
+            <button type="submit" name="action" value="cartListOrderAll">전체 구매하기</button>
+</c:forEach>
         </form>
     </div>
 </main>

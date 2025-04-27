@@ -10,8 +10,9 @@ public class OrderDto {
 
     private Long orderId;
     private String userId;
-    private LocalDateTime orderDate; //order_date
-    private LocalDateTime expectDeliveryDate;
+    private String userName;
+    private LocalDateTime orderedAt;
+    private LocalDateTime expectedDeliveryDate;
     private String address;
     private String postNumber;
     private int totalPrice;
@@ -19,6 +20,6 @@ public class OrderDto {
     private Boolean activated;
 
     // DB에 없는 것
-    private List<OrderItemDto> items;
+    private List<OrderDetailsDto> items;
 
 }
