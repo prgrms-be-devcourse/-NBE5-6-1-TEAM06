@@ -17,7 +17,7 @@
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="images/sample-1.jpg" style="width: 247px; height: 160px;">
+                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
                     <span class="card-title">Card Title</span>
                 </div>
                 <div class="card-content">
@@ -29,7 +29,7 @@
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="images/sample-1.jpg" style="width: 247px; height: 160px;">
+                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
                     <span class="card-title">Card Title</span>
                 </div>
                 <div class="card-content">
@@ -41,7 +41,7 @@
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="images/sample-1.jpg" style="width: 247px; height: 160px;">
+                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
                     <span class="card-title">Card Title</span>
                 </div>
                 <div class="card-content">
@@ -53,7 +53,7 @@
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="images/sample-1.jpg" style="width: 247px; height: 160px;">
+                    <img src="/assets/images/${product.productImgUrl}" style="width: 247px; height: 160px;">
                     <span class="card-title">Card Title</span>
                 </div>
                 <div class="card-content">
