@@ -26,6 +26,7 @@
             <th>총 가격</th>
             <th>총 수량</th>
             <th>주문일</th>
+            <th>주문상태</th>
             <th>주문취소</th>
         </tr>
         </thead>
@@ -42,6 +43,16 @@
                 <td>${order.totalPrice}</td>
                 <td>${order.orderItems}</td>
                 <td>${order.orderDate}</td>
+                <td>
+                    <c:choose>
+                        <c:when test="${order.activated}">
+                            결제완료
+                        </c:when>
+                        <c:otherwise>
+                            주문취소
+                        </c:otherwise>
+                    </c:choose>
+                </td>
                 <td>
                     <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 취소하시겠습니까?');">
                         <input type="hidden" name="_method" value="delete"/>

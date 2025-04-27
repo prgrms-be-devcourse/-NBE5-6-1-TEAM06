@@ -32,18 +32,15 @@
   </select>
 
 
-  <!-- 주문 삭제 -->
-  <delete id="deleteOrderDetails">
-    DELETE FROM order_details WHERE order_id = #{orderId}
-  </delete>
+  <update id="cancelOrder">
+    UPDATE `order`
+    SET activated = false
+    WHERE order_id = #{orderId}
+  </update>
 
 
-  <delete id="deleteOrder">
-    DELETE FROM `order` WHERE order_id = #{orderId}
-  </delete>
 
-
-<!--  <delete id="deleteOrder">-->
+  <!--  <delete id="deleteOrder">-->
 <!--    DELETE FROM orders WHERE ORDER_ID = #{cartId}-->
 <!--  </delete>-->
 

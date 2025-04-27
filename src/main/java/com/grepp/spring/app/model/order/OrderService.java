@@ -37,8 +37,7 @@ public class OrderService {
     }
 
     public void deleteOrder(Long orderId) {
-        orderRepository.deleteOrderDetails(orderId);
-        orderRepository.deleteOrder(orderId);
+        orderRepository.cancelOrder(orderId);
     }
 
 
