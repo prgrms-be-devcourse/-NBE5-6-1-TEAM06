@@ -1,5 +1,5 @@
 insert into Member(user_id, password, user_name, role, tel, created_at)
-                             values ('admin@example.com', '9999', 'ADMIN', 'ADMIN', '9999-9999', '2025-03-24 10:23:30');
+values ('admin@example.com', '9999', 'ADMIN', 'ADMIN', '9999-9999', '2025-03-24 10:23:30');
 insert into Member(user_id, password, user_name, role, tel, created_at)
 values ('kdu@example.com', '1111', '김도윤', 'USER', '1111-1111', '2025-03-25 10:23:30');
 insert into Member(user_id, password, user_name, role, tel, created_at)
@@ -23,7 +23,6 @@ VALUES ('COFFEE', 'Colombia Quindío', 5000, 100,
 insert into product(CATEGORY, PRODUCT_NAME, PRICE, STOCK, INFO)
 VALUES ('COFFEE', 'Ethiopia Sidamo', 5000, 100,
         '에티오피아 남부의 시다모 지역은 고도 1,500~2,200m의 이상적인 기후 조건을 갖춘 커피 명산지로, 에티오피아 고유의 유전자 풀을 지닌 토착 품종들이 자생합니다. 시다모 커피는 라벤더나 베르가못 같은 플로럴 향과 함께, 레몬, 라임 등 시트러스 계열의 생동감 있는 산미를 지닌 것이 특징입니다. 워시드(세척식), 내추럴(건식) 가공 방식 모두 활발히 이루어지며, 고유한 개성과 향미로 전 세계 커피 애호가들에게 사랑받고 있습니다.');
-
 
 insert into cart(user_id)
 values ('kdu@example.com');
@@ -59,6 +58,7 @@ insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (2, 3, 2, '2025-04-02 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (2, 4, 2, '2025-04-02 10:23:30');
+
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (3, 1, 3, '2025-04-03 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
@@ -67,6 +67,7 @@ insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (3, 3, 3, '2025-04-03 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (3, 4, 3, '2025-04-03 10:23:30');
+
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (4, 1, 4, '2025-04-05 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
@@ -113,4 +114,3 @@ VALUES (500, 50, 1, 1, 5000),
        (510, 51, 4, 6, 5000),
        (520, 52, 2, 1, 5000),
        (521, 52, 3, 1, 5000);
-

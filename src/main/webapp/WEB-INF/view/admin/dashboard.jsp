@@ -32,18 +32,16 @@
                 <td>
                     <form method="post" action="/admin/updateStock" style="display: flex; align-items: center;">
                         <input type="hidden" name="productId" value="${product.id}" />
-
-                        <button type="button" onclick="decreaseStock(this)" class="btn">-</button>
+                        <button type="button" onclick="decreaseStock(this)" class="btn" style="background-color: #8B4513; color: white;">-</button>
 
                         <input type="number" name="stock" value="${product.stock}" min="0" style="width: 60px; text-align: center; margin: 0 5px;" />
-
-                        <button type="button" onclick="increaseStock(this)" class="btn">+</button>
+                        <button type="button" onclick="increaseStock(this)" class="btn" style="background-color: #8B4513; color: white;">+</button>
 
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-
-                        <button type="submit" class="btn blue" style="margin-left: 10px;">재고 수정</button>
+                        <button type="submit" class="btn" style="background-color: #6F4E37; color: white; margin-left: 10px;">재고 수정</button>
                     </form>
                 </td>
+
             </tr>
         </c:forEach>
         </tbody>
@@ -72,7 +70,7 @@
         <tr>
             <th>주문번호</th>
             <th>이메일</th>
-            <th>주문상세</th>
+            <th>주문 상세</th>
             <th>총 가격</th>
             <th>총 수량</th>
             <th>주문일</th>
@@ -90,9 +88,9 @@
                         ${item.productName} (${item.quantity})<br/>
                     </c:forEach>
                 </td>
-                <td>${order.totalPrice}</td>
+                <td>₩<c:out value="${order.totalPrice}"/></td>
                 <td>${order.orderItems}</td>
-                <td>${order.orderDate}</td>
+                <td>${fn:replace(order.orderDate, 'T', ' ')}</td>
                 <td>
                     <c:choose>
                         <c:when test="${order.activated}">
@@ -104,13 +102,23 @@
                     </c:choose>
                 </td>
                 <td>
-                    <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 취소하시겠습니까?');">
-                        <input type="hidden" name="_method" value="delete"/>
-                        <input type="hidden" name="orderId" value="${order.orderId}"/>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <button class="btn red">주문취소</button>
-                    </form>
+                    <c:choose>
+                        <c:when test="${order.activated}">
+                            <!-- 결제완료 상태일 때만 주문취소 버튼 표시 -->
+                            <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 취소하시겠습니까?');">
+                                <input type="hidden" name="_method" value="delete"/>
+                                <input type="hidden" name="orderId" value="${order.orderId}"/>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button class="btn red">주문 취소</button>
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- 이미 취소된 경우 -->
+                            취소완료
+                        </c:otherwise>
+                    </c:choose>
                 </td>
+
             </tr>
         </c:forEach>
         </tbody>
