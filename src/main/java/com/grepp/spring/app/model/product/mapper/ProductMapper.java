@@ -21,5 +21,9 @@ public interface ProductMapper {
 
     void delete(Long id);
 
+    void updateStock(@Param("productId") Long productId, @Param("stock") int stock);
+
+
+    List<ProductDto> adminFindAll();
 
 }

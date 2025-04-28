@@ -27,12 +27,20 @@ public class ProductRepository {
         return productMapper.findAllProducts();
     }
 
+    public List<ProductDto> adminFindAll() {
+        return productMapper.adminFindAll();
+    }
+
     public void save(ProductDto product) {
         productMapper.insert(product);
     }
 
     public void update(ProductDto product) {
         productMapper.update(product);
+    }
+
+    public void updateStock(Long productId, int stock) {
+        productMapper.updateStock(productId, stock);
     }
 
     public void delete(Long id) {

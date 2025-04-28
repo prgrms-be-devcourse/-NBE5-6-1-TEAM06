@@ -18,9 +18,20 @@
     SELECT * FROM product
   </select>
 
+
+  <select id="adminFindAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
+    SELECT
+    product_id AS id,
+    product_name AS name,
+    stock
+    FROM product
+  </select>
+
   <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
-    INSERT INTO product (product_id, category, product_name, price, stock, code, info, product_img_url)
-    VALUES (#{productId}, #{category}, #{productName}, #{price}, #{stock}, #{code}, #{info}, #{productImgUrl})
+    INSERT INTO product (product_id, category, product_name, price, stock, code, info,
+    product_img_url)
+    VALUES (#{productId}, #{category}, #{productName}, #{price}, #{stock}, #{code}, #{info},
+    #{productImgUrl})
   </insert>
 
   <update id="update" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
@@ -39,5 +50,12 @@
     DELETE FROM product
     WHERE product_id = #{productId}
   </delete>
+
+  <update id="updateStock">
+    UPDATE product
+    SET stock = #{stock}
+    WHERE product_id = #{productId}
+  </update>
+
 
 </mapper>

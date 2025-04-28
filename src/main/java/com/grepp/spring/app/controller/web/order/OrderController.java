@@ -14,7 +14,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -43,7 +47,6 @@ public class OrderController {
             System.out.println("Product imgUrl: " + p.getProductImgUrl());
         }
 
-
         model.addAttribute("products", products);
         return "/order/order";
     }
@@ -69,24 +72,29 @@ public class OrderController {
 
     @GetMapping("cartOrderComplete")
     public String getCartOrderComplete() {
-            return "order/cartOrderComplete";
+        return "order/cartOrderComplete";
     }
 
     @PostMapping("cartOrderComplete")
-    public String postCartOrderComplete(@RequestParam String action, CartDetailsRequest cartDetailsRequest, Model model) {
+
+    public String postCartOrderComplete(
+        @RequestParam String action,
+        CartDetailsRequest cartDetailsRequest,
+        @RequestParam("address") String address,
+        @RequestParam("postNumber") String postNumber,
+        Model model) {
+
         if ("cartListOrder".equals(action)) {
-            CartProduct cartProduct  = cartService.orderCartList(cartDetailsRequest.getCartDetailsId());
+            CartProduct cartProduct = cartService.orderCartList(
+                cartDetailsRequest.getCartDetailsId());
             model.addAttribute("cartProduct", cartProduct);
-//            cartService.order(cartDetailsRequest.getCartDetailsId());
-            return "order/cartOrderComplete" ;
+
+            cartService.order(cartDetailsRequest.getCartDetailsId(), address, postNumber);
+            cartService.delete(cartDetailsRequest.getCartDetailsId());
+
+            return "order/cartOrderComplete";
         }
         return "redirect:/orderList";
     }
-
-    //TODO : 장바구니 담기, 장바구니에서 -> 결제로 이동
-//    @GetMapping
-//    public String cartToOrder(@ModelAttribute CartRequest cartRequest) {
-//        return "order/orderExample";
-//    }
 
 }
