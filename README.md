@@ -1,35 +1,90 @@
-
 # NBE5-6-1-Team06
-프로그래머스 백엔드 데브코스 5기 6회차 6팀 1차 프로젝트입니다.
-<hr>
 
-<h3>🧑‍💻 팀원 소개</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center"><b>김도윤 </b></td>
-      <td align="center"><b>안세희</b></td>
-      <td align="center"><b>이강현</b></td>
-      <td align="center"><b>이초롱</b></td>
-      <td align="center"><b>황영준</b></td>
-     <tr/>
+<hr/>
 
-<tr>
-      <td align="center"><a href="https://github.com/doyun-a"><img src="https://github.com/doyun-a.png" width="100px;" alt="kdu"/></a></td>
-      <td align="center"><a href="https://github.com/ash-be"><img src="https://github.com/ash-be.png" width="100px;" alt="ash"/></a></td>
-      <td align="center"><a href="https://github.com/Leeka99"><img src="https://github.com/Leeka99.png" width="100px;" alt="lkh"/></a></td>
-      <td align="center"><a href="https://github.com/0802222"><img src="https://github.com/0802222.png" width="100px;" alt="lcr"/></a></td>
-      <td align="center"><a href="https://github.com/youngjun222"><img src="https://github.com/youngjun222.png" width="100px;" alt="hyj"/></a></td>
-     <tr/>
+<div align="center">
+  <img src="readmeresorce/project_info.png" alt="Project Info" style="max-width: 100%; height: auto;">
 
-<tr>
-      <td align="center"><a href="https://github.com/doyun-a"><sub><b>@doyun-a</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/ash-be"><sub><b>@ash-be</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/Leeka99"><sub><b>@Leeka</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/0802222"><sub><b>@0802222</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/youngjun222"><sub><b>@yongjun222</b></sub></a><br /></td>
-     <tr/>
+[DROP THE GIT 팀 1차 프로젝트 일정 관리 (Trello 보드 바로가기)](https://trello.com/b/IdggiMMY/nbe5-6-1-gridscirclecafe)
 
-  </tbody>
-</table>
+</div>
+
+---
+
+## 🧑‍💻 팀원 소개
+
+  <table >
+    <tbody>
+      <tr>
+        <td align="center"><b>김도윤</b></td>
+        <td align="center"><b>안세희</b></td>
+        <td align="center"><b>이강현</b></td>
+        <td align="center"><b>이초롱</b></td>
+        <td align="center"><b>황영준</b></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="https://github.com/doyun-a"><img src="https://github.com/doyun-a.png" width="100px;" alt="김도윤"/></a></td>
+        <td align="center"><a href="https://github.com/ash-be"><img src="https://github.com/ash-be.png" width="100px;" alt="안세희"/></a></td>
+        <td align="center"><a href="https://github.com/Leeka99"><img src="https://github.com/Leeka99.png" width="100px;" alt="이강현"/></a></td>
+        <td align="center"><a href="https://github.com/0802222"><img src="https://github.com/0802222.png" width="100px;" alt="이초롱"/></a></td>
+        <td align="center"><a href="https://github.com/youngjun222"><img src="https://github.com/youngjun222.png" width="100px;" alt="황영준"/></a></td>
+      </tr>
+      <tr>
+        <td align="center"><a href="https://github.com/doyun-a"><sub><b>@doyun-a</b></sub></a></td>
+        <td align="center"><a href="https://github.com/ash-be"><sub><b>@ash-be</b></sub></a></td>
+        <td align="center"><a href="https://github.com/Leeka99"><sub><b>@Leeka</b></sub></a></td>
+        <td align="center"><a href="https://github.com/0802222"><sub><b>@0802222</b></sub></a></td>
+        <td align="center"><a href="https://github.com/youngjun222"><sub><b>@youngjun222</b></sub></a></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<br/>
+
+
+## 📌 프로젝트 소개
+
+<img src="readmeresorce/project_intro.png" alt="Project Info" style="max-width: 100%; height: auto;">
+
+
+<br/>
+
+## 🛠️ 기술 스택
+<img src="readmeresorce/stack.png" alt="Project Info" style="max-width: 100%; height: auto;">
+
+<br/>
+
+## 📊 ERD 설계
+<div align="center">
+<img src="readmeresorce/erd.png" alt="Project Info" style="max-width: 100%; height: auto;">
+
+</div>
+
+<br/>
+
+## 🗂️ ERD 및 테이블 구조
+<img src="readmeresorce/db_detail.png" alt="Project Info" style="max-width: 100%; height: auto;">
+
+
+<br/>
+
+## 📄API 명세서
+<img src="readmeresorce/api.png" alt="Project Info" style="max-width: 100%; height: auto;">
+
+<br/>
+
+## 🖥️ 주요 화면 (UI)
+<img src="readmeresorce/ui.png" alt="Project Info" style="max-width: 100%; height: auto;">
+
+<br/>
+
+## 🛠️ 트러블 슈팅 & 해결 과정
+> 개발 과정 중 발생한 문제와 해결 방법을 정리해주세요.
+>
+> **예시**
+> - 문제 : JPA에서 N+1 문제 발생
+> - 해결 : Fetch Join 사용하여 해결
+
+</div>
