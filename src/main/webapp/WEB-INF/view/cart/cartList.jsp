@@ -62,7 +62,6 @@
         background-color: rgba(0,0,0,0.4);
       }
 
-      /* 모달 배경 스타일 */
       .modal-overlay {
         position: fixed;
         top: 0;
@@ -76,7 +75,6 @@
         align-items: center;
       }
 
-      /* 모달 내용 */
       .modal-content {
         background-color: white;
         padding: 20px;
@@ -123,32 +121,32 @@
         cursor: pointer;
       }
       .notice-box {
-        background-color: #f9f9f9;  /* 박스 배경색 */
-        border: 1px solid #ddd;     /* 박스 테두리 색 */
-        padding: 15px;              /* 박스 안쪽 여백 */
-        margin: 20px 0;             /* 박스 상하 여백 */
-        border-radius: 5px;         /* 둥근 테두리 */
-        font-size: 16px;            /* 글자 크기 */
-        color: #333;                /* 글자 색 */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
 
       .notice-box strong {
-        font-weight: bold;          /* 글자 굵게 */
-        color: #e74c3c;             /* 강조 문구 빨간색 */
+        font-weight: bold;
+        color: #e74c3c;
       }
 
       .delivery-time {
-        color: #333;                /* 검은색 */
-        font-size: 14px;            /* 글자 크기 */
-        margin-top: 10px;           /* 위쪽 여백 */
+        color: #333;
+        font-size: 14px;
+        margin-top: 10px;
       }
 
       .disclaimer {
-        color: #333;                /* 검은색 */
-        font-size: 12px;            /* 글자 크기 */
-        margin-top: 10px;           /* 위쪽 여백 */
-        font-style: italic;         /* 기울임꼴 */
+        color: #333;
+        font-size: 12px;
+        margin-top: 10px;
+        font-style: italic;
       }
     </style>
 </head>
@@ -231,7 +229,6 @@
     </c:forEach>
 </main>
 
-<!-- 모달 창 -->
 <div id="orderModal" class="modal-overlay">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -298,7 +295,6 @@
       });
     });
 
-    // 모달 열기
     document.querySelectorAll('.open-modal').forEach(button => {
       button.addEventListener('click', function () {
         const cartDetailsId = this.getAttribute('product-details-id');
@@ -311,17 +307,14 @@
       });
     });
 
-    // 모달 닫기
     document.querySelector('.close').addEventListener('click', function () {
       document.getElementById('orderModal').style.display = 'none';
     });
 
-    // 모달 외부 클릭 시 닫기
     window.addEventListener('click', function (event) {
       const modalOverlay = document.querySelector('.modal-overlay');
       const modal = document.getElementById('orderModal');
 
-      // 배경이 클릭된 경우 모달 닫기
       if (event.target === modalOverlay) {
         modal.style.display = 'none';
       }

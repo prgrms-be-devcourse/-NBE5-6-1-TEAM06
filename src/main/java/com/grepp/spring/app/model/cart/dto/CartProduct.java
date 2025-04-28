@@ -2,7 +2,6 @@ package com.grepp.spring.app.model.cart.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
@@ -27,8 +26,6 @@ public class CartProduct {
 
     public CartProduct() {
         LocalDateTime now = LocalDateTime.now();
-        LocalTime twoPM = LocalTime.of(14, 0); // 오후 2시
-
         // 전날 오후 2시
         LocalDateTime yesterdayTwoPM = now.minusDays(1).withHour(14).withMinute(0).withSecond(0);
         // 오늘 오후 2시

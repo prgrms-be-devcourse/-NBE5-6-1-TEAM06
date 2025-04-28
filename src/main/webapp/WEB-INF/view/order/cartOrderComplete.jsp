@@ -35,7 +35,6 @@
     </tr>
     </thead>
     <tbody>
-<%--    <c:forEach var="item" items="${order.items}">--%>
         <tr>
 <%--            <td>${cartProduct.category}</td>--%>
             <td>${cartProduct.productName}</td>
@@ -43,7 +42,6 @@
             <td>${cartProduct.productCnt}</td>
 <%--            <td><fmt:formatNumber value="${cartProduct.unitPrice}" type="currency" /></td>--%>
         </tr>
-<%--    </c:forEach>--%>
     </tbody>
 </table>
 
