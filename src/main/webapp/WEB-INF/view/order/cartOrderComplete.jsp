@@ -27,7 +27,7 @@
 <table class="striped">
     <thead>
     <tr>
-        <th>카테고리</th>
+<%--        <th>카테고리</th>--%>
         <th>상품명</th>
         <th>단가</th>
         <th>수량</th>
@@ -37,7 +37,7 @@
     <tbody>
 <%--    <c:forEach var="item" items="${order.items}">--%>
         <tr>
-            <td>${cartProduct.category}</td>
+<%--            <td>${cartProduct.category}</td>--%>
             <td>${cartProduct.productName}</td>
             <td><fmt:formatNumber value="${cartProduct.productPrice}" type="currency" /></td>
             <td>${cartProduct.productCnt}</td>

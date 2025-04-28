@@ -59,7 +59,6 @@ values (2, 3, 2, '2025-04-02 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (2, 4, 2, '2025-04-02 10:23:30');
 
-<<<<<<< HEAD
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (3, 1, 3, '2025-04-03 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
@@ -86,16 +85,6 @@ VALUES (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '1
        (4, 'lcr@example.com', '2025-04-04', '2025-04-06', '서울 영등포구', '45678', 5000, 1, true),
        (5, 'hyj@example.com', '2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, 2, true),
        (6, 'admin@example.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true);
-=======
-INSERT INTO `order`(order_id, user_id, ordered_at, expected_delivery_date, address, post_number, total_price, order_items, activated)
-VALUES
-    (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000, 2, true),
-    (2, 'ash@example.com', '2025-04-02', '2025-04-04', '서울 마포구', '23456', 15000, 3, true),
-    (3, 'lkh@example.com', '2025-04-03', '2025-04-05', '서울 성동구', '34567', 20000, 4, true),
-    (4, 'lcr@example.com', '2025-04-04', '2025-04-06', '서울 영등포구', '45678', 5000, 1, true),
-    (5, 'hyj@example.com', '2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, 2, true),
-    (6, 'admin@example.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true);
->>>>>>> origin/lcr
 
 INSERT INTO order_details(order_details_id, order_id, product_id, order_cnt, product_price)
 VALUES (1, 1, 1, 1, 5000),

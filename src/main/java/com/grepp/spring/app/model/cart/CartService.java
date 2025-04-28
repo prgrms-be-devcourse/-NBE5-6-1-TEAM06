@@ -31,7 +31,11 @@ public class CartService {
         return cartRepository.orderCartList(cartDetailsId);
     }
 
-    public List<CartProduct> orderAllCartList(Long cartId) {
-        return cartRepository.orderAllCartList(cartId);
+//    public List<CartProduct> orderAllCartList(Long cartId) {
+//        return cartRepository.orderAllCartList(cartId);
+//    }
+
+    public void order(Long cartDetailsId) {
+        cartRepository.order(cartDetailsId);
     }
 }
