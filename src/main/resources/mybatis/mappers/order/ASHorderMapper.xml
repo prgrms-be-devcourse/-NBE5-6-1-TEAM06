@@ -12,7 +12,7 @@
     <id property="orderId" column="order_id"/>
     <result property="userId" column="user_id"/>
     <result property="orderedAt" column="ordered_at"/>
-    <result property="expectedDeliveryAt" column="expect_deliveried_at"/>
+    <result property="expectedDeliveryDate" column="expected_delivery_date"/>
     <result property="totalPrice" column="total_price"/>
     <result property="activated" column="activated"/>
     <result property="userName" column="user_name"/>
@@ -31,7 +31,7 @@
     o.order_id,
     o.user_id,
     o.ordered_at,
-    o.expect_deliveried_at,
+    o.expected_delivery_date,
     o.total_price,
     o.activated,
     m.user_name
@@ -76,7 +76,7 @@
     o.order_id,
     o.user_id,
     o.ordered_at,
-    o.expect_deliveried_at,
+    o.expected_delivery_date,
     o.total_price,
     o.activated,
     m.user_name

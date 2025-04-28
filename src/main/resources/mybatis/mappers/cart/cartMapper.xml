@@ -57,7 +57,7 @@
     INSERT INTO `order` (
     `user_id`,
     `ordered_at`,
-    `expect_deliveried_at`,
+    `expected_delivery_date`,
     `address`,
     `post_number`,
     `total_price`,
@@ -71,7 +71,7 @@
     WHEN NOW() BETWEEN DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY) AND DATE_SUB(CURRENT_TIMESTAMP,
     INTERVAL 1 HOUR) THEN CURDATE() + INTERVAL 2 DAY
     ELSE CURDATE() + INTERVAL 3 DAY
-    END AS expect_deliveried_at,
+    END AS expected_delivery_date,
     #{address},
     #{postNumber},
     SUM(p.price * cd.product_cnt),
