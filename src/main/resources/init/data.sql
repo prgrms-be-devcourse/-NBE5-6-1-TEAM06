@@ -1,5 +1,5 @@
 insert into Member(user_id, password, user_name, role, tel, created_at)
-                             values ('admin@example.com', '9999', 'ADMIN', 'ADMIN', '9999-9999', '2025-03-24 10:23:30');
+values ('admin@example.com', '9999', 'ADMIN', 'ADMIN', '9999-9999', '2025-03-24 10:23:30');
 insert into Member(user_id, password, user_name, role, tel, created_at)
 values ('kdu@example.com', '1111', '김도윤', 'USER', '1111-1111', '2025-03-25 10:23:30');
 insert into Member(user_id, password, user_name, role, tel, created_at)

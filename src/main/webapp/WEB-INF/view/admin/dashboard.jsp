@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="/WEB-INF/view/include/page.jsp" %>
 
 <html>
@@ -15,43 +16,125 @@
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 
 <main class="container">
-    <h4>모든 고객의 주문 내역</h4>
-
+    <h4>상품별 재고 현황</h4>
     <table class="striped">
         <thead>
         <tr>
-            <th>주문번호</th>
-            <th>고객이름</th>
             <th>상품명</th>
-            <th>수량</th>
-            <th>총 가격</th>
-            <th>주문일</th>
-            <th>삭제</th>
+            <th>재고</th>
+            <th>재고 수정</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="order" items="${orders}">
+        <c:forEach var="product" items="${products}">
             <tr>
-                <td>${order.orderId}</td>
-                <td>${order.userName}</td>
-                <td>${order.productName}</td>
-                <td>${order.productCnt}</td>
-                <td>${order.totalPrice}</td>
-                <td>${order.createdAt}</td>
+                <td>${product.name}</td>
+                <td>${product.stock}</td>
                 <td>
-                    <form method="post" action="/admin/orderList" onsubmit="return confirm('삭제하시겠습니까?');">
-                        <input type="hidden" name="_method" value="delete"/>
-                        <input type="hidden" name="orderId" value="${order.orderId}"/>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <button class="btn red">삭제</button>
+                    <form method="post" action="/admin/updateStock" style="display: flex; align-items: center;">
+                        <input type="hidden" name="productId" value="${product.id}" />
+                        <button type="button" onclick="decreaseStock(this)" class="btn" style="background-color: #8B4513; color: white;">-</button>
+
+                        <input type="number" name="stock" value="${product.stock}" min="0" style="width: 60px; text-align: center; margin: 0 5px;" />
+                        <button type="button" onclick="increaseStock(this)" class="btn" style="background-color: #8B4513; color: white;">+</button>
+
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+                        <button type="submit" class="btn" style="background-color: #6F4E37; color: white; margin-left: 10px;"
+                                onclick="return confirmUpdateStock();">재고 수정</button>
                     </form>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+
+    <h4>모든 고객의 주문 내역</h4>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th>주문번호</th>
+            <th>이메일</th>
+            <th>주문 상세</th>
+            <th>총 가격</th>
+            <th>총 수량</th>
+            <th>주문일</th>
+            <th>주문상태</th>
+            <th>주문취소</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="order" items="${orders}">
+            <tr>
+                <td>${order.orderId}</td>
+                <td>${order.userId}</td>
+                <td>
+                    <c:forEach var="item" items="${order.items}">
+                        ${item.productName} (${item.quantity})<br/>
+                    </c:forEach>
+                </td>
+                <td>₩<c:out value="${order.totalPrice}"/></td>
+                <td>${order.orderItems}</td>
+                <td>${fn:replace(order.orderDate, 'T', ' ')}</td>
+                <td>
+                    <c:choose>
+                        <c:when test="${order.activated}">
+                            결제완료
+                        </c:when>
+                        <c:otherwise>
+                            주문취소
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${order.activated}">
+                            <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 취소하시겠습니까?');">
+                                <input type="hidden" name="_method" value="delete"/>
+                                <input type="hidden" name="orderId" value="${order.orderId}"/>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button class="btn red">주문 취소</button>
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                            취소완료
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+
 </main>
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
+
+
+<script>
+    function decreaseStock(button) {
+        const input = button.nextElementSibling;
+        if (parseInt(input.value) > 0) {
+            input.value = parseInt(input.value) - 1;
+        }
+    }
+
+    function increaseStock(button) {
+        const input = button.previousElementSibling;
+        input.value = parseInt(input.value) + 1;
+    }
+
+    function confirmUpdateStock() {
+        const confirmed = confirm('재고를 수정하시겠습니까?');
+        if (confirmed) {
+            setTimeout(function() {
+                alert('재고 수정이 완료되었습니다!');
+            }, 100);
+            return true;
+        }
+        return false;
+    }
+</script>
+
 </body>
 </html>

@@ -38,6 +38,9 @@ public class ProductService {
 
     public List<IndexProductDto> getAllIndexProducts() {return productRepository.findAllProducts(); }
 
+    public List<ProductDto> adminGetAllProducts() {return productRepository.adminFindAll();}
+
+
     public void addProduct(ProductDto product) {
         productRepository.save(product);
     }
@@ -49,4 +52,7 @@ public class ProductService {
     public void deleteProduct(Long id) {
         productRepository.delete(id);
     }
+
+    public void updateStock(Long productId, int stock) {productRepository.updateStock(productId, stock);}
+
 }

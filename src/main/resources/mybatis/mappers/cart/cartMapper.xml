@@ -53,11 +53,4 @@
     WHERE cd.cart_details_id = #{cartDetailsId}
   </select>
 
-<!--  <select id="orderAllCartList" resultMap="cartProductMap">-->
-<!--    SELECT p.category, p.product_name, p.product_price, cd.product_cnt-->
-<!--    FROM cart_details cd-->
-<!--    join product p on p.product_id = cd.product_id-->
-<!--    WHERE cart_id = #{cartId}-->
-<!--  </select>-->
-
 </mapper>

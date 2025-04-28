@@ -27,19 +27,18 @@ public class OrderService {
     private final CartService cartService;
     private final ProductService productService;
 
-    public List<OrderDto> selectAll() {
-        return orderRepository.selectAll();
-    }
+//    public List<OrderDto> selectAll() {
+//        return orderRepository.selectAll();
+//    }
 
 
     // 이거랑 아래 deleteOrder 제것(ash) 같은데... 혹시 몰라서 그냥 남겨둡니다...
     public List<OrderDto> getAllOrders() {
-        return orderRepository.findAllOrders();
+        return orderRepository.selectAll();
     }
 
-    public void deleteOrder(Long orderId) {
-        orderRepository.deleteOrderDetails(orderId);
-        orderRepository.deleteOrder(orderId);
+    public void cancelOrder(Long orderId) {
+        orderRepository.cancelOrder(orderId);
     }
 
 
