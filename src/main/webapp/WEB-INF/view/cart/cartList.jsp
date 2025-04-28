@@ -182,6 +182,12 @@
     <input type="hidden" name="productCnt" value="${cartProduct.productCnt}"/>
     <input type="hidden" name="cartDetailsId" value="${cartProduct.cartDetailsId}"/>
 
+    <c:if test="${empty cartList}">
+        <div class="notice-box">
+            <strong>장바구니에 담은 상품이 없습니다.</strong>
+        </div>
+    </c:if>
+
     <c:forEach var="cartProduct" items="${cartList}" varStatus="status">
         <form action="cartList" method="post" class="cart-card">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
