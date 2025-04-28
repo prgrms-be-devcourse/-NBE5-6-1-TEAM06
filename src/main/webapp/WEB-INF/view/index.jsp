@@ -80,7 +80,9 @@
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+
         <a href="/order"><button class="waves-effect waves-light btn-brown">구매하기</button></a>
+
     </div>
 
 

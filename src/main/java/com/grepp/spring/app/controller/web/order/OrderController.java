@@ -5,11 +5,9 @@ import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
 import com.grepp.spring.app.model.cart.CartService;
 import com.grepp.spring.app.model.cart.dto.CartProduct;
-import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
 import com.grepp.spring.app.model.product.ProductService;
 import com.grepp.spring.app.model.product.dto.ProductDto;
-import jakarta.servlet.ServletOutputStream;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -79,6 +77,7 @@ public class OrderController {
         if ("cartListOrder".equals(action)) {
             CartProduct cartProduct  = cartService.orderCartList(cartDetailsRequest.getCartDetailsId());
             model.addAttribute("cartProduct", cartProduct);
+//            cartService.order(cartDetailsRequest.getCartDetailsId());
             return "order/cartOrderComplete" ;
         }
         return "redirect:/orderList";

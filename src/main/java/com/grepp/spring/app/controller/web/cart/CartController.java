@@ -32,7 +32,10 @@ public class CartController {
     }
 
     @PostMapping
-    public String modifyCart(@RequestParam String action, @RequestParam Long cartId, @RequestParam Long cartDetailsId, @RequestParam int productCnt, Model model) {
+    public String modifyCart(CartDetailsRequest CartDetailsRequest, @RequestParam String action) {
+        Long cartDetailsId = CartDetailsRequest.getCartDetailsId();
+        int productCnt = CartDetailsRequest.getProductCnt();
+
         if ("save".equals(action)) {
             cartService.modifyProductCnt(cartDetailsId, productCnt);
             return "redirect:/cartList";
