@@ -78,6 +78,7 @@ public class OrderController {
             CartProduct cartProduct  = cartService.orderCartList(cartDetailsRequest.getCartDetailsId());
             model.addAttribute("cartProduct", cartProduct);
 //            cartService.order(cartDetailsRequest.getCartDetailsId());
+//            cartService.delete(cartDetailsRequest.getCartDetailsId());
             return "order/cartOrderComplete" ;
         }
         return "redirect:/orderList";
