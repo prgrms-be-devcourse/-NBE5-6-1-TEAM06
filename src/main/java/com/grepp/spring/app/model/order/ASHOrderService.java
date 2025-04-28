@@ -25,7 +25,7 @@ public class ASHOrderService {
 
         for(ASHOrderDto order : orders) {
             order.setFormattedOrderedAt(order.getOrderedAt().format(formatter));
-            order.setFormattedExpectedDeliveryAt(order.getExpectedDeliveryAt().format(formatter2));
+            order.setFormattedExpectedDeliveryDate(order.getExpectedDeliveryDate().format(formatter2));
         }
 
         return orders;
@@ -38,7 +38,7 @@ public class ASHOrderService {
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         order.setFormattedOrderedAt(order.getOrderedAt().format(formatter));
-        order.setFormattedExpectedDeliveryAt(order.getExpectedDeliveryAt().format(formatter2));
+        order.setFormattedExpectedDeliveryDate(order.getExpectedDeliveryDate().format(formatter2));
 
         return order;
     }

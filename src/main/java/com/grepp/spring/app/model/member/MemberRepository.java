@@ -17,7 +17,7 @@ public interface MemberRepository {
     Boolean existsMember(String userId);
 
     @Insert("insert into member (USER_ID, PASSWORD, USER_NAME, TEL, ROLE) "
-        + "values(#{userId}, #{password}, #{username}, #{tel}, #{role})")
+        + "values(#{userId}, #{password}, #{userName}, #{tel}, #{role})")
     void insert(Member dto);
 
     String selectUserNameByUserId(String userId);

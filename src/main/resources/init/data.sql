@@ -77,52 +77,49 @@ values (4, 3, 4, '2025-04-05 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (4, 4, 4, '2025-04-05 10:23:30');
 
-INSERT INTO `order`(order_id, user_id, ordered_at, expected_delivery_date, address, post_number, total_price, order_items,
-                    activated)
-VALUES (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000, 2, true),
-       (2, 'ash@example.com', '2025-04-02', '2025-04-04', '서울 마포구', '23456', 15000, 3, true),
-       (3, 'lkh@example.com', '2025-04-03', '2025-04-05', '서울 성동구', '34567', 20000, 4, true),
-       (4, 'lcr@example.com', '2025-04-04', '2025-04-06', '서울 영등포구', '45678', 5000, 1, true),
-       (5, 'hyj@example.com', '2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, 2, true),
-       (6, 'admin@example.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true);
-
-<<<<<<< HEAD
-INSERT INTO `order`(order_id, user_id, ordered_at, expected_delivery_date, address, post_number, total_price, activated)
+# INSERT INTO `order`(order_id, user_id, ordered_at, expected_delivery_date, address, post_number, total_price, order_items,
+#                     activated)
+# VALUES (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000, 2, true),
+#        (2, 'ash@example.com', '2025-04-02', '2025-04-04', '서울 마포구', '23456', 15000, 3, true),
+#        (3, 'lkh@example.com', '2025-04-03', '2025-04-05', '서울 성동구', '34567', 20000, 4, true),
+#        (4, 'lcr@example.com', '2025-04-04', '2025-04-06', '서울 영등포구', '45678', 5000, 1, true),
+#        (5, 'hyj@example.com', '2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, 2, true),
+#        (6, 'admin@example.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true);
+#
+INSERT INTO `order`(order_id, user_id, user_name, ordered_at, expected_delivery_date, address, post_number, total_price, activated, order_status)
 VALUES
-    (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000, 2, true),
-    (2, 'ash@example.com', '2025-04-02', '2025-04-04', '서울 마포구', '23456', 15000, 3, true),
-    (3, 'lkh@example.com', '2025-04-03', '2025-04-05', '서울 성동구', '34567', 20000, 4, true),
-    (4, 'lcr@example.com', '2025-04-04', '2025-04-06', '서울 영등포구', '45678', 5000, 1, true),
-    (5, 'hyj@example.com', '2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, 2, true),
-    (6, 'admin@example.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true);
-=======
->>>>>>> origin/main
+    (1, 'kdu@example.com', '김도윤', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000,  true, '주문 완료'),
+    (2, 'ash@example.com', '안세희','2025-04-02', '2025-04-04', '서울 마포구', '23456', 15000,  true, '주문 완료'),
+    (3, 'lkh@example.com', '이강현','2025-04-03', '2025-04-05', '서울 성동구', '34567', 20000,  true, '주문 완료'),
+    (4, 'lcr@example.com', '이초롱','2025-04-04', '2025-04-06', '서울 영등포구', '45678', 5000, true, '주문 완료'),
+    (5, 'hyj@example.com', '황영준','2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, true, '주문 완료'),
+    (6, 'admin@example.com', '관리자','2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, true, '주문 완료');
 
-INSERT INTO order_details(order_details_id, order_id, product_id, order_cnt, product_price)
-VALUES (1, 1, 1, 1, 5000),
-       (2, 1, 2, 1, 5000),
-       (3, 2, 2, 2, 5000),
-       (4, 2, 3, 1, 5000),
-       (5, 3, 1, 1, 5000),
-       (6, 3, 2, 1, 5000),
-       (7, 3, 3, 1, 5000),
-       (8, 3, 4, 1, 5000),
-       (9, 4, 4, 1, 5000),
-       (10, 5, 2, 2, 5000),
-       (11, 6, 1, 3, 5000);
+INSERT INTO order_details(order_id, product_id, product_name, product_code, category, order_cnt, quantity, product_price, unit_price, total_price)
+VALUES (1, 1, 'coffee1', 1, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (2, 2, 'coffee2', 2, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (3, 3, 'coffee3', 2, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (4, 4, 'coffee4', 3, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (5, 5, 'coffee5', 1, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (6, 6, 'coffee6', 2, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (7, 7, 'coffee7', 3, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (8, 8, 'coffee8', 4, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (9, 9, 'coffee9', 4, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (10, 10, 'coffee10', 2, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000),
+       (11, 11, 'coffee11', 1, 'COFFEE BEAN', 2, 2, 5000, 10000, 10000);
 
 
 -- ash test@email.com 더미데이터 추가
-INSERT INTO `order`(order_id, user_id, ordered_at, expected_delivery_date, address, post_number, total_price, order_items,
-                    activated)
-VALUES (50, 'test@email.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true),
-       (51, 'test@email.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 30000, 1, true),
-       (52, 'test@email.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 10000, 2, true);
-
-INSERT INTO order_details(order_details_id, order_id, product_id, order_cnt, product_price)
-VALUES (500, 50, 1, 1, 5000),
-       (501, 50, 1, 1, 5000),
-       (502, 50, 1, 1, 5000),
-       (510, 51, 4, 6, 5000),
-       (520, 52, 2, 1, 5000),
-       (521, 52, 3, 1, 5000);
+# INSERT INTO `order`(order_id, user_id, ordered_at, expected_delivery_date, address, post_number, total_price, order_items,
+#                     activated)
+# VALUES (50, 'test@email.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true),
+#        (51, 'test@email.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 30000, 1, true),
+#        (52, 'test@email.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 10000, 2, true);
+#
+# INSERT INTO order_details(order_details_id, order_id, product_id, order_cnt, product_price)
+# VALUES (500, 50, 1, 1, 5000),
+#        (501, 50, 1, 1, 5000),
+#        (502, 50, 1, 1, 5000),
+#        (510, 51, 4, 6, 5000),
+#        (520, 52, 2, 1, 5000),
+#        (521, 52, 3, 1, 5000);

@@ -29,9 +29,9 @@
             <div class="input-field col s7 ">
 
                 <i class="material-icons prefix">account_circle</i>
-                <form:input path="username" id="username" name="username" type="text" placeholder="username"
+                <form:input path="userName" id="userName" name="userName" type="text" placeholder="userName"
                             class="validate"/>
-                <form:errors path="username" cssClass="helper-text"/>
+                <form:errors path="userName" cssClass="helper-text"/>
             </div>
             <div class="input-field col s7 ">
                 <i class="material-icons prefix">phone</i>

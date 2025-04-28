@@ -23,10 +23,10 @@ public class AuthService implements UserDetailsService {
     
     
     @Override
-    public UserDetails loadUserByUsername(String username){
+    public UserDetails loadUserByUsername(String userName){
         
-        Member member = memberRepository.selectById(username)
-                            .orElseThrow(() -> new UsernameNotFoundException(username));
+        Member member = memberRepository.selectById(userName)
+                            .orElseThrow(() -> new UsernameNotFoundException(userName));
         
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(member.getRole().name()));
@@ -40,6 +40,5 @@ public class AuthService implements UserDetailsService {
 
         return Principal.createPrincipal(member, authorities);
     }
-    
-    
+
 }
