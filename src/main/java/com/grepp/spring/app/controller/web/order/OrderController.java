@@ -8,7 +8,9 @@ import com.grepp.spring.app.model.cart.dto.CartProduct;
 import com.grepp.spring.app.model.order.OrderService;
 import com.grepp.spring.app.model.product.ProductService;
 import com.grepp.spring.app.model.product.dto.ProductDto;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,12 +75,19 @@ public class OrderController {
     }
 
     @PostMapping("cartOrderComplete")
-    public String postCartOrderComplete(@RequestParam String action, CartDetailsRequest cartDetailsRequest, Model model) {
+    public String postCartOrderComplete(
+        @RequestParam String action,
+        CartDetailsRequest cartDetailsRequest,
+        @RequestParam("address") String address,
+        @RequestParam("postNumber") String postNumber,
+        Model model) {
+
         if ("cartListOrder".equals(action)) {
             CartProduct cartProduct  = cartService.orderCartList(cartDetailsRequest.getCartDetailsId());
             model.addAttribute("cartProduct", cartProduct);
-//            cartService.order(cartDetailsRequest.getCartDetailsId());
-//            cartService.delete(cartDetailsRequest.getCartDetailsId());
+
+            cartService.order(cartDetailsRequest.getCartDetailsId(), address, postNumber);
+            cartService.delete(cartDetailsRequest.getCartDetailsId());
             return "order/cartOrderComplete" ;
         }
         return "redirect:/orderList";

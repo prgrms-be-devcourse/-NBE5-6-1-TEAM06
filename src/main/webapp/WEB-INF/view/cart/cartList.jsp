@@ -64,16 +64,16 @@
 
       /* 모달 배경 스타일 */
       .modal-overlay {
-        position: fixed;  /* 화면에 고정 */
+        position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;  /* 화면 너비 */
-        height: 100vh; /* 화면 높이 */
-        background-color: rgba(0, 0, 0, 0.5); /* 반투명 어두운 배경 */
-        z-index: 999;  /* 다른 요소들보다 위에 표시되도록 */
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
         display: flex;
         justify-content: center;
-        align-items: center; /* 모달을 화면 가운데에 정렬 */
+        align-items: center;
       }
 
       /* 모달 내용 */
@@ -81,7 +81,6 @@
         background-color: white;
         padding: 20px;
         border-radius: 5px;
-        /* 추가적인 스타일 */
       }
 
       .close {
@@ -123,6 +122,34 @@
         font-size: 16px;
         cursor: pointer;
       }
+      .notice-box {
+        background-color: #f9f9f9;  /* 박스 배경색 */
+        border: 1px solid #ddd;     /* 박스 테두리 색 */
+        padding: 15px;              /* 박스 안쪽 여백 */
+        margin: 20px 0;             /* 박스 상하 여백 */
+        border-radius: 5px;         /* 둥근 테두리 */
+        font-size: 16px;            /* 글자 크기 */
+        color: #333;                /* 글자 색 */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+      }
+
+      .notice-box strong {
+        font-weight: bold;          /* 글자 굵게 */
+        color: #e74c3c;             /* 강조 문구 빨간색 */
+      }
+
+      .delivery-time {
+        color: #333;                /* 검은색 */
+        font-size: 14px;            /* 글자 크기 */
+        margin-top: 10px;           /* 위쪽 여백 */
+      }
+
+      .disclaimer {
+        color: #333;                /* 검은색 */
+        font-size: 12px;            /* 글자 크기 */
+        margin-top: 10px;           /* 위쪽 여백 */
+        font-style: italic;         /* 기울임꼴 */
+      }
     </style>
 </head>
 <body>
@@ -132,6 +159,18 @@
 
 <main class="container">
     <h2>장바구니</h2>
+
+    <div class="notice-box">
+        <strong>당일 오후 2시 이후의 주문은 다음날 배송을 시작합니다.</strong>
+
+        <p class="delivery-time">
+            오후 2시 이전 주문 :  2일 후 배송완료<br>
+            오후 2시 이후 주문 :  3일 후 배송완료
+        </p>
+        <p class="disclaimer">
+            * 택배사의 사정, 공휴일 등의 이유로 실제 배송일자는 달라질 수 있습니다.
+        </p>
+    </div>
 
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="hidden" name="userName" value="${cartProduct.userName}"/>
@@ -262,7 +301,7 @@
         document.getElementById('cartDetailsId').value = cartDetailsId;
         document.getElementById('productCnt').value = productCnt;
 
-        document.getElementById('orderModal').style.display = 'flex';  // 클릭 시 모달을 열도록
+        document.getElementById('orderModal').style.display = 'flex';
       });
     });
 
@@ -273,7 +312,7 @@
 
     // 모달 외부 클릭 시 닫기
     window.addEventListener('click', function (event) {
-      const modalOverlay = document.querySelector('.modal-overlay');  // 배경을 확인
+      const modalOverlay = document.querySelector('.modal-overlay');
       const modal = document.getElementById('orderModal');
 
       // 배경이 클릭된 경우 모달 닫기

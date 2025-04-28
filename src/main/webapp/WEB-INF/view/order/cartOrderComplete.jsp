@@ -20,7 +20,7 @@
 <div class="card-panel">
     <p>주문 일자: ${cartProduct.orderedAt}</p>
 <%--    <p>주문 상태: ${order.orderStatus.label}</p>--%>
-    <p>예상 배송일: ${cartProduct.expectedDeliveryAt}</p>
+    <p>예상 배송일자: ${cartProduct.expectedDeliveryAt}</p>
 </div>
 
 <h5>주문 내역</h5>
