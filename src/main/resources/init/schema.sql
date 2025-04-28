@@ -31,7 +31,7 @@ CREATE TABLE `order` (
                          `address` varchar(20) NOT NULL COMMENT 'address',
                          `post_number` varchar(20) NOT NULL COMMENT 'postNumber',
                          `total_price` INT NOT NULL COMMENT 'totalPrice',
-#                          `order_items` INT NOT NULL COMMENT 'orderItems',
+                         `order_items` INT NOT NULL COMMENT 'orderItems',
                          `activated` BOOLEAN NOT NULL COMMENT 'activated',
                          PRIMARY KEY (`order_id`)
 );

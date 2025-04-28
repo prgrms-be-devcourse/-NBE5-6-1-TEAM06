@@ -52,5 +52,4 @@
     join member m on m.user_id = c.user_id
     WHERE cd.cart_details_id = #{cartDetailsId}
   </select>
-
 </mapper>
