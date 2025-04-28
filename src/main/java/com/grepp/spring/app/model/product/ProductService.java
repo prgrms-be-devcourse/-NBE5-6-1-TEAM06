@@ -1,6 +1,8 @@
 package com.grepp.spring.app.model.product;
 
+import com.grepp.spring.app.model.product.dto.IndexProductDto;
 import com.grepp.spring.app.model.product.dto.ProductDto;
+import com.grepp.spring.app.model.product.mapper.ProductMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductMapper productMapper;
 
     public ProductDto getProduct(Long id) {
         return productRepository.findById(id);
@@ -35,16 +38,21 @@ public class ProductService {
         }).collect(Collectors.toList());
     }
 
-    public void addProduct(ProductDto product) {
-        productRepository.save(product);
-    }
+    public List<IndexProductDto> getAllIndexProducts() {return productMapper.findAllProducts(); }
+
+    public List<ProductDto> adminGetAllProducts() {return productMapper.adminFindAll();}
+
+
+//    public void addProduct(ProductDto product) {
+//        productRepository.save(product);
+//    }
 
     public void updateProduct(ProductDto product) {
-        productRepository.update(product);
+        productMapper.update(product);
     }
 
     public void deleteProduct(Long id) {
-        productRepository.delete(id);
+        productMapper.delete(id);
     }
 
     public ProductDto getProductById(Long productId) {
@@ -54,4 +62,8 @@ public class ProductService {
 
         return productRepository.findById(productId);
     }
+
+    public void updateStock(Long productId, int stock) {productMapper.updateStock(productId, stock);}
+
+
 }

@@ -10,9 +10,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface OrderRepository {
-    List<OrderDto> findAllOrders();
-    void deleteOrderDetails(Long orderId);
-    void deleteOrder(Long orderId);
+    void cancelOrder(Long orderId);
     List<OrderDto> selectAll();
     void insertOrder(OrderDto order);
 
@@ -20,3 +18,4 @@ public interface OrderRepository {
 
     void insertOrderDetail(OrderDetailsDto item);
 }
+

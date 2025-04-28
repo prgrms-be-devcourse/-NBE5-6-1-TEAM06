@@ -12,7 +12,16 @@
   margin-bottom: 30px;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.order-box-cancel{
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
   padding: 15px;
+  padding-bottom: 30px;
   background-color: #f9f9f9;
 }
 
@@ -27,12 +36,12 @@
   text-align: center;
   padding: 10px;
   border-bottom: 1px solid #eee;
-  border-right: 1px solid #ddd; /* 세로줄 추가 */
+  border-right: 1px solid #ddd;
 }
 
 .order-table th:last-child,
 .order-table td:last-child {
-  border-right: none; /* 마지막 열에는 세로줄 안 보이게 */
+  border-right: none;
 }
 
 
@@ -59,9 +68,18 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .cancel-btn:hover {
-  background-color: #959292;
+  background-color: #5c4031;
+  color: white;
+}
+
+.order-state{
+
+}
+
+.order-cancel{
+  color: red;
 }

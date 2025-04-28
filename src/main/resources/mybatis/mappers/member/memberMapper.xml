@@ -15,4 +15,11 @@
     select * from member where user_id = #{userId}
   </select>
 
+<!--  ash member에서 이름 갖고 오기  -->
+  <select id="selectUserNameByUserId" resultType="String" parameterType="String">
+    select user_name
+    from member
+    where user_id = #{userId}
+  </select>
+
 </mapper>

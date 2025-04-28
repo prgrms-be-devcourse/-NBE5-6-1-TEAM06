@@ -1,8 +1,11 @@
 package com.grepp.spring.app.controller.web.order;
 
+import com.grepp.spring.app.controller.web.cart.form.CartDetailsRequest;
 import com.grepp.spring.app.controller.web.order.code.OrderStatus;
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
+import com.grepp.spring.app.model.cart.CartService;
+import com.grepp.spring.app.model.cart.dto.CartProduct;
 import com.grepp.spring.app.model.member.MemberService;
 import com.grepp.spring.app.model.member.dto.Member;
 import com.grepp.spring.app.model.order.OrderService;
@@ -33,6 +36,7 @@ public class OrderController {
     private final ProductService productService;
 
     private final OrderService orderService;
+    private final CartService cartService;
 
     private final MemberService memberService;
 
@@ -52,6 +56,13 @@ public class OrderController {
         model.addAttribute("orderRequest", request);
 
         List<ProductDto> products = productService.getAllProducts();
+
+        for (ProductDto p : products) {
+            System.out.println("==============================");
+            System.out.println("Product name: " + p.getProductName());
+            System.out.println("Product imgUrl: " + p.getProductImgUrl());
+        }
+
         model.addAttribute("products", products);
 
         return "/order/order";
@@ -90,7 +101,8 @@ public class OrderController {
                             product.getProductName() != null ? product.getProductName() : "상품명없음"
                         );
                         item.setProductCode(
-                            (product.getCode() != null && !product.getCode().isBlank()) ? product.getCode() : "없음"
+                            (product.getCode() != null && !product.getCode().isBlank())
+                                ? product.getCode() : "없음"
                         );
                         item.setQuantity(quantity);
 
@@ -152,8 +164,38 @@ public class OrderController {
             model.addAttribute("order", response);
 
             return "/order/orderComplete";
+
         }
 
         return "redirect:/";
     }
+
+
+    @GetMapping("cartOrderComplete")
+    public String getCartOrderComplete() {
+        return "order/cartOrderComplete";
+    }
+
+    @PostMapping("cartOrderComplete")
+
+    public String postCartOrderComplete(
+        @RequestParam String action,
+        CartDetailsRequest cartDetailsRequest,
+        @RequestParam("address") String address,
+        @RequestParam("postNumber") String postNumber,
+        Model model) {
+
+        if ("cartListOrder".equals(action)) {
+            CartProduct cartProduct = cartService.orderCartList(
+                cartDetailsRequest.getCartDetailsId());
+            model.addAttribute("cartProduct", cartProduct);
+
+            cartService.order(cartDetailsRequest.getCartDetailsId(), address, postNumber);
+            cartService.delete(cartDetailsRequest.getCartDetailsId());
+
+            return "order/cartOrderComplete";
+        }
+        return "redirect:/orderList";
+    }
+
 }

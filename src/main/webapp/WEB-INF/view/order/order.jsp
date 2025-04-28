@@ -64,6 +64,40 @@
             <h5 class="m-0 p-0"><b>Order Information</b></h5>
             <p class="info-desc">주문정보를 입력해주세요.
             <p>
+<%--=======--%>
+<%--<div class="card">--%>
+<%--    <div class="row">--%>
+<%--        <!-- Product List -->--%>
+<%--        <div class="col-md-8 mt-4 d-flex flex-column align-items-start p-3 pt-0">--%>
+<%--            <h5><b>Product List</b></h5>--%>
+<%--            <ul class="list-group products">--%>
+<%--                <c:forEach var="product" items="${products}">--%>
+<%--                    <li class="list-group-item d-flex mt-2">--%>
+<%--                        <div class="col-2">--%>
+<%--                            <img class="img-fluid" src="/assets/images/${product.productImgUrl}" alt="">--%>
+<%--                        </div>--%>
+<%--                        <div class="col">--%>
+<%--                            <div class="row text-muted">${product.category}</div>--%>
+<%--                            <div class="row item-name">${product.productName}</div>--%>
+<%--                        </div>--%>
+<%--                        <div class="col text-center price">${product.price}원</div>--%>
+<%--                        <div class="quantity-control d-flex align-items-center gap-1">--%>
+<%--                            <button type="button"--%>
+<%--                                    class="waves-effect waves-light btn-small btn-brown btn-xs quantity-decrease">--%>
+<%--                                <i class="material-icons">remove</i>--%>
+<%--                            </button>--%>
+<%--&lt;%&ndash;                            // 수정&ndash;%&gt;--%>
+<%--                            <input type="number" class="form-control quantity-input" value="0" min="0"--%>
+<%--                                   data-name="${product.productName}"--%>
+<%--                                   style="width: 2rem; text-align: center; height: 1.5rem; font-size: 0.8rem;"/>--%>
+<%--                            <button type="button"--%>
+<%--                                    class="waves-effect waves-light btn-small btn-brown btn-xs quantity-increase">--%>
+<%--                                <i class="material-icons">add</i>--%>
+<%--                            </button>--%>
+<%--                        </div>--%>
+<%--                    </li>--%>
+<%--                </c:forEach>--%>
+<%--            </ul>--%>
         </div>
         <hr>
 

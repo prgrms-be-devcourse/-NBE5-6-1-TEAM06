@@ -11,4 +11,14 @@ import org.springframework.stereotype.Repository;
 public interface CartRepository {
 
     List<CartProduct> findCartWithProductByUserId(@Param("userId") String userId);
+
+    void modifyProductCnt(@Param("cartDetailsId") Long cartDetailsId,
+        @Param("productCnt") int productCnt);
+
+    void delete(@Param("cartDetailsId") Long cartDetailsId);
+
+    CartProduct orderCartList(@Param("cartDetailsId") Long cartDetailsId);
+
+    void order(@Param("cartDetailsId") Long cartDetailsId, @Param("address") String address,
+        @Param("postNumber") String postNumber);
 }

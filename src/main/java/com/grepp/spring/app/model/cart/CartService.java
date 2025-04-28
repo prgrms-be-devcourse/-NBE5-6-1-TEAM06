@@ -16,4 +16,20 @@ public class CartService {
     public List<CartProduct> getCartListByUserId(String userId) {
         return cartRepository.findCartWithProductByUserId(userId);
     }
+
+    public void modifyProductCnt(Long cartDetailsId, int productCnt) {
+        cartRepository.modifyProductCnt(cartDetailsId, productCnt);
+    }
+
+    public void delete(Long cartDetailsId) {
+        cartRepository.delete(cartDetailsId);
+    }
+
+    public CartProduct orderCartList(Long cartDetailsId) {
+        return cartRepository.orderCartList(cartDetailsId);
+    }
+
+    public void order(Long cartDetailsId, String address, String postNumber) {
+        cartRepository.order(cartDetailsId, address, postNumber);
+    }
 }

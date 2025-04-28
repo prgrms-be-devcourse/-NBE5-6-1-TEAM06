@@ -1,5 +1,8 @@
 <%@ page language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 
 
 <header class="header">
@@ -17,15 +20,23 @@
                         </a>
                     </li>
                 </sec:authorize>
+
                 <sec:authorize access="isAuthenticated()">
-                    <c:choose>
-                        <c:when test="${fn:contains(pageContext.request.requestURI, 'member/mypage')}">
-                            <li><a href="/order/cart" class="grey-text">cart</a></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li><a href="/member/mypage" class="grey-text">mypage</a></li>
-                        </c:otherwise>
-                    </c:choose>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <li><a href="/admin/dashboard" class="grey-text">adminpage</a></li>
+                    </sec:authorize>
+
+                    <sec:authorize access="!hasRole('ROLE_ADMIN')">
+                        <c:choose>
+                            <c:when test="${fn:contains(pageContext.request.requestURI, 'member/mypage')}">
+                                <li><a href="/cartList" class="grey-text">cart</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="/member/mypage" class="grey-text">mypage</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </sec:authorize>
+
                     <li><a href="#" id="logout" class="grey-text">logout</a></li>
                     <li>
                         <a href="mobile.html">
@@ -34,8 +45,6 @@
                         </a>
                     </li>
                 </sec:authorize>
-
-
             </ul>
         </div>
     </nav>
@@ -43,17 +52,17 @@
 <form:form action="/logout" method="post" id="logoutForm">
 </form:form>
 <script>
-  (() => {
+    (() => {
 
-    const logout = document.querySelector('#logout');
-    if (!logout) return;
+        const logout = document.querySelector('#logout');
+        if (!logout) return;
 
-    logout.addEventListener('click', ev => {
-      ev.preventDefault();
-      logoutForm.submit();
-    });
+        logout.addEventListener('click', ev => {
+            ev.preventDefault();
+            logoutForm.submit();
+        });
 
-  })();
+    })();
 
 </script>
 

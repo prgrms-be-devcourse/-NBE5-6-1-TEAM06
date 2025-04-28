@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,19 +27,25 @@ public class OrderService {
     private final CartService cartService;
     private final ProductService productService;
 
-    @Autowired
+
     public List<OrderDto> selectAll() {
         return orderRepository.selectAll();
     }
 
+
     public List<OrderDto> getAllOrders() {
-        return orderRepository.findAllOrders();
+        return orderRepository.selectAll();
     }
 
-    public void deleteOrder(Long orderId) {
-        orderRepository.deleteOrderDetails(orderId);
-        orderRepository.deleteOrder(orderId);
+    public void cancelOrder(Long orderId) {
+        orderRepository.cancelOrder(orderId);
     }
+
+
+//    public void deleteOrder(Long orderId) {
+//        orderRepository.deleteOrderDetails(orderId);
+//        orderRepository.deleteOrder(orderId);
+//    }
 
     public OrderResponse createOrder(OrderRequest request) {
 
@@ -124,7 +129,6 @@ public class OrderService {
             item.setOrderId(generatedOrderId);
         }
 
-        // 최종 응답 객체 구성
         OrderResponse response = new OrderResponse();
         response.setUserName(request.getUserName());
         response.setOrderId(generatedOrderId);
@@ -160,6 +164,7 @@ public class OrderService {
             response.setProductCode(firstItem.getProductCode());
             response.setCategory(firstItem.getCategory());
         }
+
 
         return response;
     }

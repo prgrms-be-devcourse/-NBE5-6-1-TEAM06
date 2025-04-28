@@ -51,7 +51,7 @@ public class SecurityConfig {
                         authority.getAuthority().equals("ROLE_ADMIN"));
 
                 if (isAdmin) {
-                    response.sendRedirect("/admin");
+                    response.sendRedirect("/");
                     return;
                 }
 
@@ -61,6 +61,7 @@ public class SecurityConfig {
 
     }
 
+    // rememberme-debug
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -70,11 +71,14 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(
                 (requests) -> requests
-                    .requestMatchers("/assets/**", "/favicon.ico").permitAll()
+                    .requestMatchers(GET, "/").permitAll()      // 메인 페이지 - 누구나 접근 가능
                     .requestMatchers(GET, "/member/signup").permitAll()
                     .requestMatchers(GET, "/member/signin").permitAll()
+                    .requestMatchers(GET, "order/**").authenticated()
+                    .requestMatchers(GET, "cartList/**").authenticated()
+
                     .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
-                    .anyRequest().permitAll() // 로그인 후 페이지 접근하려면 authenticated()로 변경해야 한다.
+                    .anyRequest().permitAll() //  나머지는 로그인 필요!
             )
             .formLogin((form) -> form
                 .loginPage("/member/signin")
@@ -86,7 +90,6 @@ public class SecurityConfig {
             )
             .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
             .logout(LogoutConfigurer::permitAll);
-
         return http.build();
     }
 
@@ -94,6 +97,7 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
+
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {

@@ -32,23 +32,43 @@
     FROM product
   </select>
 
-  <!-- 상품 등록 -->
+<!--<<<<<<< HEAD-->
+<!--  &lt;!&ndash; 상품 등록 &ndash;&gt;-->
+<!--  <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">-->
+<!--    INSERT INTO product (-->
+<!--    category,-->
+<!--    product_name,-->
+<!--    price,-->
+<!--    stock,-->
+<!--    info,-->
+<!--    product_img_url-->
+<!--    ) VALUES (-->
+<!--    #{category},-->
+<!--    #{productName},-->
+<!--    #{price},-->
+<!--    #{stock},-->
+<!--    #{info},-->
+<!--    #{productImgUrl}-->
+<!--    )-->
+<!--=======-->
+  <select id="findAllProducts" resultType="com.grepp.spring.app.model.product.dto.IndexProductDto">
+    SELECT * FROM product
+  </select>
+
+
+  <select id="adminFindAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
+    SELECT
+    product_id AS id,
+    product_name AS name,
+    stock
+    FROM product
+  </select>
+
   <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
-    INSERT INTO product (
-    category,
-    product_name,
-    price,
-    stock,
-    info,
-    product_img_url
-    ) VALUES (
-    #{category},
-    #{productName},
-    #{price},
-    #{stock},
-    #{info},
-    #{productImgUrl}
-    )
+    INSERT INTO product (product_id, category, product_name, price, stock, code, info,
+    product_img_url)
+    VALUES (#{productId}, #{category}, #{productName}, #{price}, #{stock}, #{code}, #{info},
+    #{productImgUrl})
   </insert>
 
   <!-- 상품 수정 -->
@@ -68,5 +88,11 @@
     DELETE FROM product
     WHERE product_id = #{productId}
   </delete>
+
+  <update id="updateStock">
+    UPDATE product
+    SET stock = #{stock}
+    WHERE product_id = #{productId}
+  </update>
 
 </mapper>

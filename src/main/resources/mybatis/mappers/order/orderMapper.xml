@@ -3,7 +3,6 @@
 
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--<mapper namespace="com.grepp.spring.app.model.order.mapper.OrderMapper">-->
 <mapper namespace="com.grepp.spring.app.model.order.OrderRepository">
   <resultMap id="orderMap" type="com.grepp.spring.app.model.order.dto.OrderDto">
     <id property="orderId" column="order_id"/>
@@ -31,7 +30,7 @@
   </select>
 
   <select id="selectOrderDetailsDtoByOrderId" parameterType="int" resultType="com.grepp.spring.app.model.order.dto.OrderDetailsDto">
-    select * from `order_details` where order_id = #{orderId}
+    select * from order_details where order_id = #{orderId}
   </select>
 
 <!-- MySQL 에서 생성된 order_id를 java 객체에 매핑 -->
@@ -119,12 +118,6 @@
     </choose>
   </insert>
 
-
-
-
-
-
-
   <!-- 모든 주문 내역 조회 -->
   <select id="findAllOrders" resultType="com.grepp.spring.app.model.order.dto.OrderDto">
     SELECT
@@ -144,5 +137,36 @@
   <delete id="deleteOrder">
     DELETE FROM `order` WHERE order_id = #{orderId}
   </delete>
+
+  <select id="selectOrderItemDtoByOrderId" resultType="com.grepp.spring.app.model.order.dto.OrderItemDto">
+    SELECT
+    od.order_details_id AS orderDetailsId,
+    od.order_id,
+    od.product_id,
+    od.order_cnt AS orderCnt,
+    od.order_cnt AS quantity,
+    od.product_price AS productPrice,
+    p.product_name AS productName
+    FROM order_details od
+    JOIN product p ON od.product_id = p.product_id
+    WHERE od.order_id = #{orderId}
+  </select>
+
+
+  <update id="cancelOrder">
+    UPDATE `order`
+    SET activated = false
+    WHERE order_id = #{orderId}
+  </update>
+
+  <update id="updateStock">
+    UPDATE product
+    SET stock = #{stock}
+    WHERE product_id = #{productId}
+  </update>
+
+  <!--  <delete id="deleteOrder">-->
+<!--    DELETE FROM orders WHERE ORDER_ID = #{cartId}-->
+<!--  </delete>-->
 
 </mapper>

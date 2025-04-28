@@ -26,9 +26,9 @@
     </p>
 </div>
 
-<!-- Order Summary (기본 정보) -->
+<!-- 기본 주문 정보 -->
 <div class="center-align" style="margin-top: 30px;">
-
+    <h5><b>주문 요약</b></h5>
     <table class="striped centered" style="width: 50%; margin: 20px auto;">
         <tbody>
         <tr>
@@ -51,9 +51,9 @@
     </table>
 </div>
 
-<!-- Order Summary (상품 정보) -->
+<!-- 상품 주문 내역 -->
 <div class="center-align" style="margin-top: 30px;">
-    <h5><b>Order Summary</b></h5> <!-- 여기도 Order Summary로 통일 -->
+    <h5><b>상품 주문 내역</b></h5>
 
     <table class="striped centered" style="width: 70%; margin: 20px auto;">
         <thead>
@@ -73,9 +73,7 @@
                 <td><fmt:formatNumber value="${item.productPrice}" type="currency"/></td>
                 <td>${item.quantity != null ? item.quantity : 0}</td>
                 <td>
-                    <fmt:formatNumber
-                            value="${item.productPrice * (item.quantity != null ? item.quantity : 0)}"
-                            type="currency"/>
+                    <fmt:formatNumber value="${item.productPrice * (item.quantity != null ? item.quantity : 0)}" type="currency"/>
                 </td>
             </tr>
         </c:forEach>
@@ -98,4 +96,4 @@
 <%@ include file="/WEB-INF/view/include/footer.jsp" %>
 
 </body>
-</html>
+</html>git
