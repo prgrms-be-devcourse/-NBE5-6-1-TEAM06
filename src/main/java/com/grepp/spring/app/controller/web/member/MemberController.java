@@ -9,6 +9,8 @@ import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
 import com.grepp.spring.app.model.order.dto.ASHOrderDto;
 import jakarta.validation.Valid;
+
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -69,6 +71,9 @@ public class MemberController {
 
         Member member = memberService.findById(userId);
         model.addAttribute("member", member);
+
+        String userName = memberService.findUserNameByUserId(userId);
+        model.addAttribute("userName", userName);
 
         List<ASHOrderDto> orderList = ashOrderService.getOrdersByUserId(userId);
         model.addAttribute("orderList", orderList);

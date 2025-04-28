@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -15,9 +16,31 @@ public class ASHOrderService {
 
     private final ASHOrderRepository ashOrderRepository;
 
+    // DtoList 만드는 과정에서 포맷팅한 값도 넘겨줌
     public List<ASHOrderDto> getOrdersByUserId(String userId) {
-        return ashOrderRepository.findOrderListByUserId(userId);
+        List<ASHOrderDto> orders = ashOrderRepository.findOrderListByUserId(userId);
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH시 mm분 ss초");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        for(ASHOrderDto order : orders) {
+            order.setFormattedOrderedAt(order.getOrderedAt().format(formatter));
+            order.setFormattedExpectedDeliveryAt(order.getExpectedDeliveryAt().format(formatter2));
+        }
+
+        return orders;
+    }
+
+    // 취소 화면에 안 나와서 단 건 만드는 과정에서도 포맷팅한 값을 넘겨줌
+    public ASHOrderDto getOrdersByOrderId(Long orderId) {
+        ASHOrderDto order = ashOrderRepository.findOrderByOrderId(orderId);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH시 mm분 ss초");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        order.setFormattedOrderedAt(order.getOrderedAt().format(formatter));
+        order.setFormattedExpectedDeliveryAt(order.getExpectedDeliveryAt().format(formatter2));
+
+        return order;
     }
 
     // 와 이거 너무 코드가............
@@ -59,9 +82,5 @@ public class ASHOrderService {
 
     public String findUserIdById(Long orderId) {
         return ashOrderRepository.findUserIdByOrderId(orderId);
-    }
-
-    public ASHOrderDto getOrdersByOrderId(Long orderId) {
-        return ashOrderRepository.findOrderByOrderId(orderId);
     }
 }

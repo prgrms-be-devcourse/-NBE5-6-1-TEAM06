@@ -54,4 +54,8 @@ public class MemberService {
         return memberRepository.selectById(userId)
             .orElseThrow(() -> new CommonException(ResponseCode.BAD_REQUEST));
     }
+
+    public String findUserNameByUserId(String userId) {
+        return memberRepository.selectUserNameByUserId(userId);
+    }
 }

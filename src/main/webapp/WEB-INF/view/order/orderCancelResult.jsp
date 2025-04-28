@@ -32,9 +32,7 @@
                     <tr>
                         <th colspan="4" style="text-align: left;">
                             주문번호: ${order.orderId}<br>
-                            (주문일시: ${order.orderedAt}<br>
-                                <%--                        (배송예정일: ${order.expectDeliveryAt}--%>
-
+                            (주문일시: ${order.formattedOrderedAt})<br>
                         </th>
                     </tr>
 
@@ -47,16 +45,16 @@
 
                     <c:forEach var="product" items="${order.items}">
                         <tr>
-                            <td><img src="/assets/css" alt="상품 이미지" width="80"></td>
+                            <td><img src="/assets/coffee.PNG" alt="상품 이미지" width="80"></td>
                             <td>${product.productName}</td>
                             <td>${product.orderCnt}</td>
-                            <td>${product.productPrice}원</td>
+                            <td>₩${product.productPrice}</td>
                         </tr>
                     </c:forEach>
 
                     <tr class="total-row">
                         <td colspan="3" class="total-label">총 금액</td>
-                        <td class="total-amount">${order.totalPrice}원</td>
+                        <td class="total-amount">₩${order.totalPrice}</td>
                     </tr>
                 </table>
             </div>
