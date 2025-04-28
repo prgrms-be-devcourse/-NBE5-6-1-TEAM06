@@ -16,21 +16,44 @@ import lombok.ToString;
 @ToString
 public class OrderResponse {
 
-    private Long orderId;
+    // memberDto
     private String userId; // member table 의 email
     private String userName;
-    private String message;
-    private BigDecimal totalPrice;
+
+    // orderDto
+    private Long orderId;
     private LocalDateTime orderedAt;
     private LocalDateTime expectedDeliveryDate;
+    private String message;
+    private String address;
+    private String postNumber;
+    private String tel;
+
+    // orderDetailsDto
+    private Long orderDetailsId;
+    private Integer quantity;
+    private Integer productPrice;       // 단가
+    private Integer unitPrice;          // 상품 합계
+    private BigDecimal totalPrice;      // 결제 금액
+
+    // productDto
+    private String category;
+    private String productName;
+    private String productCode;
+
 
     private List<OrderDetailsDto> items;
     private OrderStatus orderStatus;
 
     public String getOrderedAtStr() {
-        if (orderedAt == null) return "";
+        if (orderedAt == null) {
+            return "";
+        }
         return orderedAt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd (E) HH시 mm분 ss초"));
     }
 
     private String expectedDeliveryDateStr;
+    private String orderedAtStr;
+
+
 }

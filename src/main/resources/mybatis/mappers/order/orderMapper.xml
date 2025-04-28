@@ -3,13 +3,26 @@
 
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.grepp.spring.app.model.order.OrderRepository">
-
   <resultMap id="orderMap" type="com.grepp.spring.app.model.order.dto.OrderDto">
     <id property="orderId" column="order_id"/>
     <collection property="orderDetailsDto" ofType="com.grepp.spring.app.model.order.dto.OrderDetailsDto"
       column="order_id" select="selectOrderDetailsDtoByOrderId"/>
+  </resultMap>
+
+  <resultMap id="orderDetailsMap" type="com.grepp.spring.app.model.order.dto.OrderDetailsDto">
+    <id property="orderDetailsId" column="order_details_id"/>
+    <result property="orderId" column="order_id"/>
+    <result property="productId" column="product_id"/>
+    <result property="orderCnt" column="order_cnt"/>
+
+    <result property="productName" column="product_name"/>
+    <result property="productPrice" column="product_price"/>
+    <result property="category" column="category"/>
+    <result property="quantity" column="quantity"/>
+    <result property="unitPrice" column="unit_price"/>
+    <result property="totalPrice" column="total_price"/>
+    <result property="productCode" column="product_code"/>
   </resultMap>
 
   <select id="selectAll" resultMap="orderMap">
@@ -19,6 +32,111 @@
   <select id="selectOrderDetailsDtoByOrderId" parameterType="int" resultType="com.grepp.spring.app.model.order.dto.OrderDetailsDto">
     select * from order_details where order_id = #{orderId}
   </select>
+
+<!-- MySQL 에서 생성된 order_id를 java 객체에 매핑 -->
+  <insert id="insertOrder" parameterType="com.grepp.spring.app.model.order.dto.OrderDto"
+    useGeneratedKeys="true" keyProperty="orderId">
+    INSERT INTO `order` (user_id, user_name, ordered_at, expected_delivery_date, address, post_number, total_price, activated, order_status)
+    VALUES (
+    #{userId},
+    #{userName},
+    #{orderedAt},
+    #{expectedDeliveryDate},
+    COALESCE(#{address}, ''),
+    COALESCE(#{postNumber}, ''),
+    #{totalPrice},
+    COALESCE(#{activated}, 0),
+    #{orderStatus})
+  </insert>
+
+  <insert id="insertOrderDetail" parameterType="com.grepp.spring.app.model.order.dto.OrderDetailsDto">
+    INSERT INTO `order_details` (
+    order_id,
+    product_id,
+    order_cnt,
+    product_price,
+    category,
+    product_name,
+    quantity,
+    unit_price,
+    total_price,
+    product_code
+    ) VALUES (
+    #{orderId},
+    #{productId},
+    #{orderCnt},
+    #{productPrice},
+    #{category},
+    #{productName},
+    #{quantity},
+    #{unitPrice},
+    #{totalPrice},
+    #{productCode}
+    )
+  </insert>
+
+  <insert id="insertOrderDetailOne">
+    INSERT INTO `order_details` (
+    order_details_id,
+    order_id,
+    product_id,
+    order_cnt,
+    product_price
+    ) VALUES (
+    #{orderDetailsId},
+    #{orderId},
+    #{productId},
+    #{orderCnt},
+    #{productPrice}
+    )
+  </insert>
+
+  <insert id="insertOrderDetails" parameterType="java.util.List">
+    <choose>
+      <when test="items != null and !items.isEmpty()">
+        INSERT INTO order_details (
+        order_details_id,
+        order_id,
+        product_id,
+        order_cnt,
+        product_price
+        )
+        VALUES
+        <foreach collection="items" item="item" separator=",">
+          (
+          #{item.orderDetailsId},
+          #{item.orderId},
+          #{item.productId},
+          #{item.orderCnt},
+          #{item.productPrice}
+          )
+        </foreach>
+      </when>
+      <otherwise>
+        SELECT 1 FROM DUAL WHERE 1 = 0
+      </otherwise>
+    </choose>
+  </insert>
+
+  <!-- 모든 주문 내역 조회 -->
+  <select id="findAllOrders" resultType="com.grepp.spring.app.model.order.dto.OrderDto">
+    SELECT
+    o.order_id AS orderId,
+    m.user_name AS userName,
+    p.product_name AS productName,
+    od.order_cnt AS productCnt,
+    (od.order_cnt * p.price) AS totalPrice,
+    o.ordered_at AS createdAt
+    FROM `order` o
+    JOIN order_details od ON o.order_id = od.order_id
+    JOIN product p ON od.product_id = p.product_id
+    JOIN member m ON o.user_id = m.user_id
+  </select>
+
+  <!-- 주문 삭제 -->
+  <delete id="deleteOrder">
+    DELETE FROM `order` WHERE order_id = #{orderId}
+  </delete>
 
   <select id="selectOrderItemDtoByOrderId" resultType="com.grepp.spring.app.model.order.dto.OrderItemDto">
     SELECT

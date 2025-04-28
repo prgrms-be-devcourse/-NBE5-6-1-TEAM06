@@ -1,3 +1,4 @@
+
 package com.grepp.spring.app.model.product.mapper;
 
 import com.grepp.spring.app.model.product.dto.IndexProductDto;
@@ -27,3 +28,4 @@ public interface ProductMapper {
     List<ProductDto> adminFindAll();
 
 }
+

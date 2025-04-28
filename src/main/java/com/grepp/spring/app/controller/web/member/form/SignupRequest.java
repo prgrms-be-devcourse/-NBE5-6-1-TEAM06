@@ -16,7 +16,7 @@ public class SignupRequest {
     @Size(min = 4, max = 10)
     private String password;
     @NotBlank
-    private String username;
+    private String userName;
     @NotBlank
     @Size(min = 8, max = 14)
     private String tel;
@@ -25,7 +25,7 @@ public class SignupRequest {
         Member member = new Member();
         member.setUserId(userId);
         member.setPassword(password);
-        member.setUsername(username);
+        member.setUserName(userName);
         member.setTel(tel);
         return member;
     }

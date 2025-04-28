@@ -10,7 +10,9 @@ public class Member {
 
     private String userId;
     private String password;
-    private String username;
+    private String userName;
+    private String address;
+    private String postNumber;
     private Role role;
     private String tel;
 //    private MemberInfo info;

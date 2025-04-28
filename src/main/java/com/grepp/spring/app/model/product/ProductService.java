@@ -2,6 +2,7 @@ package com.grepp.spring.app.model.product;
 
 import com.grepp.spring.app.model.product.dto.IndexProductDto;
 import com.grepp.spring.app.model.product.dto.ProductDto;
+import com.grepp.spring.app.model.product.mapper.ProductMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductMapper productMapper;
 
     public ProductDto getProduct(Long id) {
         return productRepository.findById(id);
@@ -36,23 +38,32 @@ public class ProductService {
         }).collect(Collectors.toList());
     }
 
-    public List<IndexProductDto> getAllIndexProducts() {return productRepository.findAllProducts(); }
+    public List<IndexProductDto> getAllIndexProducts() {return productMapper.findAllProducts(); }
 
-    public List<ProductDto> adminGetAllProducts() {return productRepository.adminFindAll();}
+    public List<ProductDto> adminGetAllProducts() {return productMapper.adminFindAll();}
 
 
-    public void addProduct(ProductDto product) {
-        productRepository.save(product);
-    }
+//    public void addProduct(ProductDto product) {
+//        productRepository.save(product);
+//    }
 
     public void updateProduct(ProductDto product) {
-        productRepository.update(product);
+        productMapper.update(product);
     }
 
     public void deleteProduct(Long id) {
-        productRepository.delete(id);
+        productMapper.delete(id);
     }
 
-    public void updateStock(Long productId, int stock) {productRepository.updateStock(productId, stock);}
+    public ProductDto getProductById(Long productId) {
+        if (productId == null) {
+            throw new IllegalArgumentException("상품 ID가 null입니다.");
+        }
+
+        return productRepository.findById(productId);
+    }
+
+    public void updateStock(Long productId, int stock) {productMapper.updateStock(productId, stock);}
+
 
 }

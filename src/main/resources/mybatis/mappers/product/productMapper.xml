@@ -3,17 +3,54 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.grepp.spring.app.model.product.mapper.ProductMapper">
+<mapper namespace="com.grepp.spring.app.model.product.ProductRepository">
 
+  <!-- 상품 1개 조회 -->
   <select id="findById" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
-    SELECT * FROM product
+    SELECT
+    product_id,
+    category,
+    product_name,
+    price,
+    stock,
+    info,
+    product_img_url
+    FROM product
     WHERE product_id = #{productId}
   </select>
 
+  <!-- 상품 전체 조회 -->
   <select id="findAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
-    SELECT * FROM product
+    SELECT
+    product_id,
+    category,
+    product_name,
+    price,
+    stock,
+    info,
+    product_img_url
+    FROM product
   </select>
 
+<!--<<<<<<< HEAD-->
+<!--  &lt;!&ndash; 상품 등록 &ndash;&gt;-->
+<!--  <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">-->
+<!--    INSERT INTO product (-->
+<!--    category,-->
+<!--    product_name,-->
+<!--    price,-->
+<!--    stock,-->
+<!--    info,-->
+<!--    product_img_url-->
+<!--    ) VALUES (-->
+<!--    #{category},-->
+<!--    #{productName},-->
+<!--    #{price},-->
+<!--    #{stock},-->
+<!--    #{info},-->
+<!--    #{productImgUrl}-->
+<!--    )-->
+<!--=======-->
   <select id="findAllProducts" resultType="com.grepp.spring.app.model.product.dto.IndexProductDto">
     SELECT * FROM product
   </select>
@@ -34,18 +71,19 @@
     #{productImgUrl})
   </insert>
 
+  <!-- 상품 수정 -->
   <update id="update" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">
     UPDATE product SET
     category = #{category},
     product_name = #{productName},
     price = #{price},
     stock = #{stock},
-    code = #{code},
     info = #{info},
     product_img_url = #{productImgUrl}
     WHERE product_id = #{productId}
   </update>
 
+  <!-- 상품 삭제 -->
   <delete id="delete" parameterType="long">
     DELETE FROM product
     WHERE product_id = #{productId}
@@ -56,6 +94,5 @@
     SET stock = #{stock}
     WHERE product_id = #{productId}
   </update>
-
 
 </mapper>
