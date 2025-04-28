@@ -81,10 +81,5 @@
 <br/>
 
 ## 🛠️ 트러블 슈팅 & 해결 과정
-> 개발 과정 중 발생한 문제와 해결 방법을 정리해주세요.
->
-> **예시**
-> - 문제 : JPA에서 N+1 문제 발생
-> - 해결 : Fetch Join 사용하여 해결
+<img src="readmeresorce/trubleshooting.png.png" alt="Project Info" style="max-width: 100%; height: auto;">
 
-</div>
