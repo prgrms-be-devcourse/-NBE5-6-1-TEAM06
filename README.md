@@ -83,3 +83,5 @@
 ## 🛠️ 트러블 슈팅 & 해결 과정
 <img src="readmeresorce/trubleshooting.png" alt="Project Info" style="max-width: 100%; height: auto;">
 
+[프로젝트 문서 보기](readmeresorce/ppt.pdf)
+
