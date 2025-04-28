@@ -30,7 +30,7 @@ public class OrderService {
 //        return orderRepository.selectAll();
 //    }
 
-    // 이거랑 아래 deleteOrder 제것(ash) 같은데... 혹시 몰라서 그냥 남겨둡니다...
+
     public List<OrderDto> getAllOrders() {
         return orderRepository.selectAll();
     }

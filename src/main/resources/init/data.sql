@@ -86,6 +86,7 @@ VALUES (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '1
        (5, 'hyj@example.com', '2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, 2, true),
        (6, 'admin@example.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true);
 
+
 INSERT INTO order_details(order_details_id, order_id, product_id, order_cnt, product_price)
 VALUES (1, 1, 1, 1, 5000),
        (2, 1, 2, 1, 5000),

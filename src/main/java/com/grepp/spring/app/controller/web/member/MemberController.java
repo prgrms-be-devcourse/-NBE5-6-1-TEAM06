@@ -9,6 +9,8 @@ import com.grepp.spring.app.model.order.ASHOrderService;
 import com.grepp.spring.app.model.order.OrderService;
 import com.grepp.spring.app.model.order.dto.ASHOrderDto;
 import jakarta.validation.Valid;
+
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -70,25 +72,38 @@ public class MemberController {
         Member member = memberService.findById(userId);
         model.addAttribute("member", member);
 
+        String userName = memberService.findUserNameByUserId(userId);
+        model.addAttribute("userName", userName);
+
         List<ASHOrderDto> orderList = ashOrderService.getOrdersByUserId(userId);
         model.addAttribute("orderList", orderList);
 
         return "member/mypage";
     }
 
-
     @DeleteMapping("/order/{orderId}/cancel")
     public String cancelOrder(@PathVariable Long orderId, RedirectAttributes redirectAttributes) {
         boolean success = ashOrderService.cancelOrder(orderId);
 
-        redirectAttributes.addAttribute("status", success ? "success" : "fail");
-        return "redirect:/member/order/cancel/result";
+        if (success) {
+            ASHOrderDto order = ashOrderService.getOrdersByOrderId(orderId);
+            String userId = ashOrderService.findUserIdById(orderId);
+            redirectAttributes.addAttribute("status", "success");
+            return "redirect:/member/order/cancel/result?userId=" + userId + "&orderId=" + orderId;
+        } else {
+            String userId = ashOrderService.findUserIdById(orderId);
+            redirectAttributes.addAttribute("status", "fail");
+            return "redirect:/member/order/cancel/result?userId=" + userId + "&orderId=" + orderId;
+        }
     }
-
 
     // 결과 화면을 보여줌
     @GetMapping("order/cancel/result")
-    public String showCancelResult(@RequestParam String status, Model model) {
+    public String showCancelResult(@RequestParam String status, @RequestParam Long orderId,
+                                   Model model) {
+
+        ASHOrderDto order = ashOrderService.getOrdersByOrderId(orderId);
+        model.addAttribute("order", order);
         model.addAttribute("status", status);
         return "order/orderCancelResult";
     }

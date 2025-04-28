@@ -20,4 +20,5 @@ public interface MemberRepository {
         + "values(#{userId}, #{password}, #{username}, #{tel}, #{role})")
     void insert(Member dto);
 
+    String selectUserNameByUserId(String userId);
 }
