@@ -81,5 +81,5 @@
 <br/>
 
 ## 🛠️ 트러블 슈팅 & 해결 과정
-<img src="readmeresorce/trubleshooting.png.png" alt="Project Info" style="max-width: 100%; height: auto;">
+<img src="readmeresorce/trubleshooting.png" alt="Project Info" style="max-width: 100%; height: auto;">
 
