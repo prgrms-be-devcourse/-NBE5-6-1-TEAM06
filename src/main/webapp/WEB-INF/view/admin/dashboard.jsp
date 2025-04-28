@@ -104,7 +104,6 @@
                 <td>
                     <c:choose>
                         <c:when test="${order.activated}">
-                            <!-- 결제완료 상태일 때만 주문취소 버튼 표시 -->
                             <form method="post" action="/admin/deleteOrder" onsubmit="return confirm('정말 취소하시겠습니까?');">
                                 <input type="hidden" name="_method" value="delete"/>
                                 <input type="hidden" name="orderId" value="${order.orderId}"/>
@@ -113,7 +112,6 @@
                             </form>
                         </c:when>
                         <c:otherwise>
-                            <!-- 이미 취소된 경우 -->
                             취소완료
                         </c:otherwise>
                     </c:choose>
