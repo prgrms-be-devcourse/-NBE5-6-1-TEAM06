@@ -61,36 +61,6 @@
         overflow: auto;
         background-color: rgba(0,0,0,0.4);
       }
-
-      /* 모달 배경 스타일 */
-      .modal-overlay {
-        position: fixed;  /* 화면에 고정 */
-        top: 0;
-        left: 0;
-        width: 100vw;  /* 화면 너비 */
-        height: 100vh; /* 화면 높이 */
-        background-color: rgba(0, 0, 0, 0.5); /* 반투명 어두운 배경 */
-        z-index: 999;  /* 다른 요소들보다 위에 표시되도록 */
-        display: flex;
-        justify-content: center;
-        align-items: center; /* 모달을 화면 가운데에 정렬 */
-      }
-
-      /* 모달 내용 */
-      .modal-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 5px;
-        /* 추가적인 스타일 */
-      }
-
-      .close {
-        font-size: 30px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-      }
       .modal-content {
         background-color: #fff;
         margin: 10% auto;
@@ -187,7 +157,7 @@
 </main>
 
 <!-- 모달 창 -->
-<div id="orderModal" class="modal-overlay">
+<div id="orderModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
         <form id="orderForm" action="order/cartOrderComplete" method="post">
@@ -230,10 +200,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // 모달을 기본적으로 숨겨두기
-    document.getElementById('orderModal').style.display = 'none';
-
-    const qtyControls = document.querySelectorAll(".actions");
+    const qtyControls = document.querySelectorAll(".actions"); // actions로 수정
 
     qtyControls.forEach(control => {
       const minusBtn = control.querySelector(".quantity-decrease");
@@ -252,38 +219,34 @@
         input.value = val + 1;
       });
     });
+  });
 
-    // 모달 열기
-    document.querySelectorAll('.open-modal').forEach(button => {
-      button.addEventListener('click', function () {
-        const cartDetailsId = this.getAttribute('product-details-id');
-        const productCnt = this.getAttribute('product-cnt');
+  // 모달 열기
+  document.querySelectorAll('.open-modal').forEach(button => {
+    button.addEventListener('click', function () {
+      const cartDetailsId = this.getAttribute('product-details-id');
+      const productCnt = this.getAttribute('product-cnt');
 
-        document.getElementById('cartDetailsId').value = cartDetailsId;
-        document.getElementById('productCnt').value = productCnt;
+      document.getElementById('cartDetailsId').value = cartDetailsId;
+      document.getElementById('productCnt').value = productCnt;
 
-        document.getElementById('orderModal').style.display = 'flex';  // 클릭 시 모달을 열도록
-      });
-    });
-
-    // 모달 닫기
-    document.querySelector('.close').addEventListener('click', function () {
-      document.getElementById('orderModal').style.display = 'none';
-    });
-
-    // 모달 외부 클릭 시 닫기
-    window.addEventListener('click', function (event) {
-      const modalOverlay = document.querySelector('.modal-overlay');  // 배경을 확인
-      const modal = document.getElementById('orderModal');
-
-      // 배경이 클릭된 경우 모달 닫기
-      if (event.target === modalOverlay) {
-        modal.style.display = 'none';
-      }
+      document.getElementById('orderModal').style.display = 'block';
     });
   });
-</script>
 
+  // 모달 닫기
+  document.querySelector('.close').addEventListener('click', function () {
+    document.getElementById('orderModal').style.display = 'none';
+  });
+
+  // 모달 외부 클릭 시 닫기
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById('orderModal');
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
