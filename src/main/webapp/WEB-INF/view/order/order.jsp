@@ -6,8 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order</title>
-    <%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"--%>
-    <%--          rel="stylesheet">--%>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -72,29 +70,30 @@
         <ul id="information-list" class="list-unstyled"></ul>
 
         <form action="/order" method="post">
-            <div id="hidden-inputs"></div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-<%--            <input type="hidden" name="productIds" value="${item.productId}">--%>
-<%--            <input type="hidden" name="quantities" value="${item.quantity}">--%>
 
+            <div id="hidden-inputs"></div>
 
-            <p>
             <div class="mb-3">
                 <label for="userName" class="form-label">받는 분</label>
-                <input type="text" class="form-control mb-1" id="userName" name="userName">
+                <input type="text" class="form-control mb-1" id="userName" name="userName" required>
             </div>
+
             <div class="mb-3">
                 <label for="tel" class="form-label">전화번호</label>
-                <input type="text" class="form-control mb-1" id="tel" name="tel">
+                <input type="text" class="form-control mb-1" id="tel" name="tel" required>
             </div>
+
             <div class="mb-3">
                 <label for="address" class="form-label">주소</label>
-                <input type="text" class="form-control mb-1" id="address" name="address">
+                <input type="text" class="form-control mb-1" id="address" name="address" required>
             </div>
+
             <div class="mb-3">
-                <label for="postcode" class="form-label">우편번호</label>
-                <input type="text" class="form-control" id="postcode" name="postNumber">
+                <label for="postNumber" class="form-label">우편번호</label>
+                <input type="text" class="form-control" id="postNumber" name="postNumber" required>
             </div>
+
             <div class="info-desc">당일 오후 2시 이후의 주문은 다음날 배송을 시작합니다.</div>
 
 
@@ -116,7 +115,6 @@
                     <i class="material-icons left">payment</i>결제하기
                 </button>
             </div>
-
         </form>
     </div>
 </div>

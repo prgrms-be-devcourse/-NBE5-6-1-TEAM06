@@ -46,4 +46,12 @@ public class ProductService {
     public void deleteProduct(Long id) {
         productRepository.delete(id);
     }
+
+    public ProductDto getProductById(Long productId) {
+        if (productId == null) {
+            throw new IllegalArgumentException("상품 ID가 null입니다.");
+        }
+
+        return productRepository.findById(productId);
+    }
 }

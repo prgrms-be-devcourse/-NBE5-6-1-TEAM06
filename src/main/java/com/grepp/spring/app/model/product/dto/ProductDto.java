@@ -1,5 +1,6 @@
 package com.grepp.spring.app.model.product.dto;
 
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,11 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProductDto {
     private Long productId;
-    private String category;
-    private String productName;
-    private int price;
     private int stock;
-    private String code;
     private String info;
     private String productImgUrl;
+    private String productName = "상품명없음";  // 기본값
+    private BigDecimal price = BigDecimal.ZERO;
+    private String category = "기타";
+    private String code = "없음";
 }

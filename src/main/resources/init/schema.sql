@@ -24,15 +24,17 @@ CREATE TABLE `product` (
 
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
-                         `order_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderId',
+                         `order_id` varchar(50) NOT NULL COMMENT 'orderId',
                          `user_id` varchar(20) NOT NULL COMMENT 'userId',
+                         `user_name` varchar(20) NOT NULL COMMENT 'userName',
                          `ordered_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                         `expect_deliveried_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         `expected_delivery_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'expectedDeliveryDate',
                          `address` varchar(20) NOT NULL COMMENT 'address',
                          `post_number` varchar(20) NOT NULL COMMENT 'postNumber',
                          `total_price` INT NOT NULL COMMENT 'totalPrice',
 #                          `order_items` INT NOT NULL COMMENT 'orderItems',
                          `activated` BOOLEAN NOT NULL COMMENT 'activated',
+                         `order_status` varchar(50) NOT NULL COMMENT 'orderStatus',
                          PRIMARY KEY (`order_id`)
 );
 
@@ -41,8 +43,14 @@ CREATE TABLE `order_details` (
                                  `order_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderDetailsId',
                                  `order_id` varchar(20) NOT NULL COMMENT 'orderId',
                                  `product_id` BIGINT NOT NULL COMMENT 'productId',
+                                 `product_name` varchar(50) NOT NULL COMMENT 'productName',
+                                 `product_code` varchar(20) NOT NULL COMMENT 'productCode',
+                                 `category` varchar(20) NULL COMMENT 'category',
                                  `order_cnt` INT NOT NULL COMMENT 'orderCnt',
+                                 `quantity` INT NOT NULL COMMENT 'quantity',
                                  `product_price` INT NOT NULL COMMENT 'productPrice',
+                                 `unit_price` INT NOT NULL COMMENT 'unitPrice',
+                                 `total_price` bigint NOT NULL COMMENT 'totalPrice',
                                  PRIMARY KEY (`order_details_id`)
 );
 

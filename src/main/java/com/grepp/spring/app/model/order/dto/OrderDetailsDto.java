@@ -1,6 +1,7 @@
 package com.grepp.spring.app.model.order.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import lombok.Getter;
@@ -13,20 +14,28 @@ import lombok.ToString;
 public class OrderDetailsDto {
 
     private Long orderDetailsId;
-    private String orderId;
-    private long productId;
+    private Long orderId;
+    private Long productId;
     private Integer orderCnt;
-    private Integer productPrice; // 단가
+    private Integer productPrice;       // 단가
 
-    // DB에 없는 것
-    private Integer unitPrice;      // 상품 합계
-    private Integer totalPrice;      // 결제 금액
+    // orderComplete.jsp 에서 보여지는 항목
     private String category;
-    private List<Long> productIds;
     private String productName;
-    private String productCode;
     private Integer quantity;
+    private Integer unitPrice;          // 상품 합계
+    private BigDecimal totalPrice;      // 결제 금액
+    private LocalDateTime orderedAt;
+    private LocalDateTime expectedDeliveryDate;
+
+
+    private List<Long> productIds;
     private Map<Long, Integer> orderQuantities;
+
+    // 고객에게 보여지진 않지만 확장고려시 필요한 항목
+    private String productCode;
+
+
 
     // 총액 계산
     public BigDecimal getTotalPrice() {
