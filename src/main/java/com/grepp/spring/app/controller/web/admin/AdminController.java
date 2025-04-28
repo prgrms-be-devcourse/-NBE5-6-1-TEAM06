@@ -47,6 +47,7 @@ public class AdminController {
 
     @GetMapping("dashboard")
     public String orderList(Model model) {
+        System.out.println("aaaaaaaaaaaaaaaaaa");
         List<OrderDto> orders = orderService.getAllOrders();
         model.addAttribute("orders", orders);
         return "admin/dashboard";

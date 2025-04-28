@@ -35,11 +35,11 @@ values ('lcr@example.com');
 insert into cart(user_id)
 values ('hyj@example.com');
 
-insert into cart(user_id)  values ('kdu@example.com');
-insert into cart(user_id)  values ('ash@example.com');
-insert into cart(user_id)  values ('lkh@example.com');
-insert into cart(user_id)  values ('lcr@example.com');
-insert into cart(user_id)  values ('hyj@example.com');
+# insert into cart(user_id)  values ('kdu@example.com');
+# insert into cart(user_id)  values ('ash@example.com');
+# insert into cart(user_id)  values ('lkh@example.com');
+# insert into cart(user_id)  values ('lcr@example.com');
+# insert into cart(user_id)  values ('hyj@example.com');
 insert into cart(user_id)  values ('test@email.com' );
 insert into cart(user_id)  values ('test2@email.com');
 

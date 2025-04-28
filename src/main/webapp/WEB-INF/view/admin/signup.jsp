@@ -9,12 +9,12 @@
 <%@include file="/WEB-INF/view/include/header.jsp" %>
 <%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 <main class="container">
-    <h4>ADMIN SIGN UP</h4>
-    <form:form modelAttribute="signupForm" class="col s12" action="/admin/signup" method="post" id="signupForm">
+
+    <form:form modelAttribute="signupRequest" class="col s12" action="/admin/signup" method="post" id="signupForm">
         <div class="row">
             <div class="input-field col s7 ">
-                <i class="material-icons prefix">account_circle</i>
-                <form:input path="userId" id="userId" name="userId" type="text" placeholder="userId"
+                <i class="material-icons prefix">email</i>
+                <form:input path="userId" id="userId" name="userId" type="email" placeholder="userId"
                             class="validate"/>
                 <form:errors path="userId" cssClass="helper-text"/>
                 <span class="helper-text" id="idCheckMsg" style="display: none"></span>
@@ -27,10 +27,11 @@
                 <form:errors path="password" cssClass="helper-text"/>
             </div>
             <div class="input-field col s7 ">
-                <i class="material-icons prefix">email</i>
-                <form:input path="email" id="email" name="email" type="email" placeholder="email"
+
+                <i class="material-icons prefix">account_circle</i>
+                <form:input path="username" id="username" name="username" type="text" placeholder="username"
                             class="validate"/>
-                <form:errors path="email" cssClass="helper-text"/>
+                <form:errors path="username" cssClass="helper-text"/>
             </div>
             <div class="input-field col s7 ">
                 <i class="material-icons prefix">phone</i>
@@ -49,33 +50,34 @@
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
 
 <script>
-    const validElement = document.querySelector('#idCheckMsg');
-    document.querySelector('#userId').addEventListener('focusout', async ev => {
-        const id = ev.target.value;
-        if(!id) return;
-        const response = await fetch('/api/member/exists/' + id);
-        const data = await response.json();
-        validElement.style.display = 'block';
-        validElement.textContent = data.data ? '사용이 불가능한 아이디 입니다.' : '사용 가능한 아이디 입니다.';
-    });
+  const validElement = document.querySelector('#idCheckMsg');
+  document.querySelector('#userId').addEventListener('focusout', async ev => {
+    const id = ev.target.value;
 
-    document.querySelector('#signupForm').addEventListener('submit', async ev => {
-      // form tag 의 기본 이벤트 차단
-      ev.preventDefault();
+    if(!id) return;
+    const response = await fetch('/api/member/exists/' + id);
+    const data = await response.json();
+    validElement.style.display = 'block';
+    validElement.textContent = data.data ? '중복된 아이디가 있습니다' : '';
+  });
 
-      const id = document.querySelector('#userId').value;
-      if(!id) return;
-      const response = await fetch('/api/member/exists/' + id);
-      const data = await response.json();
+  document.querySelector('#signupForm').addEventListener('submit', async ev => {
+    // form tag 의 기본 이벤트 차단
+    ev.preventDefault();
 
-      if(data.data){
-        document.querySelector('#userId').focus();
-        validElement.textContent = '사용이 불가능한 아이디 입니다.';
-        return;
-      }
+    const id = document.querySelector('#userId').value;
+    if(!id) return;
+    const response = await fetch('/api/member/exists/' + id);
+    const data = await response.json();
 
-      ev.target.submit();
-    });
+    if(data.data){
+      document.querySelector('#userId').focus();
+      validElement.textContent = '사용이 불가능한 아이디 입니다.';
+      return;
+    }
+
+    ev.target.submit();
+  });
 </script>
 
 </body>
