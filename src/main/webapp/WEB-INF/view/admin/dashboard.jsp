@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="/WEB-INF/view/include/page.jsp" %>
 
 <html>
@@ -38,31 +39,15 @@
                         <button type="button" onclick="increaseStock(this)" class="btn" style="background-color: #8B4513; color: white;">+</button>
 
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                        <button type="submit" class="btn" style="background-color: #6F4E37; color: white; margin-left: 10px;">재고 수정</button>
+
+                        <button type="submit" class="btn" style="background-color: #6F4E37; color: white; margin-left: 10px;"
+                                onclick="return confirmUpdateStock();">재고 수정</button>
                     </form>
                 </td>
-
             </tr>
         </c:forEach>
         </tbody>
     </table>
-
-    <script>
-        function decreaseStock(button) {
-            const input = button.nextElementSibling;
-            if (parseInt(input.value) > 0) {
-                input.value = parseInt(input.value) - 1;
-            }
-        }
-
-        function increaseStock(button) {
-            const input = button.previousElementSibling;
-            input.value = parseInt(input.value) + 1;
-        }
-    </script>
-
-
-
 
     <h4>모든 고객의 주문 내역</h4>
     <table class="striped">
@@ -116,7 +101,6 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-
             </tr>
         </c:forEach>
         </tbody>
@@ -125,5 +109,32 @@
 </main>
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
+
+
+<script>
+    function decreaseStock(button) {
+        const input = button.nextElementSibling;
+        if (parseInt(input.value) > 0) {
+            input.value = parseInt(input.value) - 1;
+        }
+    }
+
+    function increaseStock(button) {
+        const input = button.previousElementSibling;
+        input.value = parseInt(input.value) + 1;
+    }
+
+    function confirmUpdateStock() {
+        const confirmed = confirm('재고를 수정하시겠습니까?');
+        if (confirmed) {
+            setTimeout(function() {
+                alert('재고 수정이 완료되었습니다!');
+            }, 100);
+            return true;
+        }
+        return false;
+    }
+</script>
+
 </body>
 </html>
