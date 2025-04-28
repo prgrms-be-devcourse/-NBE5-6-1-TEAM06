@@ -87,4 +87,21 @@
     cd.cart_details_id = #{cartDetailsId};
   </insert>
 
+  <insert id="insertCartItem">
+    INSERT INTO cart_details (cart_id, product_id, product_cnt, created_at)
+    VALUES (#{cartId}, #{productId}, #{quantity}, NOW())
+  </insert>
+
+  <insert id="createCart">
+    INSERT INTO cart (user_id)
+    VALUES (#{userId})
+  </insert>
+
+  <select id="findCartIdByUserId" resultType="long">
+    SELECT cart_id
+    FROM cart
+    WHERE user_id = #{userId}
+  </select>
+
+
 </mapper>

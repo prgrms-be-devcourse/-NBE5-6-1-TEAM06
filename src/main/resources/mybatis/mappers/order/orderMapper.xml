@@ -23,6 +23,8 @@
     <result property="unitPrice" column="unit_price"/>
     <result property="totalPrice" column="total_price"/>
     <result property="productCode" column="product_code"/>
+
+    <result property="createdAt" column="created_at"/>
   </resultMap>
 
   <select id="selectAll" resultMap="orderMap">

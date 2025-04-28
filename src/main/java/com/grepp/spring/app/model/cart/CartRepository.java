@@ -21,4 +21,12 @@ public interface CartRepository {
 
     void order(@Param("cartDetailsId") Long cartDetailsId, @Param("address") String address,
         @Param("postNumber") String postNumber);
+
+
+    void insertCartItem(String cartId, Long productId, Integer quantity);
+
+    void createCart(@Param("userId") String userId);
+
+    Long findCartIdByUserId(@Param("userId") String userId);
+
 }

@@ -71,15 +71,19 @@ public class OrderController {
     @PostMapping
     public String handleOrder(
         @RequestParam("action") String action,
+        @RequestParam("userName") String userName,
+        @RequestParam("tel") String tel,
+        @RequestParam("address") String address,
+        @RequestParam("postNumber") String postNumber,
+        @RequestParam("productIds") List<Long> productIds,
+        @RequestParam("quantities") List<Integer> quantities,
         @ModelAttribute OrderRequest request,
         Model model, Principal principal) {
 
-        // 🥖 0. 변수 선언
+        //  0. 변수 선언
         List<OrderDetailsDto> items = new ArrayList<>();
-        List<Long> productIds = request.getProductIds();
-        List<Integer> quantities = request.getQuantities();
 
-        // 🥖 1. 상품 정보로 OrderDetailsDto 리스트 생성
+        //  1. 상품 정보로 OrderDetailsDto 리스트 생성
         if (productIds != null && quantities != null && productIds.size() == quantities.size()) {
             for (int i = 0; i < productIds.size(); i++) {
                 Long productId = productIds.get(i);
@@ -105,6 +109,16 @@ public class OrderController {
                                 ? product.getCode() : "없음"
                         );
                         item.setQuantity(quantity);
+                        LocalDateTime now = LocalDateTime.now();
+                        item.setOrderedAt(now); // 주문시간
+
+                        LocalDateTime expectedDeliveryDate;
+                        if (now.getHour() < 14) {
+                            expectedDeliveryDate = now.plusDays(2);
+                        } else {
+                            expectedDeliveryDate = now.plusDays(3);
+                        }
+                        item.setExpectedDeliveryDate(expectedDeliveryDate); // 배송예정일
 
                         int unitPrice = item.getProductPrice() * quantity;
                         item.setUnitPrice(unitPrice);
@@ -116,19 +130,19 @@ public class OrderController {
             }
         }
 
-        // 🥖 2. request에 items 세팅
+        //  2. request에 items 세팅
         request.setItems(items);
 
-        // 🥖 3. 유저 정보 추가
+        //  3. 유저 정보 추가
         String email = principal.getName();
         request.setUserId(email);
 
-        // 🥖 4. 주문 시간 및 배송 예정일 설정
+        //  4. 주문 시간 및 배송 예정일 설정
         LocalDateTime now = LocalDateTime.now();
         request.setOrderedAt(now);
         request.setExpectedDeliveryDate(now.plusDays(3));
 
-        // 🥖 5. 주문 상태 및 총 결제 금액 설정
+        //  5. 주문 상태 및 총 결제 금액 설정
         request.setOrderStatus(OrderStatus.PAYMENT_COMPLETED);
 
         BigDecimal totalPrice = items.stream()
@@ -136,13 +150,15 @@ public class OrderController {
             .reduce(BigDecimal.ZERO, BigDecimal::add);
         request.setTotalPrice(totalPrice);
 
-        // 🥖 6. 콘솔 확인용
+        //  6. 콘솔 확인용
         System.out.println("Order Details Items: " + (items != null ? items.size() : "null"));
 
-        // 🥖 7. 주문 종류에 따라 분기
+        //  7. 주문 종류에 따라 분기
         if (action.equals("cart")) {
-            return "redirect:/member/cartList";
+            cartService.addItemsToCart(principal.getName(), productIds, quantities);
+            return "redirect:/cartList";
         } else if (action.equals("order")) {
+
             // 1. order 저장
             orderService.createOrder(request);
 
@@ -196,6 +212,13 @@ public class OrderController {
             return "order/cartOrderComplete";
         }
         return "redirect:/orderList";
+    }
+
+    @PostMapping("/cart")
+    public String addToCart(@ModelAttribute OrderRequest request, Principal principal) {
+        String userId = principal.getName();
+        cartService.addItemsToCart(userId, request.getProductIds(), request.getQuantities());
+        return "redirect:/cartList";
     }
 
 }

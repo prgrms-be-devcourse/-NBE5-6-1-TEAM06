@@ -1,7 +1,9 @@
 package com.grepp.spring.app.model.member;
 import com.grepp.spring.app.model.auth.code.Role;
+import com.grepp.spring.app.model.cart.CartRepository;
 import com.grepp.spring.app.model.member.dto.Member;
 import com.grepp.spring.infra.error.exceptions.CommonException;
+import com.grepp.spring.infra.response.ApiResponse;
 import com.grepp.spring.infra.response.ResponseCode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +19,8 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
     private final MemberRepository memberRepository;
 
+    private final CartRepository cartRepository;
+
     @Transactional
     public void signup(Member dto, Role role) {
         if (memberRepository.existsMember(dto.getUserId())) {
@@ -27,6 +31,9 @@ public class MemberService {
 
         dto.setRole(role);
         memberRepository.insert(dto);
+
+        // 회원가입 시 카트 자동생성
+        cartRepository.createCart(dto.getUserId());
 
 
     }

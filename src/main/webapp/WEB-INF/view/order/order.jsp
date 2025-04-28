@@ -106,8 +106,14 @@
         <form action="/order" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-            <div id="hidden-inputs"></div>
-
+            <div id="hidden-inputs">
+                <c:forEach var="productId" items="${order.productIds}">
+                <input type="hidden" name="productIds" value="${productId}" />
+                </c:forEach>
+                <c:forEach var="quantity" items="${order.quantities}">
+                <input type="hidden" name="quantities" value="${quantity}" />
+                </c:forEach>
+            </div>
             <div class="mb-3">
                 <label for="userName" class="form-label">받는 분</label>
                 <input type="text" class="form-control mb-1" id="userName" name="userName" required>

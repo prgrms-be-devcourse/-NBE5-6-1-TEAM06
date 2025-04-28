@@ -11,6 +11,7 @@ values ('lcr@example.com', '5555', '이초롱', 'USER', '5555-5555', '2025-03-28
 insert into Member(user_id, password, user_name, role, tel, created_at)
 values ('hyj@example.com', '6666', '황영준', 'USER', '6666-6666', '2025-03-29 10:23:30');
 
+
 insert into product(CATEGORY, PRODUCT_NAME, PRICE, STOCK, INFO)
 VALUES ('COFFEE', 'Colombia Nariño', 5000, 100,
         '콜롬비아 남서부, 에콰도르와 인접한 고산 지대에 위치한 나리뇨는 해발 1,800m 이상의 고도에서 커피가 재배됩니다. 이 지역은 낮과 밤의 기온 차가 커 체리의 숙성이 천천히 이루어지며, 그 결과 복합적인 향미와 뛰어난 단맛, 밝은 산미를 지닌 커피가 생산됩니다. 나리뇨 커피는 꿀처럼 부드러운 단맛과 감귤류, 플로럴한 향이 어우러진 뛰어난 균형감을 자랑합니다. 카투라(Caturra), 카스티요(Castillo) 등의 품종이 주로 재배됩니다.');
@@ -24,6 +25,7 @@ insert into product(CATEGORY, PRODUCT_NAME, PRICE, STOCK, INFO)
 VALUES ('COFFEE', 'Ethiopia Sidamo', 5000, 100,
         '에티오피아 남부의 시다모 지역은 고도 1,500~2,200m의 이상적인 기후 조건을 갖춘 커피 명산지로, 에티오피아 고유의 유전자 풀을 지닌 토착 품종들이 자생합니다. 시다모 커피는 라벤더나 베르가못 같은 플로럴 향과 함께, 레몬, 라임 등 시트러스 계열의 생동감 있는 산미를 지닌 것이 특징입니다. 워시드(세척식), 내추럴(건식) 가공 방식 모두 활발히 이루어지며, 고유한 개성과 향미로 전 세계 커피 애호가들에게 사랑받고 있습니다.');
 
+
 insert into cart(user_id)
 values ('kdu@example.com');
 insert into cart(user_id)
@@ -35,13 +37,16 @@ values ('lcr@example.com');
 insert into cart(user_id)
 values ('hyj@example.com');
 
-# insert into cart(user_id)  values ('kdu@example.com');
-# insert into cart(user_id)  values ('ash@example.com');
-# insert into cart(user_id)  values ('lkh@example.com');
-# insert into cart(user_id)  values ('lcr@example.com');
-# insert into cart(user_id)  values ('hyj@example.com');
+
+insert into cart(user_id)  values ('kdu@example.com');
+insert into cart(user_id)  values ('ash@example.com');
+insert into cart(user_id)  values ('lkh@example.com');
+insert into cart(user_id)  values ('lcr@example.com');
+insert into cart(user_id)  values ('hyj@example.com');
+
 insert into cart(user_id)  values ('test@email.com' );
 insert into cart(user_id)  values ('test2@email.com');
+
 
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (7,3,10,'2025-04-01 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT) values (7,4,20,'2025-04-01 10:23:30');
@@ -77,15 +82,6 @@ values (4, 3, 4, '2025-04-05 10:23:30');
 insert into cart_details(cart_id, product_id, product_cnt, CREATED_AT)
 values (4, 4, 4, '2025-04-05 10:23:30');
 
-# INSERT INTO `order`(order_id, user_id, ordered_at, expected_delivery_date, address, post_number, total_price, order_items,
-#                     activated)
-# VALUES (1, 'kdu@example.com', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000, 2, true),
-#        (2, 'ash@example.com', '2025-04-02', '2025-04-04', '서울 마포구', '23456', 15000, 3, true),
-#        (3, 'lkh@example.com', '2025-04-03', '2025-04-05', '서울 성동구', '34567', 20000, 4, true),
-#        (4, 'lcr@example.com', '2025-04-04', '2025-04-06', '서울 영등포구', '45678', 5000, 1, true),
-#        (5, 'hyj@example.com', '2025-04-05', '2025-04-07', '서울 종로구', '56789', 10000, 2, true),
-#        (6, 'admin@example.com', '2025-04-06', '2025-04-08', '서울 중구', '67890', 15000, 3, true);
-#
 INSERT INTO `order`(order_id, user_id, user_name, ordered_at, expected_delivery_date, address, post_number, total_price, activated, order_status)
 VALUES
     (1, 'kdu@example.com', '김도윤', '2025-04-01', '2025-04-03', '서울 강남구', '12345', 10000,  true, '주문 완료'),
