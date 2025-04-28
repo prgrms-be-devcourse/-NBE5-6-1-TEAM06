@@ -1,18 +1,18 @@
 package com.grepp.spring.app.model.order;
 
-
 import com.grepp.spring.app.controller.web.order.code.OrderStatus;
 import com.grepp.spring.app.controller.web.order.form.OrderRequest;
 import com.grepp.spring.app.controller.web.order.response.OrderResponse;
 import com.grepp.spring.app.model.cart.CartService;
+import com.grepp.spring.app.model.order.dto.OrderDetailsDto;
 import com.grepp.spring.app.model.order.dto.OrderDto;
-import com.grepp.spring.app.model.order.dto.OrderItemDto;
 import com.grepp.spring.app.model.product.ProductService;
 import com.grepp.spring.app.model.product.dto.ProductDto;
+import java.math.BigDecimal;
+import java.time.format.DateTimeFormatter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,6 @@ public class OrderService {
         return orderRepository.selectAll();
     }
 
-
     // 이거랑 아래 deleteOrder 제것(ash) 같은데... 혹시 몰라서 그냥 남겨둡니다...
     public List<OrderDto> getAllOrders() {
         return orderRepository.findAllOrders();
@@ -41,17 +40,26 @@ public class OrderService {
         orderRepository.deleteOrder(orderId);
     }
 
-
     public OrderResponse createOrder(OrderRequest request) {
-        List<OrderItemDto> items;
+
+        List<OrderDetailsDto> items;
 
         if (request.isFromCart()) {
             // 장바구니 기반 주문
+            // 하드코딩으로 대체
+            OrderDetailsDto item = new OrderDetailsDto();
+            item.setProductCode("TEMP-001");
+            item.setCategory("테스트 카테고리");
+            item.setProductName("하드코딩 상품");
+            item.setProductPrice(5000);
+            item.setQuantity(2);
+            item.setTotalPrice(5000 * 2);
 
+            items = List.of(item);
             // 실제 서비스에서는 아래 코드 사용해야 함
 //            items = cartService.getCartProductsByUserId(request.getUserId())
 //                .stream()
-//                .map(product -> OrderItemDto.builder()
+//                .map(product -> OrderDetailsDto.builder()
 //                    .productCode(product.getCode())
 //                    .category(product.getCategory())
 //                    .productName(product.getName())
@@ -60,19 +68,6 @@ public class OrderService {
 //                    .totalPrice(product.getPrice() * product.getQuantity())
 //                    .build())
 //                .toList();
-
-            // 지금은 cartService 없음 → 하드코딩으로 대체
-            items = List.of(
-                    OrderItemDto.builder()
-                            .productCode("TEMP-001")
-                            .category("테스트 카테고리")
-                            .productName("하드코딩 상품")
-                            .productPrice(5000)
-                            .quantity(2)
-                            .totalPrice(10000)
-                            .build()
-            );
-
 
         } else {
             if (request.getProductIds() == null || request.getQuantities() == null) {
@@ -87,41 +82,50 @@ public class OrderService {
 
                 ProductDto product = productService.getProduct(productId);
 
-                items.add(OrderItemDto.builder()
-                        .productCode(product.getCode())
-                        .category(product.getCategory())
-                        .productName(product.getName())
-                        .productPrice(product.getPrice())
-                        .quantity(quantity)
-                        .totalPrice(product.getPrice() * quantity)
-                        .build());
+                OrderDetailsDto item = new OrderDetailsDto();
+                item.setProductCode(product.getCode());
+                item.setCategory(product.getCategory());
+                item.setProductName(product.getProductName());
+                item.setProductPrice(product.getPrice());
+                item.setQuantity(quantity);
+                item.setTotalPrice(product.getPrice() * quantity);
+
+                items.add(item);
             }
         }
 
-        int totalPrice = items.stream()
-                .mapToInt(OrderItemDto::getTotalPrice)
-                .sum();
+
+        BigDecimal totalPrice = items.stream()
+            .map(OrderDetailsDto::getTotalPrice)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
 
         LocalDateTime now = LocalDateTime.now();
 
-        LocalDateTime expectDeliveryAt;
+        LocalDateTime expectedDeliveryDate;
         if (now.getHour() < 14) {
             // 14시 이전 주문 : 오늘 출고 +2일 도착 예상
-            expectDeliveryAt = now.plusDays(2);
+            expectedDeliveryDate = now.plusDays(2);
         } else {
             // 14시 이후 주문 : 내일 출고 +3일 도착 예상
-            expectDeliveryAt = now.plusDays(3);
+            expectedDeliveryDate = now.plusDays(3);
         }
 
-        return OrderResponse.builder()
-                .orderId(1001L)
-                .userId(request.getUserId())
-                .message(request.getUserId() + "님 주문이 완료되었습니다 .ᐟ")
-                .orderStatus(OrderStatus.PAYMENT_COMPLETED)
-                .totalPrice(totalPrice)
-                .orderDate(now)
-                .expectDeliveryDate(expectDeliveryAt)
-                .items(items)
-                .build();
+        OrderResponse response = new OrderResponse();
+        response.setUserName(request.getUserName());
+
+        response.setOrderId(1001L);
+        response.setUserId(request.getUserId());
+        response.setMessage(request.getUserName() + "님 주문이 완료되었습니다!");
+        response.setOrderStatus(OrderStatus.PAYMENT_COMPLETED);
+        response.setTotalPrice(totalPrice);
+        response.setOrderedAt(now);
+        response.setExpectedDeliveryDate(expectedDeliveryDate);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (E)");
+        String expectedDeliveryDateStr = expectedDeliveryDate.format(formatter);
+        response.setExpectedDeliveryDateStr(expectedDeliveryDateStr);
+
+        response.setItems(items);
+        return response;
     }
 }

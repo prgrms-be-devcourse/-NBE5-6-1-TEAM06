@@ -10,7 +10,7 @@ CREATE TABLE `Member` (
                           PRIMARY KEY (`user_id`)
 );
 
-
+DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
                            `product_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'productId',
                            `category` varchar(20) NULL,
@@ -18,10 +18,11 @@ CREATE TABLE `product` (
                            `price` INT NOT NULL,
                            `stock` INT NOT NULL,
                            `info` TEXT NULL,
-                           `product_img` varchar(30) NULL,
+                           `product_img_url` varchar(30) NULL,
                            PRIMARY KEY (`product_id`)
 );
 
+DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
                          `order_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderId',
                          `user_id` varchar(20) NOT NULL COMMENT 'userId',
@@ -30,11 +31,12 @@ CREATE TABLE `order` (
                          `address` varchar(20) NOT NULL COMMENT 'address',
                          `post_number` varchar(20) NOT NULL COMMENT 'postNumber',
                          `total_price` INT NOT NULL COMMENT 'totalPrice',
-                         `order_items` INT NOT NULL COMMENT 'orderItems',
+#                         `order_items` INT NOT NULL COMMENT 'orderItems',
                          `activated` BOOLEAN NOT NULL COMMENT 'activated',
                          PRIMARY KEY (`order_id`)
 );
 
+DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE `order_details` (
                                  `order_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderDetailsId',
                                  `order_id` varchar(20) NOT NULL COMMENT 'orderId',
@@ -44,12 +46,14 @@ CREATE TABLE `order_details` (
                                  PRIMARY KEY (`order_details_id`)
 );
 
+DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
                         `cart_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'cartId',
                         `user_id` varchar(20) NOT NULL COMMENT '이메일',
                         PRIMARY KEY (`cart_id`)
 );
 
+DROP TABLE IF EXISTS `cart_details`;
 CREATE TABLE `cart_details` (
                                 `cart_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'cartDetailsId',
                                 `cart_id` BIGINT NOT NULL,

@@ -1,19 +1,21 @@
 package com.grepp.spring.app.model.product.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
-@Builder
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDto {
-    private Long id;
-    private String name;
-    private String code;
+    private Long productId;
     private String category;
+    private String productName;
     private int price;
     private int stock;
+    private String code;
+    private String info;
+    private String productImgUrl;
 }

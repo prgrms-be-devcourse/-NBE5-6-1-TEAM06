@@ -13,7 +13,8 @@
     <result property="userId" column="user_id" />
 
     <result property="productName" column="product_name" />
-    <result property="ProductPrice" column="price" />
+    <result property="productPrice" column="price" />
+    <result property="category" column="category" />
   </resultMap>
 
   <select id="findCartWithProductByUserId" resultMap="cartProductMap">
@@ -43,8 +44,25 @@
     WHERE cart_details_id = #{cartDetailsId}
   </delete>
 
-  <select id="orderCartList">
-    SELECT
+  <select id="orderCartList" resultMap="cartProductMap">
+    SELECT m.user_name, p.product_name, p.price, cd.product_cnt
+    FROM cart_details cd
+    join product p on p.product_id = cd.product_id
+    join cart c on c.cart_id = cd.cart_id
+    join member m on m.user_id = c.user_id
+    WHERE cd.cart_details_id = #{cartDetailsId}
   </select>
+
+<!--  <insert id="order" >-->
+<!--    INSERT INTO order-->
+
+<!--  </insert>-->
+
+<!--  <select id="orderAllCartList" resultMap="cartProductMap">-->
+<!--    SELECT p.category, p.product_name, p.product_price, cd.product_cnt-->
+<!--    FROM cart_details cd-->
+<!--    join product p on p.product_id = cd.product_id-->
+<!--    WHERE cart_id = #{cartId}-->
+<!--  </select>-->
 
 </mapper>

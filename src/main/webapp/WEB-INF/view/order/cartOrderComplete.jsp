@@ -14,20 +14,20 @@
 
 <div class="center-align" style="margin-top: 30px;">
     <i class="material-icons large green-text">check_circle</i>
-    <p class="green-text">${order.userName}님 주문이 완료되었습니다!</p>
+    <p class="green-text">${cartProduct.userName}님 주문이 완료되었습니다!</p>
 </div>
 
 <div class="card-panel">
-    <p>주문 일자: ${order.orderedAtStr}</p>
-    <p>주문 상태: ${order.orderStatus.label}</p>
-    <p>예상 배송일: ${order.expectedDeliveryDateStr}</p>
+    <p>주문 일자: ${cartProduct.orderedAt}</p>
+<%--    <p>주문 상태: ${order.orderStatus.label}</p>--%>
+    <p>예상 배송일: ${cartProduct.expectedDeliveryAt}</p>
 </div>
 
 <h5>주문 내역</h5>
 <table class="striped">
     <thead>
     <tr>
-        <th>카테고리</th>
+<%--        <th>카테고리</th>--%>
         <th>상품명</th>
         <th>단가</th>
         <th>수량</th>
@@ -35,21 +35,21 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="item" items="${order.items}">
+<%--    <c:forEach var="item" items="${order.items}">--%>
         <tr>
-            <td>${item.category}</td>
-            <td>${item.productName}</td>
-            <td><fmt:formatNumber value="${item.productPrice}" type="currency" /></td>
-            <td>${item.quantity}</td>
-            <td><fmt:formatNumber value="${item.unitPrice}" type="currency" /></td>
+<%--            <td>${cartProduct.category}</td>--%>
+            <td>${cartProduct.productName}</td>
+            <td><fmt:formatNumber value="${cartProduct.productPrice}" type="currency" /></td>
+            <td>${cartProduct.productCnt}</td>
+<%--            <td><fmt:formatNumber value="${cartProduct.unitPrice}" type="currency" /></td>--%>
         </tr>
-    </c:forEach>
+<%--    </c:forEach>--%>
     </tbody>
 </table>
 
 <div class="right-align" style="margin-top: 20px;">
     <strong>총 결제금액:
-        <fmt:formatNumber value="${order.totalPrice}" type="currency"/>
+        <fmt:formatNumber value="${cartProduct.productPrice * cartProduct.productCnt}" type="currency"/>
     </strong>
 </div>
 

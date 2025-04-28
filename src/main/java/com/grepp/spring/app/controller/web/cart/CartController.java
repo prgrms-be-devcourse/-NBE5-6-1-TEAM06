@@ -1,6 +1,6 @@
 package com.grepp.spring.app.controller.web.cart;
 
-import com.grepp.spring.app.controller.web.cart.form.CartDetatilsRequest;
+import com.grepp.spring.app.controller.web.cart.form.CartDetailsRequest;
 import com.grepp.spring.app.model.cart.CartService;
 import com.grepp.spring.app.model.cart.dto.CartProduct;
 import java.util.List;
@@ -31,31 +31,21 @@ public class CartController {
         return "cart/cartList";
     }
 
-
-    //    //TODO : 수정 로직 완료, 장바구니 -> 결제  로직 ing
     @PostMapping
-    public String modifyCart(CartDetatilsRequest cartDetatilsRequest, @RequestParam String action) {
-        int productCnt = cartDetatilsRequest.getProductCnt();
-        long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
+    public String modifyCart(CartDetailsRequest CartDetailsRequest, @RequestParam String action) {
+        Long cartDetailsId = CartDetailsRequest.getCartDetailsId();
+        int productCnt = CartDetailsRequest.getProductCnt();
+
         if ("save".equals(action)) {
             cartService.modifyProductCnt(cartDetailsId, productCnt);
             return "redirect:/cartList";
-        }
-        if ("order".equals(action)) {
-            cartService.orderCartList(cartDetailsId);
-            return "redirect:/order" ;
-        }
-
-        if ("orderAll".equals(action)) {
-            cartService.orderAllCartList();
-            return "redirect:/order" ;
         }
         return "redirect:/cartList";
     }
 
     @PostMapping("delete")
-    public String deleteCartList(CartDetatilsRequest cartDetatilsRequest) {
-        long cartDetailsId = cartDetatilsRequest.getCartDetailsId();
+    public String deleteCartList(CartDetailsRequest cartDetailsRequest) {
+        Long cartDetailsId = cartDetailsRequest.getCartDetailsId();
         cartService.delete(cartDetailsId);
         return "redirect:/cartList";
     }

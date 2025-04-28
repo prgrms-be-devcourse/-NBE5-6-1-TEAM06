@@ -8,15 +8,15 @@
 
   <resultMap id="orderMap" type="com.grepp.spring.app.model.order.dto.OrderDto">
     <id property="orderId" column="order_id"/>
-    <collection property="orderItemDto" ofType="com.grepp.spring.app.model.order.dto.orderItemDto"
-      column="order_id" select="selectOrderItemDtoByOrderId"/>
+    <collection property="orderDetailsDto" ofType="com.grepp.spring.app.model.order.dto.OrderDetailsDto"
+      column="order_id" select="selectOrderDetailsDtoByOrderId"/>
   </resultMap>
 
   <select id="selectAll" resultMap="orderMap">
     select * from order
   </select>
 
-  <select id="selectOrderItemDtoByOrderId" parameterType="int" resultType="com.grepp.spring.app.model.order.dto.OrderItemDto">
+  <select id="selectOrderDetailsDtoByOrderId" parameterType="int" resultType="com.grepp.spring.app.model.order.dto.OrderDetailsDto">
     select * from order_details_id where order_id = #{orderId}
   </select>
 

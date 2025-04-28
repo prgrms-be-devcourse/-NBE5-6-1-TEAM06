@@ -4,7 +4,6 @@ import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -16,6 +15,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -61,6 +61,7 @@ public class SecurityConfig {
 
     }
 
+    // rememberme-debug
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -70,11 +71,11 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         (requests) -> requests
-//                                  .requestMatchers("/assets/**", "/favicon.ico").permitAll()
                                 .requestMatchers(GET, "/").permitAll()      // 메인 페이지 - 누구나 접근 가능
                                 .requestMatchers(GET, "/member/signup").permitAll()
                                 .requestMatchers(GET, "/member/signin").permitAll()
-                                .requestMatchers(GET, "/order/**").authenticated()
+                                .requestMatchers(GET, "order/**").authenticated()
+                                .requestMatchers(GET, "cartList/**").authenticated()
                                 .requestMatchers(POST, "/member/signin", "/member/signup").permitAll()
                                 .anyRequest().permitAll() //  나머지는 로그인 필요!
                 )
@@ -109,13 +110,18 @@ public class SecurityConfig {
 //            .rememberMe(rememberMe -> rememberMe.key(rememberMeKey))
 //            .logout(LogoutConfigurer::permitAll);
 //>>>>>>> origin/lkh
-
         return http.build();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/assets/**", "/favicon.ico");
     }
 
 }

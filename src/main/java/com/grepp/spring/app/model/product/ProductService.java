@@ -3,6 +3,7 @@ package com.grepp.spring.app.model.product;
 import com.grepp.spring.app.model.product.dto.IndexProductDto;
 import com.grepp.spring.app.model.product.dto.ProductDto;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,22 @@ public class ProductService {
     }
 
     public List<ProductDto> getAllProducts() {
-        return productRepository.findAll();
+        List<ProductDto> products = productRepository.findAll();
+        return products.stream().map(product -> {
+            ProductDto dto = new ProductDto();
+            dto.setProductId(product.getProductId());
+            dto.setProductName(product.getProductName());
+            dto.setPrice(product.getPrice());
+            dto.setCategory(product.getCategory());
+
+            if (product.getProductImgUrl() != null && !product.getProductImgUrl().isEmpty()) {
+                dto.setProductImgUrl(product.getProductImgUrl());
+            } else {
+                dto.setProductImgUrl("sample-1.jpeg");
+            }
+
+            return dto;
+        }).collect(Collectors.toList());
     }
 
     public List<IndexProductDto> getAllIndexProducts() {return productRepository.findAllProducts(); }
