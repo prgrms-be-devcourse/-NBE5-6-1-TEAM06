@@ -1,7 +1,6 @@
 package com.grepp.spring.app.model.cart;
 
 import com.grepp.spring.app.model.cart.dto.CartProduct;
-import com.grepp.spring.app.model.order.dto.OrderItemDto;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -13,13 +12,13 @@ public interface CartRepository {
 
     List<CartProduct> findCartWithProductByUserId(@Param("userId") String userId);
 
-    void modifyProductCnt(@Param("cartDetailsId") Long cartDetailsId, @Param("productCnt") int productCnt);
+    void modifyProductCnt(@Param("cartDetailsId") Long cartDetailsId,
+        @Param("productCnt") int productCnt);
 
     void delete(@Param("cartDetailsId") Long cartDetailsId);
 
     CartProduct orderCartList(@Param("cartDetailsId") Long cartDetailsId);
 
-    List<CartProduct> orderAllCartList(@Param("cartId") Long cartId);
-
-    void order(@Param("cartDetailsId") Long cartDetailsId);
+    void order(@Param("cartDetailsId") Long cartDetailsId, @Param("address") String address,
+        @Param("postNumber") String postNumber);
 }

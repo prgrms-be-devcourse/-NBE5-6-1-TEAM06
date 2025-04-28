@@ -5,16 +5,16 @@
 <mapper namespace="com.grepp.spring.app.model.cart.CartRepository">
 
   <resultMap id="cartProductMap" type="CartProduct">
-    <result property="cartDetailsId" column="cart_details_id" />
-    <result property="cartId" column="cart_id" />
-    <result property="productId" column="product_id" />
-    <result property="productCnt" column="product_cnt" />
+    <result property="cartDetailsId" column="cart_details_id"/>
+    <result property="cartId" column="cart_id"/>
+    <result property="productId" column="product_id"/>
+    <result property="productCnt" column="product_cnt"/>
 
-    <result property="userId" column="user_id" />
+    <result property="userId" column="user_id"/>
 
-    <result property="productName" column="product_name" />
-    <result property="productPrice" column="price" />
-    <result property="category" column="category" />
+    <result property="productName" column="product_name"/>
+    <result property="productPrice" column="price"/>
+    <result property="category" column="category"/>
   </resultMap>
 
   <select id="findCartWithProductByUserId" resultMap="cartProductMap">
@@ -33,7 +33,7 @@
     WHERE c.user_id = #{userId}
   </select>
 
-  <update id="modifyProductCnt" >
+  <update id="modifyProductCnt">
     UPDATE cart_details
     SET product_cnt = #{productCnt}
     where cart_details_id = #{cartDetailsId}
@@ -52,4 +52,39 @@
     join member m on m.user_id = c.user_id
     WHERE cd.cart_details_id = #{cartDetailsId}
   </select>
+
+  <insert id="order">
+    INSERT INTO `order` (
+    `user_id`,
+    `ordered_at`,
+    `expect_deliveried_at`,
+    `address`,
+    `post_number`,
+    `total_price`,
+    `activated`,
+    `order_items`
+    )
+    SELECT
+    c.user_id,
+    NOW(),
+    CASE
+    WHEN NOW() BETWEEN DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY) AND DATE_SUB(CURRENT_TIMESTAMP,
+    INTERVAL 1 HOUR) THEN CURDATE() + INTERVAL 2 DAY
+    ELSE CURDATE() + INTERVAL 3 DAY
+    END AS expect_deliveried_at,
+    #{address},
+    #{postNumber},
+    SUM(p.price * cd.product_cnt),
+    TRUE,
+    SUM(cd.product_cnt)
+    FROM
+    cart c
+    JOIN
+    cart_details cd ON c.cart_id = cd.cart_id
+    JOIN
+    product p ON p.product_id = cd.product_id
+    WHERE
+    cd.cart_details_id = #{cartDetailsId};
+  </insert>
+
 </mapper>

@@ -1,12 +1,10 @@
 package com.grepp.spring.app.model.cart;
 
 import com.grepp.spring.app.model.cart.dto.CartProduct;
-import com.grepp.spring.app.model.order.dto.OrderItemDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Slf4j
@@ -31,11 +29,7 @@ public class CartService {
         return cartRepository.orderCartList(cartDetailsId);
     }
 
-//    public List<CartProduct> orderAllCartList(Long cartId) {
-//        return cartRepository.orderAllCartList(cartId);
-//    }
-
-    public void order(Long cartDetailsId) {
-        cartRepository.order(cartDetailsId);
+    public void order(Long cartDetailsId, String address, String postNumber) {
+        cartRepository.order(cartDetailsId, address, postNumber);
     }
 }
