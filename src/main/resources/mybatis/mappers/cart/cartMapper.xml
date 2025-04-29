@@ -53,39 +53,110 @@
     WHERE cd.cart_details_id = #{cartDetailsId}
   </select>
 
-  <insert id="order">
+  <insert id="addOrderDetails">
+    INSERT INTO `order_details` (
+    `order_id`,
+    `product_id`,
+    `product_name`,
+    `product_code`,
+    `category`,
+    `order_cnt`,
+    `quantity`,
+    `product_price`,
+    `unit_price`,
+    `total_price`
+    )
+    SELECT
+    o.order_id,
+    p.product_id,
+    p.product_name,
+    1,
+    p.category,
+    cd.product_cnt,
+    cd.product_cnt,
+    p.price,
+    p.price,
+    p.price * cd.product_cnt
+    FROM cart_details cd
+    JOIN cart c ON cd.cart_id = c.cart_id
+    JOIN product p ON cd.product_id = p.product_id
+    JOIN `order` o ON o.user_id = c.user_id
+    WHERE cd.cart_details_id = #{cartDetailsId}
+    ORDER BY o.order_id DESC
+    LIMIT 1
+  </insert>
+
+  <insert id="order" parameterType="map">
     INSERT INTO `order` (
     `user_id`,
+    `user_name`,
     `ordered_at`,
     `expected_delivery_date`,
     `address`,
     `post_number`,
     `total_price`,
     `activated`,
-    `order_items`
+    `order_status`
     )
     SELECT
     c.user_id,
+    m.user_name,
+<!--    #{userName},-->
     NOW(),
     CASE
-    WHEN NOW() BETWEEN DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY) AND DATE_SUB(CURRENT_TIMESTAMP,
-    INTERVAL 1 HOUR) THEN CURDATE() + INTERVAL 2 DAY
+    WHEN NOW() BETWEEN DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY)
+    AND DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 HOUR)
+    THEN CURDATE() + INTERVAL 2 DAY
     ELSE CURDATE() + INTERVAL 3 DAY
     END AS expected_delivery_date,
     #{address},
     #{postNumber},
     SUM(p.price * cd.product_cnt),
-    TRUE,
-    SUM(cd.product_cnt)
-    FROM
-    cart c
-    JOIN
-    cart_details cd ON c.cart_id = cd.cart_id
-    JOIN
-    product p ON p.product_id = cd.product_id
-    WHERE
-    cd.cart_details_id = #{cartDetailsId};
+    1,
+    '주문 완료'
+    FROM cart c
+    JOIN cart_details cd ON cd.cart_id = c.cart_id
+    JOIN product p ON p.product_id = cd.product_id
+    JOIN member m on m.user_id = c.user_id
+    WHERE cd.cart_details_id = #{cartDetailsId}
+    GROUP BY c.user_id;
   </insert>
+
+
+  <!--  <insert id="order">-->
+<!--    INSERT INTO `order` (-->
+<!--    `user_id`,-->
+<!--    `user_name`-->
+<!--    `ordered_at`,-->
+<!--    `expected_delivery_date`,-->
+<!--    `address`,-->
+<!--    `post_number`,-->
+<!--    `total_price`,-->
+<!--    `activated`,-->
+<!--    `order_status`-->
+<!--    )-->
+<!--    SELECT-->
+<!--    c.user_id,-->
+<!--    NOW(),-->
+<!--    CASE-->
+<!--    WHEN NOW() BETWEEN DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY) AND DATE_SUB(CURRENT_TIMESTAMP,-->
+<!--    INTERVAL 1 HOUR) THEN CURDATE() + INTERVAL 2 DAY-->
+<!--    ELSE CURDATE() + INTERVAL 3 DAY-->
+<!--    END AS expected_delivery_date,-->
+<!--    #{address},-->
+<!--    #{postNumber},-->
+<!--    SUM(p.price * cd.product_cnt),-->
+<!--    TRUE,-->
+<!--    SUM(cd.product_cnt)-->
+<!--    FROM-->
+<!--    cart c-->
+<!--    JOIN-->
+<!--    cart_details cd ON cd.cart_id = c.cart_id-->
+<!--    JOIN-->
+<!--    product p ON p.product_id = cd.product_id-->
+<!--    WHERE-->
+<!--    cd.cart_details_id = #{cartDetailsId};-->
+<!--  </insert>-->
 
   <insert id="insertCartItem">
     INSERT INTO cart_details (cart_id, product_id, product_cnt, created_at)

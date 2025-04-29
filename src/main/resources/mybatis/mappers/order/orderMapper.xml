@@ -38,7 +38,7 @@
 <!-- MySQL 에서 생성된 order_id를 java 객체에 매핑 -->
   <insert id="insertOrder" parameterType="com.grepp.spring.app.model.order.dto.OrderDto"
     useGeneratedKeys="true" keyProperty="orderId">
-    INSERT INTO `order` (user_id, user_name, ordered_at, expected_delivery_date, address, post_number, total_price, activated, order_status)
+    INSERT INTO `order` (user_id, user_name, ordered_at, expect_deliveried_at, address, post_number, total_price, activated, order_status)
     VALUES (
     #{userId},
     #{userName},

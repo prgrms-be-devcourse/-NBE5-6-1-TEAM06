@@ -207,6 +207,7 @@ public class OrderController {
             model.addAttribute("cartProduct", cartProduct);
 
             cartService.order(cartDetailsRequest.getCartDetailsId(), address, postNumber);
+            cartService.addOrderDetails();
             cartService.delete(cartDetailsRequest.getCartDetailsId());
 
             return "order/cartOrderComplete";

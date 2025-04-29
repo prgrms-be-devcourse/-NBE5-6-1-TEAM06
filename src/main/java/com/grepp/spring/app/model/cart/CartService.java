@@ -52,4 +52,8 @@ public class CartService {
             cartRepository.insertCartItem(String.valueOf(cartId), productId, quantity);
         }
     }
+
+    public void addOrderDetails() {
+        cartRepository.addOrderDetails();
+    }
 }

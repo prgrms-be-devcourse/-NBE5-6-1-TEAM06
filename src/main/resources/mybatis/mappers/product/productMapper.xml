@@ -41,7 +41,7 @@
 <!--    price,-->
 <!--    stock,-->
 <!--    info,-->
-<!--    product_img_url-->
+<!--    product_img-->
 <!--    ) VALUES (-->
 <!--    #{category},-->
 <!--    #{productName},-->

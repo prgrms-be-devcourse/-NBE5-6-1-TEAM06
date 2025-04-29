@@ -41,7 +41,7 @@ CREATE TABLE `order` (
 DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE `order_details` (
                                  `order_details_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'orderDetailsId',
-                                 `order_id` varchar(20) NOT NULL COMMENT 'orderId',
+                                 `order_id` BIGINT NOT NULL COMMENT 'orderId',
                                  `product_id` BIGINT NOT NULL COMMENT 'productId',
                                  `product_name` varchar(50) NOT NULL COMMENT 'productName',
                                  `product_code` varchar(20) NOT NULL COMMENT 'productCode',

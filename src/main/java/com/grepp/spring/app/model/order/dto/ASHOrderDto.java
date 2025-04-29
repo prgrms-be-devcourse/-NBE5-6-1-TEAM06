@@ -25,5 +25,5 @@ public class ASHOrderDto {
     // 컨트롤러에서 포맷팅까지 하니까 컨트롤러가 너무 무거워지는 것 같아서,
     // dto에 추가부터 하는 방식 선택 손은 많이 가지만 포맷팅된 값을 따로 관리할 수 있어서 좋은 것 같음
     private String formattedOrderedAt;
-    private String formattedExpectedDeliveryDate;
+    private String formattedExpectedDeliveryAt;
 }
