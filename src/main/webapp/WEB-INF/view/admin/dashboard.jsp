@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -28,11 +27,12 @@
         <tbody>
         <c:forEach var="product" items="${products}">
             <tr>
-                <td>${product.name}</td>
+                <td>${product.productName}</td> <!-- 상품명 수정 -->
                 <td>${product.stock}</td>
                 <td>
                     <form method="post" action="/admin/updateStock" style="display: flex; align-items: center;">
-                        <input type="hidden" name="productId" value="${product.id}" />
+                        <input type="hidden" name="productId" value="${product.productId}" /> <!-- 상품 ID 수정 -->
+
                         <button type="button" onclick="decreaseStock(this)" class="btn" style="background-color: #8B4513; color: white;">-</button>
 
                         <input type="number" name="stock" value="${product.stock}" min="0" style="width: 60px; text-align: center; margin: 0 5px;" />
@@ -74,8 +74,14 @@
                     </c:forEach>
                 </td>
                 <td>₩<c:out value="${order.totalPrice}"/></td>
-                <td>${order.orderItems}</td>
-                <td>${fn:replace(order.orderDate, 'T', ' ')}</td>
+                <td>${fn:length(order.items)}</td> <!-- 총 수량 수정 -->
+
+                <td>
+                    <c:if test="${not empty order.orderedAt}">
+                        ${fn:replace(order.orderedAt, 'T', ' ')}
+                    </c:if>
+                </td> <!-- 주문일 수정 -->
+
                 <td>
                     <c:choose>
                         <c:when test="${order.activated}">
@@ -86,6 +92,7 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
+
                 <td>
                     <c:choose>
                         <c:when test="${order.activated}">
@@ -101,6 +108,7 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
+
             </tr>
         </c:forEach>
         </tbody>
@@ -110,30 +118,29 @@
 
 <%@include file="/WEB-INF/view/include/footer.jsp" %>
 
-
 <script>
-    function decreaseStock(button) {
-        const input = button.nextElementSibling;
-        if (parseInt(input.value) > 0) {
-            input.value = parseInt(input.value) - 1;
-        }
+  function decreaseStock(button) {
+    const input = button.nextElementSibling;
+    if (parseInt(input.value) > 0) {
+      input.value = parseInt(input.value) - 1;
     }
+  }
 
-    function increaseStock(button) {
-        const input = button.previousElementSibling;
-        input.value = parseInt(input.value) + 1;
-    }
+  function increaseStock(button) {
+    const input = button.previousElementSibling;
+    input.value = parseInt(input.value) + 1;
+  }
 
-    function confirmUpdateStock() {
-        const confirmed = confirm('재고를 수정하시겠습니까?');
-        if (confirmed) {
-            setTimeout(function() {
-                alert('재고 수정이 완료되었습니다!');
-            }, 100);
-            return true;
-        }
-        return false;
+  function confirmUpdateStock() {
+    const confirmed = confirm('재고를 수정하시겠습니까?');
+    if (confirmed) {
+      setTimeout(function() {
+        alert('재고 수정이 완료되었습니다!');
+      }, 100);
+      return true;
     }
+    return false;
+  }
 </script>
 
 </body>

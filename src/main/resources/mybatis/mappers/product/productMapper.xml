@@ -32,25 +32,25 @@
     FROM product
   </select>
 
-<!--<<<<<<< HEAD-->
-<!--  &lt;!&ndash; 상품 등록 &ndash;&gt;-->
-<!--  <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">-->
-<!--    INSERT INTO product (-->
-<!--    category,-->
-<!--    product_name,-->
-<!--    price,-->
-<!--    stock,-->
-<!--    info,-->
-<!--    product_img_url-->
-<!--    ) VALUES (-->
-<!--    #{category},-->
-<!--    #{productName},-->
-<!--    #{price},-->
-<!--    #{stock},-->
-<!--    #{info},-->
-<!--    #{productImgUrl}-->
-<!--    )-->
-<!--=======-->
+  <!--<<<<<<< HEAD-->
+  <!--  &lt;!&ndash; 상품 등록 &ndash;&gt;-->
+  <!--  <insert id="insert" parameterType="com.grepp.spring.app.model.product.dto.ProductDto">-->
+  <!--    INSERT INTO product (-->
+  <!--    category,-->
+  <!--    product_name,-->
+  <!--    price,-->
+  <!--    stock,-->
+  <!--    info,-->
+  <!--    product_img_url-->
+  <!--    ) VALUES (-->
+  <!--    #{category},-->
+  <!--    #{productName},-->
+  <!--    #{price},-->
+  <!--    #{stock},-->
+  <!--    #{info},-->
+  <!--    #{productImgUrl}-->
+  <!--    )-->
+  <!--=======-->
   <select id="findAllProducts" resultType="com.grepp.spring.app.model.product.dto.IndexProductDto">
     SELECT * FROM product
   </select>
@@ -58,9 +58,13 @@
 
   <select id="adminFindAll" resultType="com.grepp.spring.app.model.product.dto.ProductDto">
     SELECT
-    product_id AS id,
-    product_name AS name,
-    stock
+    product_id AS productId,
+    product_name AS productName,
+    price,
+    stock,
+    category,
+    info,
+    product_img_url AS productImgUrl
     FROM product
   </select>
 

@@ -16,12 +16,12 @@ public interface ProductRepository {
 
     void save(ProductDto product);
 
+    List<ProductDto> adminFindAll();
+
+    void updateStock(Long productId, int stock);
+
 //    public List<IndexProductDto> findAllProducts() {
 //        return productMapper.findAllProducts();
-//    }
-
-//    public List<ProductDto> adminFindAll() {
-//        return productMapper.adminFindAll();
 //    }
 
 //    public void save(ProductDto product) {
@@ -30,10 +30,6 @@ public interface ProductRepository {
 
 //    public void update(ProductDto product) {
 //        productMapper.update(product);
-//    }
-
-//    public void updateStock(Long productId, int stock) {
-//        productMapper.updateStock(productId, stock);
 //    }
 
 //    public void delete(Long id) {

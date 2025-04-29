@@ -50,7 +50,6 @@ public class AdminController {
 
     @GetMapping("dashboard")
     public String orderList(Model model) {
-        System.out.println("aaaaaaaaaaaaaaaaaa");
         List<OrderDto> orders = orderService.getAllOrders();
         List<ProductDto> products = productService.adminGetAllProducts();
 
@@ -67,7 +66,7 @@ public class AdminController {
 
     @PostMapping("updateStock")
     public String updateStock(@RequestParam("productId") Long productId,
-                              @RequestParam("stock") int stock) {
+        @RequestParam("stock") int stock) {
         productService.updateStock(productId, stock);
         return "redirect:/admin/dashboard";
     }
