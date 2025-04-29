@@ -17,5 +17,6 @@ public interface OrderRepository {
     void insertOrderDetails(List<OrderDetailsDto> items);
 
     void insertOrderDetail(OrderDetailsDto item);
+
 }
 

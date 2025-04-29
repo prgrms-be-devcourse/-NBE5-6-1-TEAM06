@@ -113,7 +113,7 @@
     #{postNumber},
     SUM(p.price * cd.product_cnt),
     1,
-    '주문 완료'
+    'ORDER_COMPLETED'
     FROM cart c
     JOIN cart_details cd ON cd.cart_id = c.cart_id
     JOIN product p ON p.product_id = cd.product_id

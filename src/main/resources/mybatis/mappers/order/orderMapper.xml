@@ -24,9 +24,12 @@
     <result property="unitPrice" column="unit_price"/>
     <result property="totalPrice" column="total_price"/>
     <result property="productCode" column="product_code"/>
+    <result property="orderStatus" column="order_status"/>
 
     <result property="createdAt" column="created_at"/>
+    <result property="orderStatus" column="order_status" typeHandler="com.grepp.spring.app.controller.web.order.code.OrderStatusTypeHandler"/>
   </resultMap>
+
 
   <select id="selectAll" resultMap="orderMap">
     select * from `order`
