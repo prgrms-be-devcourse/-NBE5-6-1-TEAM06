@@ -18,5 +18,6 @@ public interface OrderRepository {
 
     void insertOrderDetail(OrderDetailsDto item);
 
+    List<OrderDto> selectAllDetails();
 }
 

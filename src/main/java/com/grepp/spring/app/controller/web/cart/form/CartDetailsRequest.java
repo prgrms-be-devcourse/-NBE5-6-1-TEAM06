@@ -7,4 +7,6 @@ public class CartDetailsRequest {
 
     private Long cartDetailsId;
     private int productCnt;
+    private Long orderId;
+
 }

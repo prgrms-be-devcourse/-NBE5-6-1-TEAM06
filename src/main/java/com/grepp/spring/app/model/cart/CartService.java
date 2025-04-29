@@ -53,7 +53,7 @@ public class CartService {
         }
     }
 
-    public void addOrderDetails() {
-        cartRepository.addOrderDetails();
+    public void addOrderDetails(Long orderId, Long cartDetailsId) {
+        cartRepository.addOrderDetails(orderId, cartDetailsId);
     }
 }

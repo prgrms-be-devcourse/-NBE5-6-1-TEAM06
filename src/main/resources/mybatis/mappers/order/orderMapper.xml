@@ -16,24 +16,44 @@
     <result property="orderId" column="order_id"/>
     <result property="productId" column="product_id"/>
     <result property="orderCnt" column="order_cnt"/>
-
-    <result property="productName" column="product_name"/>
     <result property="productPrice" column="product_price"/>
     <result property="category" column="category"/>
+    <result property="productName" column="product_name"/>
     <result property="quantity" column="quantity"/>
     <result property="unitPrice" column="unit_price"/>
     <result property="totalPrice" column="total_price"/>
-    <result property="productCode" column="product_code"/>
     <result property="orderStatus" column="order_status"/>
+    <result property="productCode" column="product_code"/>
 
     <result property="createdAt" column="created_at"/>
     <result property="orderStatus" column="order_status" typeHandler="com.grepp.spring.app.controller.web.order.code.OrderStatusTypeHandler"/>
   </resultMap>
 
 
-  <select id="selectAll" resultMap="orderMap">
-    select * from `order`
+<!--  <select id="selectAll" resultMap="orderMap">-->
+<!--    select * from `order`-->
+<!--  </select>-->
+
+  <select id="selectAllDetails" resultMap="orderMap">
+    select o.order_id, o.user_id, p.product_name, o.total_price, od.quantity, o.ordered_at
+    from `order_details` od
+    join `order` o on o.order_id = od.order_id
+    JOIN product p ON od.product_id = p.product_id
   </select>
+
+<!--  SELECT-->
+<!--  o.order_id AS orderId,-->
+<!--  m.user_name AS userName,-->
+<!--  p.product_name AS productName,-->
+<!--  od. quantity AS quantity,-->
+<!--  od.order_cnt AS orderCnt,-->
+<!--  (od.order_cnt * p.price) AS totalPrice,-->
+<!--  o.ordered_at AS createdAt-->
+<!--  FROM `order` o-->
+<!--  JOIN order_details od ON o.order_id = od.order_id-->
+<!--  JOIN product p ON od.product_id = p.product_id-->
+<!--  JOIN member m ON o.user_id = m.user_id-->
+
 
   <select id="selectOrderDetailsDtoByOrderId" parameterType="int" resultType="com.grepp.spring.app.model.order.dto.OrderDetailsDto">
     select * from order_details where order_id = #{orderId}
@@ -105,6 +125,7 @@
         order_id,
         product_id,
         order_cnt,
+        quantity,
         product_price
         )
         VALUES
@@ -114,6 +135,7 @@
           #{item.orderId},
           #{item.productId},
           #{item.orderCnt},
+          #{item.quantity},
           #{item.productPrice}
           )
         </foreach>
@@ -130,7 +152,8 @@
     o.order_id AS orderId,
     m.user_name AS userName,
     p.product_name AS productName,
-    od.order_cnt AS productCnt,
+    od. quantity AS quantity,
+    od.order_cnt AS orderCnt,
     (od.order_cnt * p.price) AS totalPrice,
     o.ordered_at AS createdAt
     FROM `order` o

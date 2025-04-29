@@ -51,11 +51,13 @@ public class AdminController {
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("dashboard")
     public String orderList(Model model) {
-        List<OrderDto> orders = orderService.getAllOrders();
+//        List<OrderDto> orders = orderService.getAllOrders();
+        List<OrderDto> orderDetails = orderService.getAllOrdersDetails();
         List<ProductDto> products = productService.adminGetAllProducts();
 
         model.addAttribute("products", products);
-        model.addAttribute("orders", orders);
+//        model.addAttribute("orders", orders);
+        model.addAttribute("orderDetails", orderDetails);
         return "admin/dashboard";
     }
 

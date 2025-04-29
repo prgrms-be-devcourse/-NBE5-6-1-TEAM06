@@ -64,17 +64,22 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="order" items="${orders}">
+        <c:forEach var="order" items="${orderDetails}">
             <tr>
                 <td>${order.orderId}</td>
                 <td>${order.userId}</td>
-                <td>
-                    <c:forEach var="item" items="${order.items}">
-                        ${item.productName} (${item.quantity})<br/>
-                    </c:forEach>
-                </td>
+                <td>${order.productName}</td>
+
+
+<%--                <td>--%>
+<%--                    <c:forEach var="item" items="${order.items}">--%>
+<%--                        ${order.productName} (${item.quantity})<br/>--%>
+<%--                    </c:forEach>--%>
+<%--                </td>--%>
+
                 <td>₩<c:out value="${order.totalPrice}"/></td>
-                <td>${fn:length(order.items)}</td> <!-- 총 수량 수정 -->
+                <td>₩<c:out value="${order.quantity}"/></td>
+<%--                <td>${order.orderCnt}</td> <!-- 총 수량 수정 -->--%>
 
                 <td>
                     <c:if test="${not empty order.orderedAt}">

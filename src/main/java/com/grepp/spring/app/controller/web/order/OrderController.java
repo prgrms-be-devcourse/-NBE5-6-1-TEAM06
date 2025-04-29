@@ -95,6 +95,7 @@ public class OrderController {
                         OrderDetailsDto item = new OrderDetailsDto();
                         item.setProductId(productId);
                         item.setOrderCnt(quantity);
+                        item.setQuantity(quantity);
                         item.setProductPrice(
                             product.getPrice() != null ? product.getPrice().intValue() : 0
                         );
@@ -196,6 +197,7 @@ public class OrderController {
     }
 
     @PostMapping("cartOrderComplete")
+
     public String postCartOrderComplete(
         @RequestParam String action,
         CartDetailsRequest cartDetailsRequest,
@@ -209,13 +211,14 @@ public class OrderController {
             model.addAttribute("cartProduct", cartProduct);
 
             cartService.order(cartDetailsRequest.getCartDetailsId(), address, postNumber);
-            cartService.addOrderDetails();
+            cartService.addOrderDetails(cartDetailsRequest.getOrderId(), cartDetailsRequest.getCartDetailsId());
             cartService.delete(cartDetailsRequest.getCartDetailsId());
 
             return "order/cartOrderComplete";
         }
         return "redirect:/orderList";
     }
+
 
     @PostMapping("/cart")
     public String addToCart(@ModelAttribute OrderRequest request, Principal principal) {

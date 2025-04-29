@@ -13,6 +13,7 @@ import lombok.Setter;
 public class ProductDto {
     private Long productId;
     private int stock;
+    private int quantity;
     private String info;
     private String productImgUrl;
     private String productName = "상품명없음";  // 기본값

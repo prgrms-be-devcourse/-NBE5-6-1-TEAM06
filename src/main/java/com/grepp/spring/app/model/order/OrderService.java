@@ -37,6 +37,10 @@ public class OrderService {
         return orderRepository.selectAll();
     }
 
+    public List<OrderDto> getAllOrdersDetails() {
+        return orderRepository.selectAllDetails();
+    }
+
     public void cancelOrder(Long orderId) {
         orderRepository.cancelOrder(orderId);
     }
@@ -169,6 +173,8 @@ public class OrderService {
         return response;
     }
 
+
+
     // 상품 정보를 OrderDetailsDto로 변환하는 유틸 메서드
     public static OrderDetailsDto getOrderDetailsDto(ProductDto product, int quantity) {
         OrderDetailsDto item = new OrderDetailsDto();
@@ -230,4 +236,6 @@ public class OrderService {
         response.setItems(request.getItems());
         return response;
     }
+
+
 }

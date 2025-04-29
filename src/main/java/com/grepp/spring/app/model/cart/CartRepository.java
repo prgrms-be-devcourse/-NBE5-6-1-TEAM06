@@ -29,5 +29,5 @@ public interface CartRepository {
 
     Long findCartIdByUserId(@Param("userId") String userId);
 
-    void addOrderDetails();
+    void addOrderDetails(@Param("orderId") Long orderId, @Param("cartDetailsId") Long cartDetailsId);
 }

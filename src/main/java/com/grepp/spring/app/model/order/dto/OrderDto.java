@@ -25,7 +25,8 @@ public class OrderDto {
     private OrderStatus orderStatus;
     private String category = "기타";    // 기본값 세팅!
     private String productName = "상품명없음"; // 기본값 세팅!
-    private Integer quantity = 0;
+    private Integer quantity;
+    private Integer orderCnt;
     private Integer unitPrice = 0;
     private BigDecimal totalPrice = BigDecimal.ZERO;
     private String productCode = "없음";   // 기본값 세팅!
