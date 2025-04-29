@@ -22,9 +22,11 @@
 <div class="center-align" style="margin-top: 30px;">
     <i class="material-icons large green-text">check_circle</i>
     <p class="green-text">
-        ${order.userName != null ? order.userName : '고객'}님 주문이 완료되었습니다!
+        ${userName != null ? userName : '고객'}님 주문이 완료되었습니다!
     </p>
 </div>
+
+
 
 <!-- 기본 주문 정보 -->
 <div class="center-align" style="margin-top: 30px;">
@@ -37,7 +39,7 @@
         </tr>
         <tr>
             <th>주문 일자</th>
-            <td>${order.orderedAtStr}</td>
+            <td>${orderedAtStr}</td>
         </tr>
         <tr>
             <th>주문 상태</th>
@@ -84,7 +86,7 @@
 <!-- 총 결제금액 (오른쪽 정렬) -->
 <div class="right-align" style="margin-right: 15%; margin-top: 20px;">
     <strong>총 결제금액:
-        <fmt:formatNumber value="${order.totalPrice}" type="currency"/>
+        <fmt:formatNumber value="${totalPrice}" type="currency"/>
     </strong>
 </div>
 

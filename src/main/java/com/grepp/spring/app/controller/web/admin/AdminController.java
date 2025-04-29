@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("admin")
-@PreAuthorize("hasRole('ADMIN')")
+
 public class AdminController {
 
     private final OrderService orderService;
@@ -48,6 +48,7 @@ public class AdminController {
         return "redirect:/";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("dashboard")
     public String orderList(Model model) {
         List<OrderDto> orders = orderService.getAllOrders();
@@ -58,12 +59,14 @@ public class AdminController {
         return "admin/dashboard";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("deleteOrder")
     public String deleteOrder(@RequestParam("orderId") Long orderId) {
         orderService.cancelOrder(orderId);
         return "redirect:/admin/dashboard";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("updateStock")
     public String updateStock(@RequestParam("productId") Long productId,
         @RequestParam("stock") int stock) {

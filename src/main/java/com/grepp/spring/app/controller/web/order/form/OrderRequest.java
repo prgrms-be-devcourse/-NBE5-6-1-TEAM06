@@ -44,7 +44,7 @@ public class OrderRequest {
     private List<Integer> quantities;
     private BigDecimal totalPrice;
     private OrderStatus orderStatus;
-    private LocalDateTime orderedAt;
+    private LocalDateTime orderedAt = LocalDateTime.now();
     private LocalDateTime expectedDeliveryDate;
     private boolean activated;
     private List<OrderDetailsDto> items = new ArrayList<>();
@@ -62,7 +62,7 @@ public class OrderRequest {
         if (this.orderedAt == null) {
             return "";
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (E)");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (E)", Locale.KOREAN);
         return this.orderedAt.format(formatter);
     }
 }

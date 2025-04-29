@@ -178,6 +178,9 @@ public class OrderController {
             // 5. 주문완료 페이지 이동
             OrderResponse response = orderService.createOrderResponse(request);
             model.addAttribute("order", response);
+            model.addAttribute("userName", userName);
+            model.addAttribute("orderedAtStr", request.getOrderedAtStr());
+            model.addAttribute("totalPrice", totalPrice);
 
             return "/order/orderComplete";
 
@@ -193,7 +196,6 @@ public class OrderController {
     }
 
     @PostMapping("cartOrderComplete")
-
     public String postCartOrderComplete(
         @RequestParam String action,
         CartDetailsRequest cartDetailsRequest,
@@ -207,6 +209,7 @@ public class OrderController {
             model.addAttribute("cartProduct", cartProduct);
 
             cartService.order(cartDetailsRequest.getCartDetailsId(), address, postNumber);
+            cartService.addOrderDetails();
             cartService.delete(cartDetailsRequest.getCartDetailsId());
 
             return "order/cartOrderComplete";
@@ -220,5 +223,7 @@ public class OrderController {
         cartService.addItemsToCart(userId, request.getProductIds(), request.getQuantities());
         return "redirect:/cartList";
     }
+
+
 
 }
