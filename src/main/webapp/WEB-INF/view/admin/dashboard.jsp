@@ -78,7 +78,7 @@
 <%--                </td>--%>
 
                 <td>₩<c:out value="${order.totalPrice}"/></td>
-                <td>₩<c:out value="${order.quantity}"/></td>
+                <td><c:out value="${order.quantity}"/>개</td>
 <%--                <td>${order.orderCnt}</td> <!-- 총 수량 수정 -->--%>
 
                 <td>
