@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CartDetailsRequest {
-
+    private Long orderId;
     private Long cartDetailsId;
     private int productCnt;
 }

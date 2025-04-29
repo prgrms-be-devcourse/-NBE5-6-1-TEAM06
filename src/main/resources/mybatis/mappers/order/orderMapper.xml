@@ -10,6 +10,7 @@
       column="order_id" select="selectOrderDetailsDtoByOrderId"/>
   </resultMap>
 
+
   <resultMap id="orderDetailsMap" type="com.grepp.spring.app.model.order.dto.OrderDetailsDto">
     <id property="orderDetailsId" column="order_details_id"/>
     <result property="orderId" column="order_id"/>
@@ -168,7 +169,7 @@
   </update>
 
   <!--  <delete id="deleteOrder">-->
-<!--    DELETE FROM orders WHERE ORDER_ID = #{cartId}-->
-<!--  </delete>-->
+  <!--    DELETE FROM orders WHERE ORDER_ID = #{cartId}-->
+  <!--  </delete>-->
 
 </mapper>

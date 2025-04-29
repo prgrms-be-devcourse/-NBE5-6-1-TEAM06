@@ -15,9 +15,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
-    public ProductDto getProduct(Long id) {
-        return productRepository.findById(id);
-    }
+
 
     public List<ProductDto> getAllProducts() {
         List<ProductDto> products = productRepository.findAll();
@@ -38,14 +36,19 @@ public class ProductService {
         }).collect(Collectors.toList());
     }
 
+
+
+
+    public ProductDto getProduct(Long id) {
+        return productRepository.findById(id);
+    }
+
     public List<IndexProductDto> getAllIndexProducts() {return productMapper.findAllProducts(); }
 
-    public List<ProductDto> adminGetAllProducts() {return productMapper.adminFindAll();}
 
-
-//    public void addProduct(ProductDto product) {
-//        productRepository.save(product);
-//    }
+    public void addProduct(ProductDto product) {
+        productRepository.save(product);
+    }
 
     public void updateProduct(ProductDto product) {
         productMapper.update(product);
@@ -59,11 +62,12 @@ public class ProductService {
         if (productId == null) {
             throw new IllegalArgumentException("상품 ID가 null입니다.");
         }
-
         return productRepository.findById(productId);
     }
 
-    public void updateStock(Long productId, int stock) {productMapper.updateStock(productId, stock);}
+    public List<ProductDto> adminGetAllProducts() {return productRepository.adminFindAll();}
+
+    public void updateStock(Long productId, int stock) {productRepository.updateStock(productId, stock);}
 
 
 }

@@ -4,6 +4,7 @@ import com.grepp.spring.app.model.cart.dto.CartProduct;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -53,7 +54,7 @@ public class CartService {
         }
     }
 
-    public void addOrderDetails() {
-        cartRepository.addOrderDetails();
+    public void addOrderDetails(Long orderId, Long cartDetailsId) {
+        cartRepository.addOrderDetails(orderId, cartDetailsId);
     }
 }
